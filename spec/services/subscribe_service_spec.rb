@@ -33,6 +33,10 @@ RSpec.describe SubscribeService do
 
   it 'fails loudly if PuSH hub is unavailable' do
     stub_request(:post, 'http://hub.example.com/').to_return(status: 503)
+<<<<<<< HEAD
     expect { subject.call(account) }.to raise_error(/Subscription attempt failed/)
+=======
+    expect { subject.call(account) }.to raise_error
+>>>>>>> change_images
   end
 end
