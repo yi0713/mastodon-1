@@ -39,4 +39,9 @@ RSpec.describe SubscribeService do
     expect { subject.call(account) }.to raise_error
 >>>>>>> change_images
   end
+
+  it 'fails loudly if rate limited' do
+    stub_request(:post, 'http://hub.example.com/').to_return(status: 429)
+    expect { subject.call(account) }.to raise_error(/Subscription attempt failed/)
+  end
 end

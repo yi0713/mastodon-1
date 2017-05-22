@@ -62,7 +62,7 @@ body.rtl {
     left: 0;
   }
 
-  .status__info-time {
+  .status__relative-time {
     float: left;
   }
 
@@ -110,6 +110,16 @@ body.rtl {
   .detailed-status__reblogs {
     margin-left: 0;
     margin-right: 6px;
+  }
+
+  .fa-ul {
+    margin-left: 0;
+    margin-left: 2.14285714em;
+  }
+
+  .fa-li {
+    left: auto;
+    right: -2.14285714em;
   }
 
   @media screen and (min-width: 1025px) {
