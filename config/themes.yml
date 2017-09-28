@@ -1,1 +1,11 @@
-default: styles/application.scss
+﻿default: styles/application.scss
+blue: styles/application6.scss
+green: styles/application1.scss
+dark-green: styles/application4.scss
+chocolate: styles/application3.scss
+purple: styles/application5.scss
+light-grey: styles/application2.scss
+light-blue: styles/application7.scss
+pink: styles/application10.scss
+yellow: styles/application9.scss
+white: styles/application8.scss
