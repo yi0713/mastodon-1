@@ -49,7 +49,7 @@ function search(value, { emojisToShowFilter, maxResults, include, exclude, custo
       return [emojisList['-1']];
     }
 
-    let values = value.toLowerCase().split(/[\s|,|\-|_]+/);
+    let values = value.toLowerCase().split(/[\s|,|\-]+/);
 
     if (values.length > 2) {
       values = [values[0], values[1]];
