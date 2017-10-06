@@ -12,7 +12,6 @@
 #  image_updated_at   :datetime
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  disabled           :boolean          default(FALSE), not null
 #
 
 class CustomEmoji < ApplicationRecord
@@ -27,15 +26,9 @@ class CustomEmoji < ApplicationRecord
   validates_attachment :image, content_type: { content_type: 'image/png' }, presence: true, size: { in: 0..50.kilobytes }
   validates :shortcode, uniqueness: { scope: :domain }, format: { with: /\A#{SHORTCODE_RE_FRAGMENT}\z/ }, length: { minimum: 2 }
 
-  scope :local,      -> { where(domain: nil) }
-  scope :remote,     -> { where.not(domain: nil) }
-  scope :alphabetic, -> { order(domain: :asc, shortcode: :asc) }
+  scope :local, -> { where(domain: nil) }
 
   include Remotable
-
-  def local?
-    domain.nil?
-  end
 
   class << self
     def from_text(text, domain)
@@ -45,7 +38,7 @@ class CustomEmoji < ApplicationRecord
 
       return [] if shortcodes.empty?
 
-      where(shortcode: shortcodes, domain: domain, disabled: false)
+      where(shortcode: shortcodes, domain: domain)
     end
   end
 end
