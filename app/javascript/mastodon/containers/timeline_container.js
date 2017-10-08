@@ -5,7 +5,7 @@ import configureStore from '../store/configureStore';
 import { hydrateStore } from '../actions/store';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import { getLocale } from '../locales';
-import PublicTimeline from '../features/standalone/public_timeline';
+import PublicTimeline from '../features/standalone/community_timeline';
 import HashtagTimeline from '../features/standalone/hashtag_timeline';
 
 const { localeData, messages } = getLocale();
