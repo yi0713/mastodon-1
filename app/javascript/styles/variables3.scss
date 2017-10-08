@@ -1,4 +1,6 @@
-﻿// Commonly used web colors
+// Theme: chocolate
+
+// Commonly used web colors
 $black: #000000;            // Black
 $white: #ffffff;            // White
 $success-green: #79bd9a;    // Padua
@@ -7,10 +9,10 @@ $warning-red: #ff5050;      // Sunset Orange
 $gold-star: #ca8f04;        // Dark Goldenrod
 
 // Values from the classic Mastodon UI
-$classic-base-color: #372c28;         // Midnight Express
-$classic-primary-color: #c8ae9b;      // Echo Blue
-$classic-secondary-color: #e8e1d9;    // Pattens Blue
-$classic-highlight-color: #d9902b;    // Summer Sky
+$classic-base-color: #372c28;
+$classic-primary-color: #c8ae9b;
+$classic-secondary-color: #e8e1d9;
+$classic-highlight-color: #d9902b;
 
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
