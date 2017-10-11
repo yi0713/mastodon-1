@@ -1,5 +1,5 @@
-﻿default: styles/application.scss
-blue: styles/application6.scss
+default: styles/application6.scss
+classic: styles/application.scss
 green: styles/application1.scss
 dark-green: styles/application4.scss
 chocolate: styles/application3.scss
