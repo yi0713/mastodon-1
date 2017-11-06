@@ -93,21 +93,44 @@ RSpec.describe Account, type: :model do
   end
 
   describe '#save_with_optional_media!' do
-    it 'sets default avatar, header, avatar_remote_url, and header_remote_url if some of them are invalid' do
+    before do
       stub_request(:get, 'https://remote/valid_avatar').to_return(request_fixture('avatar.txt'))
       stub_request(:get, 'https://remote/invalid_avatar').to_return(request_fixture('feed.txt'))
-      account = Fabricate(:account,
-                          avatar_remote_url: 'https://remote/valid_avatar',
-                          header_remote_url: 'https://remote/valid_avatar')
+    end
 
-      account.avatar_remote_url = 'https://remote/invalid_avatar'
-      account.save_with_optional_media!
+    let(:account) do
+      Fabricate(:account,
+                avatar_remote_url: 'https://remote/valid_avatar',
+                header_remote_url: 'https://remote/valid_avatar')
+    end
 
-      account.reload
-      expect(account.avatar_remote_url).to eq ''
-      expect(account.header_remote_url).to eq ''
-      expect(account.avatar_file_name).to eq nil
-      expect(account.header_file_name).to eq nil
+    let!(:expectation) { account.dup }
+
+    context 'with valid properties' do
+      before do
+        account.save_with_optional_media!
+      end
+
+      it 'unchanges avatar, header, avatar_remote_url, and header_remote_url' do
+        expect(account.avatar_remote_url).to eq expectation.avatar_remote_url
+        expect(account.header_remote_url).to eq expectation.header_remote_url
+        expect(account.avatar_file_name).to  eq expectation.avatar_file_name
+        expect(account.header_file_name).to  eq expectation.header_file_name
+      end
+    end
+
+    context 'with invalid properties' do
+      before do
+        account.avatar_remote_url = 'https://remote/invalid_avatar'
+        account.save_with_optional_media!
+      end
+
+      it 'sets default avatar, header, avatar_remote_url, and header_remote_url' do
+        expect(account.avatar_remote_url).to eq ''
+        expect(account.header_remote_url).to eq ''
+        expect(account.avatar_file_name).to  eq nil
+        expect(account.header_file_name).to  eq nil
+      end
     end
   end
 
@@ -147,6 +170,33 @@ RSpec.describe Account, type: :model do
 
       it 'returns false' do
         expect(account.possibly_stale?).to be false
+      end
+    end
+  end
+
+  describe '#refresh!' do
+    let(:account) { Fabricate(:account, domain: domain) }
+    let(:acct)    { account.acct }
+
+    context 'domain is nil' do
+      let(:domain) { nil }
+
+      it 'returns nil' do
+        expect(account.refresh!).to be_nil
+      end
+
+      it 'calls not ResolveRemoteAccountService#call' do
+        expect_any_instance_of(ResolveRemoteAccountService).not_to receive(:call).with(acct)
+        account.refresh!
+      end
+    end
+
+    context 'domain is present' do
+      let(:domain) { 'example.com' }
+
+      it 'calls ResolveRemoteAccountService#call' do
+        expect_any_instance_of(ResolveRemoteAccountService).to receive(:call).with(acct).once
+        account.refresh!
       end
     end
   end
