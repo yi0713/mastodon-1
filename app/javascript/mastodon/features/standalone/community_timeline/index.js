@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import StatusListContainer from '../../ui/containers/status_list_container';
 import {
   refreshCommunityTimeline,
-  expandCommunityPublicTimeline,
+  expandCommunityTimeline,
 } from '../../../actions/timelines';
 import Column from '../../../components/column';
 import ColumnHeader from '../../../components/column_header';
