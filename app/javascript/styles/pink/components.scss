@@ -6,7 +6,7 @@
 }
 
 .button {
-  background-color: darken($ui-highlight-color, 3%);
+  background-color: lighten($ui-highlight-color, 3%);
   border: 10px none;
   border-radius: 4px;
   box-sizing: border-box;
@@ -33,7 +33,7 @@
   &:active,
   &:focus,
   &:hover {
-    background-color: darken($ui-highlight-color, 7%);
+    background-color: darken($ui-highlight-color, 14%);
     transition: all 200ms ease-out;
   }
 
@@ -54,7 +54,7 @@
     &:active,
     &:focus,
     &:hover {
-      background-color: darken($ui-primary-color, 4%);
+      background-color: darken($ui-primary-color, 8%);
     }
   }
 
@@ -72,8 +72,8 @@
     &:active,
     &:focus,
     &:hover {
-      border-color: darken($ui-primary-color, 4%);
-      color: darken($ui-primary-color, 4%);
+      border-color: darken($ui-primary-color, 8%);
+      color: darken($ui-primary-color, 8%);
     }
   }
 
@@ -90,7 +90,7 @@
 }
 
 .column-icon {
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   color: $ui-primary-color;
   cursor: pointer;
   font-size: 16px;
@@ -101,7 +101,7 @@
   z-index: 3;
 
   &:hover {
-    color: darken($ui-primary-color, 7%);
+    color: darken($ui-primary-color, 14%);
   }
 }
 
@@ -117,12 +117,12 @@
   &:hover,
   &:active,
   &:focus {
-    color: darken($ui-base-color, 33%);
+    color: darken($ui-base-color, 66%);
     transition: color 200ms ease-out;
   }
 
   &.disabled {
-    color: darken($ui-base-color, 13%);
+    color: darken($ui-base-color, 26%);
     cursor: default;
   }
 
@@ -141,7 +141,7 @@
   }
 
   &.inverted {
-    color: darken($ui-base-color, 33%);
+    color: darken($ui-base-color, 66%);
 
     &:hover,
     &:active,
@@ -157,7 +157,7 @@
       color: $ui-highlight-color;
 
       &.disabled {
-        color: darken($ui-highlight-color, 13%);
+        color: darken($ui-highlight-color, 26%);
       }
     }
   }
@@ -176,7 +176,7 @@
 }
 
 .text-icon-button {
-  color: darken($ui-base-color, 33%);
+  color: darken($ui-base-color, 66%);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -195,7 +195,7 @@
   }
 
   &.disabled {
-    color: darken($ui-base-color, 13%);
+    color: darken($ui-base-color, 26%);
     cursor: default;
   }
 
@@ -244,6 +244,15 @@
   width: 0;
   height: 0;
   position: absolute;
+
+  img,
+  svg {
+    margin: 0 !important;
+    border: 0 !important;
+    padding: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
 }
 
 .ellipsis {
@@ -261,7 +270,7 @@
 }
 
 .compose-form__warning {
-  color: darken($ui-secondary-color, 65%);
+  color: lighten($ui-secondary-color, 65%);
   margin-bottom: 15px;
   background: $ui-primary-color;
   box-shadow: 0 2px 6px rgba($base-shadow-color, 0.3);
@@ -271,12 +280,12 @@
   font-weight: 400;
 
   strong {
-    color: darken($ui-secondary-color, 65%);
+    color: lighten($ui-secondary-color, 65%);
     font-weight: 500;
   }
 
   a {
-    color: darken($ui-primary-color, 33%);
+    color: lighten($ui-primary-color, 33%);
     font-weight: 500;
     text-decoration: underline;
 
@@ -303,7 +312,7 @@
 
 .compose-form__buttons {
   padding: 10px;
-  background: darken($simple-background-color, 8%);
+  background: lighten($simple-background-color, 8%);
   box-shadow: inset 0 5px 5px rgba($base-shadow-color, 0.05);
   border-radius: 0 0 4px 4px;
   display: flex;
@@ -510,10 +519,20 @@
   font-weight: 400;
   overflow: hidden;
   white-space: pre-wrap;
+  padding-top: 5px;
+
+  &.status__content--with-spoiler {
+    white-space: normal;
+
+    .status__content__text {
+      white-space: pre-wrap;
+    }
+  }
 
   .emojione {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
+    margin: -5px 0 0;
   }
 
   p {
@@ -532,7 +551,7 @@
       text-decoration: underline;
 
       .fa {
-        color: darken($ui-base-color, 40%);
+        color: darken($ui-base-color, 80%);
       }
     }
 
@@ -547,15 +566,15 @@
     }
 
     .fa {
-      color: darken($ui-base-color, 30%);
+      color: darken($ui-base-color, 60%);
     }
   }
 
   .status__content__spoiler-link {
-    background: darken($ui-base-color, 30%);
+    background: darken($ui-base-color, 60%);
 
     &:hover {
-      background: darken($ui-base-color, 33%);
+      background: darken($ui-base-color, 66%);
       text-decoration: none;
     }
   }
@@ -574,7 +593,7 @@
   border-radius: 2px;
   background: transparent;
   border: 0;
-  color: darken($ui-base-color, 8%);
+  color: darken($ui-base-color, 16%);
   font-weight: 500;
   font-size: 11px;
   padding: 0 6px;
@@ -591,15 +610,15 @@
 .focusable {
   &:focus {
     outline: 0;
-    background: darken($ui-base-color, 4%);
+    background: darken($ui-base-color, 8%);
 
     &.status-direct {
-      background: darken($ui-base-color, 12%);
+      background: darken($ui-base-color, 24%);
     }
 
     .detailed-status,
     .detailed-status__action-bar {
-      background: darken($ui-base-color, 8%);
+      background: darken($ui-base-color, 16%);
     }
   }
 }
@@ -609,8 +628,14 @@
   padding-left: 68px;
   position: relative;
   min-height: 48px;
-  border-bottom: 1px solid darken($ui-base-color, 8%);
+  border-bottom: 1px solid darken($ui-base-color, 16%);
   cursor: default;
+
+  @supports (-ms-overflow-style: -ms-autohiding-scrollbar) {
+    // Add margin to avoid Edge auto-hiding scrollbar appearing over content.
+    // On Edge 16 this is 16px and Edge <=15 it's 12px, so aim for 16px.
+    padding-right: 26px; // 10px + 16px
+  }
 
   @keyframes fade {
     0% { opacity: 0; }
@@ -625,10 +650,10 @@
   }
 
   &.status-direct {
-    background: darken($ui-base-color, 8%);
+    background: darken($ui-base-color, 16%);
 
     .icon-button.disabled {
-      color: darken($ui-base-color, 16%);
+      color: darken($ui-base-color, 32%);
     }
   }
 
@@ -663,7 +688,7 @@
         background: $ui-primary-color;
 
         &:hover {
-          background: darken($ui-primary-color, 8%);
+          background: darken($ui-primary-color, 16%);
         }
       }
     }
@@ -675,7 +700,7 @@
     background: transparent;
 
     .icon-button.disabled {
-      color: darken($ui-base-color, 13%);
+      color: darken($ui-base-color, 26%);
     }
   }
 }
@@ -743,7 +768,7 @@
 .status__action-bar {
   align-items: center;
   display: flex;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .status__action-bar-button {
@@ -766,7 +791,7 @@
 }
 
 .detailed-status {
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   padding: 14px 10px;
 
   .status__content {
@@ -774,8 +799,9 @@
     line-height: 24px;
 
     .emojione {
-      width: 22px;
-      height: 22px;
+      width: 24px;
+      height: 24px;
+      margin: -5px 0 0;
     }
   }
 
@@ -792,9 +818,9 @@
 }
 
 .detailed-status__action-bar {
-  background: darken($ui-base-color, 4%);
-  border-top: 1px solid darken($ui-base-color, 8%);
-  border-bottom: 1px solid darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 8%);
+  border-top: 1px solid darken($ui-base-color, 16%);
+  border-bottom: 1px solid darken($ui-base-color, 16%);
   display: flex;
   flex-direction: row;
   padding: 10px 0;
@@ -818,13 +844,13 @@
   font-size: 14px;
 
   a {
-    color: darken($ui-base-color, 20%);
+    color: darken($ui-base-color, 40%);
   }
 }
 
 .account {
   padding: 10px;
-  border-bottom: 1px solid darken($ui-base-color, 8%);
+  border-bottom: 1px solid darken($ui-base-color, 16%);
 
   .account__display-name {
     flex: 1 1 auto;
@@ -884,14 +910,14 @@
 
 .account__header {
   flex: 0 0 auto;
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   text-align: center;
   background-size: cover;
   background-position: center;
   position: relative;
 
   & > div {
-    background: rgba(darken($ui-base-color, 4%), 0.9);
+    background: rgba(darken($ui-base-color, 8%), 0.9);
     padding: 20px 10px;
   }
 
@@ -923,7 +949,7 @@
 
 .account__disclaimer {
   padding: 10px;
-  border-top: 1px solid darken($ui-base-color, 8%);
+  border-top: 1px solid darken($ui-base-color, 16%);
   color: $ui-base-lighter-color;
 
   strong {
@@ -977,8 +1003,8 @@
 }
 
 .account__action-bar {
-  border-top: 1px solid darken($ui-base-color, 8%);
-  border-bottom: 1px solid darken($ui-base-color, 8%);
+  border-top: 1px solid darken($ui-base-color, 16%);
+  border-bottom: 1px solid darken($ui-base-color, 16%);
   line-height: 36px;
   overflow: hidden;
   flex: 0 0 auto;
@@ -1014,7 +1040,7 @@
   text-decoration: none;
   overflow: hidden;
   flex: 0 1 80px;
-  border-left: 1px solid darken($ui-base-color, 8%);
+  border-left: 1px solid darken($ui-base-color, 16%);
   padding: 10px 5px;
 
   & > span {
@@ -1151,10 +1177,10 @@
 
   a.status__content__spoiler-link {
     background: $ui-base-lighter-color;
-    color: darken($ui-base-color, 4%);
+    color: darken($ui-base-color, 8%);
 
     &:hover {
-      background: darken($ui-base-color, 29%);
+      background: darken($ui-base-color, 58%);
       text-decoration: none;
     }
   }
@@ -1310,7 +1336,7 @@
 }
 
 .dropdown-menu__separator {
-  border-bottom: 1px solid darken($ui-secondary-color, 8%);
+  border-bottom: 1px solid lighten($ui-secondary-color, 8%);
   margin: 5px 7px 6px;
   height: 0;
 }
@@ -1512,7 +1538,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: darken($ui-base-color, 7%);
+  background: lighten($ui-base-color, 7%);
 }
 
 .drawer {
@@ -1611,7 +1637,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: darken($ui-base-color, 13%);
+  background: darken($ui-base-color, 26%);
   box-sizing: border-box;
   padding: 0;
   display: flex;
@@ -1627,7 +1653,7 @@
 }
 
 .pseudo-drawer {
-  background: darken($ui-base-color, 13%);
+  background: darken($ui-base-color, 26%);
   font-size: 13px;
   text-align: left;
 }
@@ -1635,7 +1661,7 @@
 .drawer__header {
   flex: 0 0 auto;
   font-size: 16px;
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -1644,7 +1670,7 @@
     transition: background 100ms ease-in;
 
     &:hover {
-      background: darken($ui-base-color, 3%);
+      background: darken($ui-base-color, 6%);
       transition: background 200ms ease-out;
     }
   }
@@ -1652,7 +1678,7 @@
 
 .tabs-bar {
   display: flex;
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   flex: 0 0 auto;
   overflow-y: auto;
 }
@@ -1666,7 +1692,7 @@
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 2px solid darken($ui-base-color, 8%);
+  border-bottom: 2px solid darken($ui-base-color, 16%);
   transition: all 200ms linear;
 
   .fa {
@@ -1683,7 +1709,7 @@
   &:focus,
   &:active {
     @media screen and (min-width: 631px) {
-      background: darken($ui-base-color, 14%);
+      background: darken($ui-base-color, 28%);
       transition: all 100ms linear;
     }
   }
@@ -1731,7 +1757,7 @@
 }
 
 .column-back-button {
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   color: $ui-highlight-color;
   cursor: pointer;
   flex: 0 0 auto;
@@ -1748,7 +1774,7 @@
 }
 
 .column-header__back-button {
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   border: 0;
   font-family: inherit;
   color: $ui-highlight-color;
@@ -1825,7 +1851,7 @@
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: darken($ui-base-color, 10%);
+  background-color: lighten($ui-base-color, 10%);
 }
 
 .react-toggle--checked .react-toggle-track {
@@ -1833,7 +1859,7 @@
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: darken($ui-highlight-color, 10%);
+  background-color: darken($ui-highlight-color, 20%);
 }
 
 .react-toggle-track-check {
@@ -1882,7 +1908,7 @@
   height: 22px;
   border: 1px solid $ui-base-color;
   border-radius: 50%;
-  background-color: darken($simple-background-color, 2%);
+  background-color: lighten($simple-background-color, 2%);
   box-sizing: border-box;
   transition: all 0.25s ease;
 }
@@ -1893,7 +1919,7 @@
 }
 
 .column-link {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   color: $primary-text-color;
   display: block;
   font-size: 16px;
@@ -1901,7 +1927,7 @@
   text-decoration: none;
 
   &:hover {
-    background: darken($ui-base-color, 11%);
+    background: darken($ui-base-color, 22%);
   }
 }
 
@@ -1994,7 +2020,7 @@
   &:focus,
   &:active,
   &.selected {
-    background: darken($ui-secondary-color, 10%);
+    background: lighten($ui-secondary-color, 10%);
   }
 }
 
@@ -2017,7 +2043,7 @@
 }
 
 .autosuggest-account .display-name__account {
-  color: darken($ui-base-color, 36%);
+  color: darken($ui-base-color, 72%);
 }
 
 .character-counter__wrapper {
@@ -2084,7 +2110,7 @@
 
   &.light {
     color: $ui-base-color;
-    border-bottom: 2px solid darken($ui-base-color, 27%);
+    border-bottom: 2px solid darken($ui-base-color, 54%);
 
     &:focus,
     &:active {
@@ -2094,7 +2120,7 @@
   }
 }
 
-@import '../mastodon/boost';
+@import 'boost';
 
 button.icon-button i.fa-retweet {
   background-position: 0 0;
@@ -2118,7 +2144,7 @@ button.icon-button.active i.fa-retweet {
   display: flex;
   cursor: pointer;
   font-size: 14px;
-  border: 1px solid darken($ui-base-color, 8%);
+  border: 1px solid darken($ui-base-color, 16%);
   border-radius: 4px;
   color: $ui-base-lighter-color;
   margin-top: 14px;
@@ -2126,7 +2152,7 @@ button.icon-button.active i.fa-retweet {
   overflow: hidden;
 
   &:hover {
-    background: darken($ui-base-color, 8%);
+    background: darken($ui-base-color, 16%);
   }
 }
 
@@ -2189,7 +2215,7 @@ button.icon-button.active i.fa-retweet {
 
 .status-card__image {
   flex: 0 0 100px;
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
 }
 
 .status-card.horizontal {
@@ -2226,7 +2252,7 @@ button.icon-button.active i.fa-retweet {
   clear: both;
 
   &:hover {
-    background: darken($ui-base-color, 2%);
+    background: darken($ui-base-color, 4%);
   }
 }
 
@@ -2234,7 +2260,7 @@ button.icon-button.active i.fa-retweet {
   text-align: center;
   font-size: 16px;
   font-weight: 500;
-  color: darken($ui-base-color, 16%);
+  color: darken($ui-base-color, 32%);
   background: $ui-base-color;
   cursor: default;
   display: flex;
@@ -2272,9 +2298,10 @@ button.icon-button.active i.fa-retweet {
 }
 
 .column-header {
+  display: flex;
   padding: 15px;
   font-size: 16px;
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   flex: 0 0 auto;
   cursor: pointer;
   position: relative;
@@ -2297,16 +2324,14 @@ button.icon-button.active i.fa-retweet {
 }
 
 .column-header__buttons {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  display: flex;
   height: 48px;
+  display: flex;
+  margin: -15px;
+  margin-left: 0;
 }
 
 .column-header__button {
-  background: darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 8%);
   border: 0;
   color: $ui-primary-color;
   cursor: pointer;
@@ -2314,16 +2339,16 @@ button.icon-button.active i.fa-retweet {
   padding: 0 15px;
 
   &:hover {
-    color: darken($ui-primary-color, 7%);
+    color: darken($ui-primary-color, 14%);
   }
 
   &.active {
     color: $primary-text-color;
-    background: darken($ui-base-color, 8%);
+    background: darken($ui-base-color, 16%);
 
     &:hover {
       color: $primary-text-color;
-      background: darken($ui-base-color, 8%);
+      background: darken($ui-base-color, 16%);
     }
   }
 }
@@ -2347,13 +2372,13 @@ button.icon-button.active i.fa-retweet {
 }
 
 .column-header__collapsible-inner {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   padding: 15px;
 }
 
 .column-header__setting-btn {
   &:hover {
-    color: darken($ui-primary-color, 4%);
+    color: darken($ui-primary-color, 8%);
     text-decoration: underline;
   }
 }
@@ -2368,6 +2393,14 @@ button.icon-button.active i.fa-retweet {
       padding-right: 0;
     }
   }
+}
+
+.column-header__title {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 1;
 }
 
 .text-btn {
@@ -2387,7 +2420,7 @@ button.icon-button.active i.fa-retweet {
 }
 
 .loading-indicator {
-  color: darken($ui-base-color, 26%);
+  color: darken($ui-base-color, 52%);
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
@@ -2416,7 +2449,7 @@ button.icon-button.active i.fa-retweet {
   width: 0;
   height: 0;
   box-sizing: border-box;
-  border: 0 solid darken($ui-base-color, 26%);
+  border: 0 solid darken($ui-base-color, 52%);
   border-radius: 50%;
   animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
@@ -2425,11 +2458,11 @@ button.icon-button.active i.fa-retweet {
   0% {
     width: 0;
     height: 0;
-    background-color: darken($ui-base-color, 26%);
+    background-color: darken($ui-base-color, 52%);
   }
 
   29% {
-    background-color: darken($ui-base-color, 26%);
+    background-color: darken($ui-base-color, 52%);
   }
 
   30% {
@@ -2480,7 +2513,7 @@ button.icon-button.active i.fa-retweet {
   &:hover,
   &:active,
   &:focus {
-    color: darken($ui-primary-color, 8%);
+    color: darken($ui-primary-color, 16%);
   }
 }
 
@@ -2509,13 +2542,13 @@ button.icon-button.active i.fa-retweet {
 }
 
 .modal-container--preloader {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
 }
 
 .account--panel {
-  background: darken($ui-base-color, 4%);
-  border-top: 1px solid darken($ui-base-color, 8%);
-  border-bottom: 1px solid darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 8%);
+  border-top: 1px solid darken($ui-base-color, 16%);
+  border-bottom: 1px solid darken($ui-base-color, 16%);
   display: flex;
   flex-direction: row;
   padding: 10px 0;
@@ -2528,7 +2561,7 @@ button.icon-button.active i.fa-retweet {
 }
 
 .column-settings__outer {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   padding: 15px;
 }
 
@@ -2573,7 +2606,7 @@ button.icon-button.active i.fa-retweet {
   color: $primary-text-color;
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   opacity: 0.7;
   display: inline-block;
   vertical-align: top;
@@ -2588,7 +2621,7 @@ button.icon-button.active i.fa-retweet {
 .account--action-button {
   position: absolute;
   top: 10px;
-  left: 20px;
+  right: 20px;
 }
 
 .setting-toggle {
@@ -2612,7 +2645,7 @@ button.icon-button.active i.fa-retweet {
 
 .empty-column-indicator,
 .error-column {
-  color: darken($ui-base-color, 20%);
+  color: darken($ui-base-color, 40%);
   background: $ui-base-color;
   text-align: center;
   padding: 20px;
@@ -2893,7 +2926,7 @@ button.icon-button.active i.fa-retweet {
   }
 
   &.active:hover {
-    background: darken($ui-highlight-color, 4%);
+    background: darken($ui-highlight-color, 8%);
   }
 }
 
@@ -2906,7 +2939,7 @@ button.icon-button.active i.fa-retweet {
 
 .privacy-dropdown__option__content {
   flex: 1 1 auto;
-  color: darken($ui-primary-color, 24%);
+  color: lighten($ui-primary-color, 24%);
 
   strong {
     font-weight: 500;
@@ -2969,7 +3002,7 @@ button.icon-button.active i.fa-retweet {
   }
 
   &:focus {
-    background: darken($ui-base-color, 4%);
+    background: darken($ui-base-color, 8%);
   }
 
   @media screen and (max-width: 600px) {
@@ -3000,21 +3033,21 @@ button.icon-button.active i.fa-retweet {
   }
 
   .fa-search {
-    transform: translateZ(0) rotate(90deg);
+    transform: rotate(90deg);
 
     &.active {
       pointer-events: none;
-      transform: translateZ(0) rotate(0deg);
+      transform: rotate(0deg);
     }
   }
 
   .fa-times-circle {
     top: 11px;
-    transform: translateZ(0) rotate(0deg);
+    transform: rotate(0deg);
     cursor: pointer;
 
     &.active {
-      transform: translateZ(0) rotate(90deg);
+      transform: rotate(90deg);
     }
 
     &:hover {
@@ -3025,8 +3058,8 @@ button.icon-button.active i.fa-retweet {
 
 .search-results__header {
   color: $ui-base-lighter-color;
-  background: darken($ui-base-color, 2%);
-  border-bottom: 1px solid darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 4%);
+  border-bottom: 1px solid lighten($ui-base-color, 4%);
   padding: 15px 10px;
   font-size: 14px;
   font-weight: 500;
@@ -3041,7 +3074,7 @@ button.icon-button.active i.fa-retweet {
   &:hover,
   &:active,
   &:focus {
-    color: darken($ui-secondary-color, 4%);
+    color: darken($ui-secondary-color, 8%);
     text-decoration: underline;
   }
 }
@@ -3059,7 +3092,6 @@ button.icon-button.active i.fa-retweet {
   right: 0;
   bottom: 0;
   background: rgba($base-overlay-background, 0.7);
-  transform: translateZ(0);
 }
 
 .modal-root__container {
@@ -3240,7 +3272,7 @@ button.icon-button.active i.fa-retweet {
 .onboarding-modal__paginator,
 .error-modal__footer {
   flex: 0 0 auto;
-  background: darken($ui-secondary-color, 8%);
+  background: lighten($ui-secondary-color, 8%);
   display: flex;
   padding: 25px;
 
@@ -3250,7 +3282,7 @@ button.icon-button.active i.fa-retweet {
 
   .onboarding-modal__nav,
   .error-modal__nav {
-    color: darken($ui-secondary-color, 34%);
+    color: lighten($ui-secondary-color, 34%);
     background-color: transparent;
     border: 0;
     font-size: 14px;
@@ -3262,7 +3294,7 @@ button.icon-button.active i.fa-retweet {
     &:hover,
     &:focus,
     &:active {
-      color: darken($ui-secondary-color, 38%);
+      color: lighten($ui-secondary-color, 38%);
     }
 
     &.onboarding-modal__done,
@@ -3287,17 +3319,17 @@ button.icon-button.active i.fa-retweet {
   width: 14px;
   height: 14px;
   border-radius: 14px;
-  background: darken($ui-secondary-color, 16%);
+  background: lighten($ui-secondary-color, 16%);
   margin: 0 3px;
   cursor: pointer;
 
   &:hover {
-    background: darken($ui-secondary-color, 18%);
+    background: lighten($ui-secondary-color, 18%);
   }
 
   &.active {
     cursor: default;
-    background: darken($ui-secondary-color, 24%);
+    background: lighten($ui-secondary-color, 24%);
   }
 }
 
@@ -3326,13 +3358,13 @@ button.icon-button.active i.fa-retweet {
     &:hover,
     &:focus,
     &:active {
-      color: darken($ui-highlight-color, 4%);
+      color: darken($ui-highlight-color, 8%);
     }
   }
 
   p {
     font-size: 16px;
-    color: darken($ui-base-color, 8%);
+    color: darken($ui-base-color, 16%);
     margin-top: 10px;
     margin-bottom: 10px;
 
@@ -3386,7 +3418,7 @@ button.icon-button.active i.fa-retweet {
   }
 
   .figure {
-    background: darken($ui-base-color, 8%);
+    background: lighten($ui-base-color, 8%);
     color: $ui-secondary-color;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -3484,7 +3516,7 @@ button.icon-button.active i.fa-retweet {
 .confirmation-modal,
 .report-modal,
 .actions-modal {
-  background: darken($ui-secondary-color, 8%);
+  background: darken($ui-secondary-color, 16%);
   color: $ui-base-color;
   border-radius: 8px;
   overflow: hidden;
@@ -3543,7 +3575,7 @@ button.icon-button.active i.fa-retweet {
   & > div {
     flex: 1 1 auto;
     text-align: right;
-    color: darken($ui-base-color, 33%);
+    color: darken($ui-base-color, 66%);
     padding-right: 10px;
   }
 
@@ -3644,14 +3676,14 @@ button.icon-button.active i.fa-retweet {
 .confirmation-modal__action-bar {
   .confirmation-modal__cancel-button {
     background-color: transparent;
-    color: darken($ui-secondary-color, 34%);
+    color: lighten($ui-secondary-color, 34%);
     font-size: 14px;
     font-weight: 500;
 
     &:hover,
     &:focus,
     &:active {
-      color: darken($ui-secondary-color, 38%);
+      color: lighten($ui-secondary-color, 38%);
     }
   }
 }
@@ -3709,7 +3741,7 @@ button.icon-button.active i.fa-retweet {
 .attachment-list {
   display: flex;
   font-size: 14px;
-  border: 1px solid darken($ui-base-color, 8%);
+  border: 1px solid darken($ui-base-color, 16%);
   border-radius: 4px;
   margin-top: 14px;
   overflow: hidden;
@@ -3720,7 +3752,7 @@ button.icon-button.active i.fa-retweet {
   color: $ui-base-lighter-color;
   padding: 8px 18px;
   cursor: default;
-  border-right: 1px solid darken($ui-base-color, 8%);
+  border-right: 1px solid darken($ui-base-color, 16%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3950,7 +3982,7 @@ button.icon-button.active i.fa-retweet {
       &:hover,
       &:active,
       &:focus {
-        color: darken($ui-primary-color, 8%);
+        color: darken($ui-primary-color, 16%);
       }
     }
 
@@ -4111,8 +4143,8 @@ button.icon-button.active i.fa-retweet {
 
 .account-section-headline {
   color: $ui-base-lighter-color;
-  background: darken($ui-base-color, 2%);
-  border-bottom: 1px solid darken($ui-base-color, 4%);
+  background: darken($ui-base-color, 4%);
+  border-bottom: 1px solid darken($ui-base-color, 8%);
   padding: 15px 10px;
   font-size: 14px;
   font-weight: 500;
@@ -4130,7 +4162,7 @@ button.icon-button.active i.fa-retweet {
     height: 0;
     border-style: solid;
     border-width: 0 10px 10px;
-    border-color: transparent transparent darken($ui-base-color, 4%);
+    border-color: transparent transparent darken($ui-base-color, 8%);
   }
 
   &::after {
@@ -4313,7 +4345,7 @@ noscript {
       }
 
       &:focus {
-        background: darken($ui-base-color, 4%);
+        background: darken($ui-base-color, 8%);
       }
 
       @media screen and (max-width: 600px) {
