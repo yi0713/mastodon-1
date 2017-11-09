@@ -117,7 +117,7 @@
   &:hover,
   &:active,
   &:focus {
-    color: darken($ui-base-color, 66%);
+    color: darken($ui-base-color, 56%);
     transition: color 200ms ease-out;
   }
 
@@ -141,7 +141,7 @@
   }
 
   &.inverted {
-    color: darken($ui-base-color, 66%);
+    color: darken($ui-base-color, 56%);
 
     &:hover,
     &:active,
@@ -176,7 +176,7 @@
 }
 
 .text-icon-button {
-  color: darken($ui-base-color, 66%);
+  color: darken($ui-base-color, 56%);
   border: none;
   background: transparent;
   cursor: pointer;
@@ -551,7 +551,7 @@
       text-decoration: underline;
 
       .fa {
-        color: darken($ui-base-color, 80%);
+        color: darken($ui-base-color, 70%);
       }
     }
 
@@ -566,15 +566,15 @@
     }
 
     .fa {
-      color: darken($ui-base-color, 60%);
+      color: darken($ui-base-color, 50%);
     }
   }
 
   .status__content__spoiler-link {
-    background: darken($ui-base-color, 60%);
+    background: darken($ui-base-color, 50%);
 
     &:hover {
-      background: darken($ui-base-color, 66%);
+      background: darken($ui-base-color, 56%);
       text-decoration: none;
     }
   }
@@ -1180,7 +1180,7 @@
     color: darken($ui-base-color, 8%);
 
     &:hover {
-      background: darken($ui-base-color, 58%);
+      background: darken($ui-base-color, 48%);
       text-decoration: none;
     }
   }
@@ -2043,7 +2043,7 @@
 }
 
 .autosuggest-account .display-name__account {
-  color: darken($ui-base-color, 72%);
+  color: darken($ui-base-color, 62%);
 }
 
 .character-counter__wrapper {
@@ -2110,7 +2110,7 @@
 
   &.light {
     color: $ui-base-color;
-    border-bottom: 2px solid darken($ui-base-color, 54%);
+    border-bottom: 2px solid darken($ui-base-color, 44%);
 
     &:focus,
     &:active {
@@ -2420,7 +2420,7 @@ button.icon-button.active i.fa-retweet {
 }
 
 .loading-indicator {
-  color: darken($ui-base-color, 52%);
+  color: darken($ui-base-color, 42%);
   font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
@@ -2449,7 +2449,7 @@ button.icon-button.active i.fa-retweet {
   width: 0;
   height: 0;
   box-sizing: border-box;
-  border: 0 solid darken($ui-base-color, 52%);
+  border: 0 solid darken($ui-base-color, 42%);
   border-radius: 50%;
   animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.610, 0.355, 1.000);
 }
@@ -2458,11 +2458,11 @@ button.icon-button.active i.fa-retweet {
   0% {
     width: 0;
     height: 0;
-    background-color: darken($ui-base-color, 52%);
+    background-color: darken($ui-base-color, 42%);
   }
 
   29% {
-    background-color: darken($ui-base-color, 52%);
+    background-color: darken($ui-base-color, 42%);
   }
 
   30% {
@@ -2645,7 +2645,7 @@ button.icon-button.active i.fa-retweet {
 
 .empty-column-indicator,
 .error-column {
-  color: darken($ui-base-color, 40%);
+  color: darken($ui-base-color, 35%);
   background: $ui-base-color;
   text-align: center;
   padding: 20px;
@@ -3575,7 +3575,7 @@ button.icon-button.active i.fa-retweet {
   & > div {
     flex: 1 1 auto;
     text-align: right;
-    color: darken($ui-base-color, 66%);
+    color: darken($ui-base-color, 56%);
     padding-right: 10px;
   }
 
