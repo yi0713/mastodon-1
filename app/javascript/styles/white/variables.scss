@@ -1,7 +1,7 @@
 // Theme: white
 
 // Commonly used web colors
-$black: #333333;            // Black
+$black: #444444;            // Black
 $white: #ffffff;            // White
 $success-green: #79bd9a;    // Padua
 $error-red: #df405a;        // Cerise
@@ -9,10 +9,10 @@ $warning-red: #ff5050;      // Sunset Orange
 $gold-star: #da9f04;        // Dark Goldenrod
 
 // Values from the classic Mastodon UI
-$classic-base-color: #fcfcfc;
+$classic-base-color: #fefefe;
 $classic-primary-color: #8888aa;
 $classic-secondary-color: #cc66aa;
-$classic-highlight-color: #aaaaff;
+$classic-highlight-color: #ccbbff;
 
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
@@ -25,7 +25,7 @@ $error-value-color: $error-red !default;
 
 // Tell UI to use selected colors
 $ui-base-color: $classic-base-color !default;                  // Darkest
-$ui-base-lighter-color: darken($ui-base-color, 50%) !default; // Lighter darkest
+$ui-base-lighter-color: darken($ui-base-color, 26%) !default; // Lighter darkest
 $ui-primary-color: $classic-primary-color !default;            // Lighter
 $ui-secondary-color: $classic-secondary-color !default;        // Lightest
 $ui-highlight-color: $classic-highlight-color !default;        // Vibrant
