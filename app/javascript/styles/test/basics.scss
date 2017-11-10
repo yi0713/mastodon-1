@@ -1,7 +1,7 @@
 body {
   font-family: 'mastodon-font-sans-serif', sans-serif;
   background: $ui-base-color;
-  background-image: url(background.png);
+  background-size: cover;
   background-attachment: fixed;
   font-size: 13px;
   line-height: 18px;
@@ -34,16 +34,16 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
-    background: $ui-base-color url(background.png);
+    background: $ui-base-color;
   }
 
   &.about-body {
-    background: darken($ui-base-color, 8%) url(background.png);
+    background: darken($ui-base-color, 8%);
     padding-bottom: 0;
   }
 
   &.tag-body {
-    background: darken($ui-base-color, 8%) url(background.png);
+    background: darken($ui-base-color, 8%);
     padding-bottom: 0;
   }
 
