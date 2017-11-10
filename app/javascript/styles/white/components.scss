@@ -612,7 +612,7 @@
     outline: 0;
     background: darken($ui-base-color, 8%);
 
-    &.status-direct {
+    .status.status-direct {
       background: darken($ui-base-color, 24%);
     }
 
