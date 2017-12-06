@@ -512,7 +512,6 @@
   font-weight: 400;
   overflow: hidden;
   white-space: pre-wrap;
-  padding-top: 5px;
 
   &.status__content--with-spoiler {
     white-space: normal;
@@ -525,7 +524,7 @@
   .emojione {
     width: 20px;
     height: 20px;
-    margin: -5px 0 0;
+    margin: -3px 0 0;
   }
 
   p {
@@ -761,7 +760,7 @@
 .status__action-bar {
   align-items: center;
   display: flex;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .status__action-bar-button {
@@ -794,7 +793,7 @@
     .emojione {
       width: 24px;
       height: 24px;
-      margin: -5px 0 0;
+      margin: -3px 0 0;
     }
   }
 
@@ -1342,7 +1341,7 @@
 }
 
 .dropdown-menu__separator {
-  border-bottom: 1px solid lighten($ui-secondary-color, 8%);
+  border-bottom: 1px solid lighten($ui-secondary-color, 4%);
   margin: 5px 7px 6px;
   height: 0;
 }
@@ -1544,7 +1543,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: lighten($ui-base-color, 7%);
+  background: lighten($ui-base-color, 4%);
 }
 
 .drawer {
@@ -1857,7 +1856,7 @@
 }
 
 .react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: lighten($ui-base-color, 10%);
+  background-color: lighten($ui-base-color, 5%);
 }
 
 .react-toggle--checked .react-toggle-track {
@@ -2026,7 +2025,7 @@
   &:focus,
   &:active,
   &.selected {
-    background: lighten($ui-secondary-color, 10%);
+    background: lighten($ui-secondary-color, 5%);
   }
 }
 
@@ -2975,7 +2974,7 @@ button.icon-button.active i.fa-retweet {
 
 .privacy-dropdown__option__content {
   flex: 1 1 auto;
-  color: lighten($ui-primary-color, 24%);
+  color: lighten($ui-primary-color, 12%);
 
   strong {
     font-weight: 500;
@@ -3095,7 +3094,7 @@ button.icon-button.active i.fa-retweet {
 .search-results__header {
   color: $ui-base-lighter-color;
   background: darken($ui-base-color, 4%);
-  border-bottom: 1px solid lighten($ui-base-color, 4%);
+  border-bottom: 1px solid lighten($ui-base-color, 2%);
   padding: 15px 10px;
   font-size: 14px;
   font-weight: 500;
@@ -3308,7 +3307,7 @@ button.icon-button.active i.fa-retweet {
 .onboarding-modal__paginator,
 .error-modal__footer {
   flex: 0 0 auto;
-  background: lighten($ui-secondary-color, 8%);
+  background: lighten($ui-secondary-color, 4%);
   display: flex;
   padding: 25px;
 
@@ -3318,7 +3317,7 @@ button.icon-button.active i.fa-retweet {
 
   .onboarding-modal__nav,
   .error-modal__nav {
-    color: lighten($ui-secondary-color, 34%);
+    color: lighten($ui-secondary-color, 8%);
     background-color: transparent;
     border: 0;
     font-size: 14px;
@@ -3330,7 +3329,7 @@ button.icon-button.active i.fa-retweet {
     &:hover,
     &:focus,
     &:active {
-      color: lighten($ui-secondary-color, 38%);
+      color: lighten($ui-secondary-color, 19%);
     }
 
     &.onboarding-modal__done,
@@ -3355,17 +3354,17 @@ button.icon-button.active i.fa-retweet {
   width: 14px;
   height: 14px;
   border-radius: 14px;
-  background: lighten($ui-secondary-color, 16%);
+  background: lighten($ui-secondary-color, 8%);
   margin: 0 3px;
   cursor: pointer;
 
   &:hover {
-    background: lighten($ui-secondary-color, 18%);
+    background: lighten($ui-secondary-color, 9%);
   }
 
   &.active {
     cursor: default;
-    background: lighten($ui-secondary-color, 24%);
+    background: lighten($ui-secondary-color, 12%);
   }
 }
 
@@ -3454,7 +3453,7 @@ button.icon-button.active i.fa-retweet {
   }
 
   .figure {
-    background: lighten($ui-base-color, 8%);
+    background: lighten($ui-base-color, 4%);
     color: $ui-secondary-color;
     margin-bottom: 20px;
     border-radius: 4px;
@@ -3724,14 +3723,14 @@ button.icon-button.active i.fa-retweet {
   .confirmation-modal__cancel-button,
   .mute-modal__cancel-button {
     background-color: transparent;
-    color: lighten($ui-secondary-color, 34%);
+    color: lighten($ui-secondary-color, 17%);
     font-size: 14px;
     font-weight: 500;
 
     &:hover,
     &:focus,
     &:active {
-      color: lighten($ui-secondary-color, 38%);
+      color: lighten($ui-secondary-color, 19%);
     }
   }
 }
@@ -4490,8 +4489,12 @@ noscript {
   flex-direction: column;
   border-radius: 8px;
   box-shadow: 2px 4px 15px rgba($base-shadow-color, 0.4);
-  width: 40vh;
+  width: 380px;
   overflow: hidden;
+
+  @media screen and (max-width: 420px) {
+    width: 90%;
+  }
 
   h4 {
     padding: 15px 0;
