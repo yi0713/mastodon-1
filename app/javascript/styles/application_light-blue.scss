@@ -6,7 +6,6 @@
 
 @import 'white/reset';
 @import 'mastodon/basics';
-@import 'mastodon/modal';
 @import 'mastodon/containers';
 @import 'mastodon/lists';
 @import 'mastodon/footer';
@@ -15,7 +14,9 @@
 @import 'white/forms';
 @import 'white/accounts';
 @import 'white/stream_entries';
+@import 'mastodon/boost';
 @import 'white/components';
+@import 'mastodon/modal';
 @import 'mastodon/emoji_picker';
 @import 'white/about';
 @import 'mastodon/tables';
