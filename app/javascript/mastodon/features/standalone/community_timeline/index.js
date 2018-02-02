@@ -11,7 +11,7 @@ import ColumnHeader from '../../../components/column_header';
 import { defineMessages, injectIntl } from 'react-intl';
 
 const messages = defineMessages({
-  title: { id: 'standalone.public_title', defaultMessage: 'A look inside...' },
+  title: { id: 'column.community', defaultMessage: 'A look inside...' },
 });
 
 @connect()
@@ -58,7 +58,7 @@ export default class CommunityTimeline extends React.PureComponent {
     return (
       <Column ref={this.setRef}>
         <ColumnHeader
-          icon='globe'
+          icon='users'
           title={intl.formatMessage(messages.title)}
           onClick={this.handleHeaderClick}
         />
