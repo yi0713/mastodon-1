@@ -1,5 +1,5 @@
 .card {
-  background-color: darken($ui-base-color, 4%);
+  background-color: darken($ui-base-color, 8%);
   background-size: cover;
   background-position: center;
   border-radius: 4px 4px 0 0;
@@ -142,7 +142,7 @@
     color: $ui-primary-color;
     padding: 5px 10px 0;
     margin-bottom: 10px;
-    border-right: 1px solid darken($ui-base-color, 4%);
+    border-right: 1px solid darken($ui-base-color, 8%);
     cursor: default;
     text-align: center;
     position: relative;
@@ -285,7 +285,7 @@
 
   .disabled {
     cursor: default;
-    color: darken($ui-base-color, 10%);
+    color: darken($ui-base-color, 20%);
   }
 
   @media screen and (max-width: 700px) {
@@ -336,7 +336,7 @@
       overflow: hidden;
       height: 100px;
       border-radius: 4px 4px 0 0;
-      background-color: darken($ui-base-color, 4%);
+      background-color: darken($ui-base-color, 8%);
       background-size: cover;
       background-position: center;
       position: relative;
@@ -406,7 +406,7 @@
     }
 
     .username {
-      color: darken($ui-base-color, 34%);
+      color: darken($ui-base-color, 44%);
       font-size: 14px;
       font-weight: 400;
     }
@@ -415,7 +415,7 @@
       padding: 10px 15px;
       padding-top: 15px;
       box-sizing: border-box;
-      color: darken($ui-base-color, 26%);
+      color: darken($ui-base-color, 36%);
       word-wrap: break-word;
       min-height: 80px;
     }
@@ -519,7 +519,7 @@
     &:hover,
     &:active,
     &:focus {
-      color: darken($ui-highlight-color, 8%);
+      color: darken($ui-highlight-color, 16%);
     }
 
     &.active {

@@ -70,7 +70,7 @@
             border-radius: 0;
 
             &:hover {
-              background-color: darken($ui-highlight-color, 5%);
+              background-color: darken($ui-highlight-color, 10%);
             }
           }
         }
@@ -229,9 +229,9 @@
       text-transform: uppercase;
       font-size: 12px;
 
-        @each $lang in $cjk-langs {
-          &:lang(#{$lang}) {
-            font-weight: 700;
+      @each $lang in $cjk-langs {
+        &:lang(#{$lang}) {
+          font-weight: 700;
         }
       }
     }
@@ -247,7 +247,7 @@
 
       &:hover {
         color: $primary-text-color;
-        border-bottom: 2px solid darken($ui-base-color, 5%);
+        border-bottom: 2px solid darken($ui-base-color, 10%);
       }
 
       &.selected {
@@ -402,16 +402,16 @@
     max-width: calc(100% - 90px);
   }
 
-   &__title {
+  &__title {
     word-wrap: break-word;
   }
 
   &__timestamp {
-    color: darken($ui-base-color, 34%);
+    color: darken($ui-base-color, 44%);
   }
 
   &__extras {
-    background: darken($ui-base-color, 6%);
+    background: darken($ui-base-color, 12%);
     border-radius: 0 0 4px 4px;
     padding: 10px;
     color: $ui-primary-color;
@@ -424,7 +424,7 @@
   &__icon {
     font-size: 28px;
     margin-right: 10px;
-    color: darken($ui-base-color, 34%);
+    color: darken($ui-base-color, 44%);
   }
 
   &__icon__overlay {

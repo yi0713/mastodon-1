@@ -145,7 +145,7 @@
         background: $ui-primary-color;
 
         &:hover {
-          background: darken($ui-primary-color, 8%);
+          background: darken($ui-primary-color, 16%);
         }
       }
     }
@@ -213,7 +213,7 @@
         background: $ui-primary-color;
 
         &:hover {
-          background: darken($ui-primary-color, 8%);
+          background: darken($ui-primary-color, 16%);
         }
       }
     }
@@ -237,11 +237,11 @@
     }
 
     .status-card {
-      border-color: darken($ui-secondary-color, 4%);
+      border-color: darken($ui-secondary-color, 8%);
       color: darken($ui-primary-color, 4%);
 
       &:hover {
-        background: darken($ui-secondary-color, 4%);
+        background: darken($ui-secondary-color, 8%);
       }
     }
 
@@ -336,7 +336,7 @@
           &:focus,
           &:hover {
             svg path:first-child {
-              fill: darken($ui-primary-color, 4%);
+              fill: darken($ui-primary-color, 8%);
             }
           }
         }

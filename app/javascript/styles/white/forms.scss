@@ -29,7 +29,7 @@ code {
     color: $ui-primary-color;
     padding-bottom: 8px;
     margin-bottom: 8px;
-    border-bottom: 1px solid darken($ui-base-color, 8%);
+    border-bottom: 1px solid darken($ui-base-color, 16%);
   }
 
   p.hint {
@@ -308,19 +308,19 @@ code {
     }
 
     &:hover {
-      background-color: darken($ui-highlight-color, 5%);
+      background-color: darken($ui-highlight-color, 10%);
     }
 
     &:active,
     &:focus {
-      background-color: darken($ui-highlight-color, 5%);
+      background-color: lighten($ui-highlight-color, 3%);
     }
 
     &.negative {
       background: $error-value-color;
 
       &:hover {
-        background-color: darken($error-value-color, 5%);
+        background-color: darken($error-value-color, 10%);
       }
 
       &:active,
@@ -358,7 +358,7 @@ code {
 }
 
 .flash-message {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 16%);
   color: $ui-primary-color;
   border-radius: 4px;
   padding: 15px 10px;
@@ -395,7 +395,7 @@ code {
     }
 
     &:focus {
-      background: darken($ui-base-color, 4%);
+      background: darken($ui-base-color, 8%);
     }
   }
 
@@ -493,11 +493,11 @@ code {
     strong {
       font-weight: 500;
 
-    @each $lang in $cjk-langs {
-      &:lang(#{$lang}) {
-        font-weight: 700;
+      @each $lang in $cjk-langs {
+        &:lang(#{$lang}) {
+          font-weight: 700;
+        }
       }
-    }
     }
   }
 }
@@ -530,11 +530,11 @@ code {
       display: block;
       margin-bottom: 5px;
 
-    @each $lang in $cjk-langs {
-      &:lang(#{$lang}) {
-        font-weight: 700;
+      @each $lang in $cjk-langs {
+        &:lang(#{$lang}) {
+          font-weight: 700;
+        }
       }
-    }
 
       .fa {
         font-weight: 400;
