@@ -1,7 +1,7 @@
 // Theme: white
 
 // Commonly used web colors
-$black: #444444;            // Black
+$black: #555555;            // Black
 $white: #ffffff;            // White
 $success-green: #79bd9a;    // Padua
 $error-red: #df405a;        // Cerise
@@ -15,8 +15,8 @@ $classic-secondary-color: #cc66aa;
 $classic-highlight-color: #ccbbff;
 
 // Variables for defaults in UI
-$base-shadow-color: $black !default;
-$base-overlay-background: $black !default;
+$base-shadow-color: $white !default;
+$base-overlay-background: $white !default;
 $base-border-color: $black !default;
 $simple-background-color: $black !default;
 $primary-text-color: $black !default;
