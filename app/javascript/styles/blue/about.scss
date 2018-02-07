@@ -297,7 +297,7 @@
 
       .simple_form,
       .closed-registrations-message {
-        background: lighten($ui-base-color, 8%);
+        background: rgba(lighten($ui-base-color, 8%), 0.7);
         width: 280px;
         padding: 15px 20px;
         border-radius: 4px 4px 0 0;
@@ -326,7 +326,7 @@
   }
 
   .about-short {
-    background: rgba($black, 0.1);
+    background: rgba(#000724, 0.3);
     padding: 50px 0 30px;
     font-family: 'mastodon-font-sans-serif', sans-serif;
     font-size: 16px;
@@ -342,7 +342,7 @@
   }
 
   .information-board {
-    background: rgba($black, 0.1);
+    background: rgba(#000724, 0.3);
     padding: 20px 0;
 
     .container {
@@ -387,7 +387,7 @@
       position: absolute;
       width: 280px;
       box-sizing: border-box;
-      background: transparent;
+      background: rgba(#000724, 0.3);
       padding: 20px;
       padding-top: 10px;
       border-radius: 4px 4px 0 0;
@@ -460,6 +460,7 @@
   }
 
   .features {
+    background: rgba(#000724, 0.55);
     padding: 50px 0;
 
     .container {
@@ -570,7 +571,7 @@
   }
 
   .extended-description {
-    background: #000724;
+    background: rgba(#000724, 0.55);
     padding: 50px 0;
     font-family: 'mastodon-font-sans-serif', sans-serif;
     font-size: 16px;
@@ -586,7 +587,7 @@
   }
 
   .footer-links {
-    background: #000724;
+    background: rgba(#000724, 0.55);
     padding-bottom: 50px;
     text-align: right;
     color: $ui-base-lighter-color;
