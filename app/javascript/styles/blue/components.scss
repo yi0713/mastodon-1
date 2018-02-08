@@ -2062,7 +2062,7 @@
 }
 
 .column-link {
-  background: rgba(lighten($ui-base-color, 8%), 0.3);
+  background: rgba(lighten($ui-base-color, 12%), 0.3);
   color: $primary-text-color;
   display: block;
   font-size: 16px;
@@ -2070,7 +2070,7 @@
   text-decoration: none;
 
   &:hover {
-    background: rgba(lighten($ui-base-color, 11%), 0.3);
+    background: rgba(lighten($ui-base-color, 22%), 0.6);
   }
 }
 
@@ -2091,7 +2091,7 @@
 }
 
 .column-subheading {
-  background: $ui-base-color;
+  background: rgba($ui-base-color, 0.3);
   color: $ui-base-lighter-color;
   padding: 8px 20px;
   font-size: 12px;
@@ -2403,7 +2403,7 @@
 .column-header {
   display: flex;
   font-size: 16px;
-  background: lighten($ui-base-color, 4%);
+  background: rgba(lighten($ui-base-color, 4%), 0.3);
   flex: 0 0 auto;
   cursor: pointer;
   position: relative;
@@ -2450,7 +2450,7 @@
 }
 
 .column-header__button {
-  background: lighten($ui-base-color, 4%);
+  background: transparent;
   border: 0;
   color: $ui-primary-color;
   cursor: pointer;

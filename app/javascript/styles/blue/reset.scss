@@ -59,17 +59,17 @@ table {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lighten($ui-base-color, 12%);
+  background: lighten($ui-base-color, 24%);
   border: 0px none $base-border-color;
   border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: lighten($ui-base-color, 18%);
+  background: lighten($ui-base-color, 36%);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: lighten($ui-base-color, 12%);
+  background: lighten($ui-base-color, 24%);
 }
 
 ::-webkit-scrollbar-track {
