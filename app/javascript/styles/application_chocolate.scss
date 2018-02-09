@@ -4,7 +4,7 @@
 @import 'fonts/roboto-mono';
 @import 'fonts/montserrat';
 
-@import 'blue/reset';
+@import 'mastodon/reset';
 @import 'mastodon/basics';
 @import 'mastodon/containers';
 @import 'mastodon/lists';
@@ -22,3 +22,6 @@
 @import 'mastodon/tables';
 @import 'mastodon/admin';
 @import 'mastodon/rtl';
+
+$wallpaper: "chocolate/background.jpg";
+@import 'wallpaper';

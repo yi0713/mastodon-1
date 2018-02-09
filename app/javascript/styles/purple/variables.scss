@@ -12,7 +12,7 @@ $gold-star: #ca8f04;        // Dark Goldenrod
 $classic-base-color: #372837;
 $classic-primary-color: #c89bc8;
 $classic-secondary-color: #e8d9e8;
-$classic-highlight-color: #902b90;
+$classic-highlight-color: rgba(#902b90, 0.7);
 
 // Variables for defaults in UI
 $base-shadow-color: $black !default;
@@ -25,7 +25,7 @@ $error-value-color: $error-red !default;
 
 // Tell UI to use selected colors
 $ui-base-color: $classic-base-color !default;                  // Darkest
-$ui-base-lighter-color: lighten($ui-base-color, 26%) !default; // Lighter darkest
+$ui-base-lighter-color: lighten($ui-base-color, 36%) !default; // Lighter darkest
 $ui-primary-color: $classic-primary-color !default;            // Lighter
 $ui-secondary-color: $classic-secondary-color !default;        // Lightest
 $ui-highlight-color: $classic-highlight-color !default;        // Vibrant
