@@ -127,6 +127,11 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.6);
 }
 
+.empty-column-indicator,
+.error-column {
+  background: rgba($ui-base-color, 0.3)
+}
+
 .account-section-headline {
   background: rgba(lighten($ui-base-color, 2%), 0.3);
 }
