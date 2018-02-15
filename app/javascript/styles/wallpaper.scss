@@ -30,6 +30,10 @@ body {
   &.error {
     background: url($wallpaper) no-repeat fixed center top;
   }
+
+  &.no-reduce-motion {
+    background: url($wallpaper) no-repeat fixed center top;
+  }
 }
 
 .focusable {
@@ -261,3 +265,18 @@ body {
     background: rgba($ui-base-color, 0.4);
   }
 }
+
+.fa-star::before {
+    background: url(https://kurage.cc/system/custom_emojis/images/000/000/359/original/kurage_orange.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    filter: grayscale(100%) brightness(200%) opacity(50%);
+    content: "\2003";
+}
+.active > .fa-star::before, .notification__favourite-icon-wrapper > .fa-star::before {
+    filter: grayscale(0%) brightness(100%) opacity(100%);
+}
+.column-link > .fa-star::before, .column-header > button > .fa-star::before {
+    filter: grayscale(100%) brightness(150%) opacity(100%);
+}
+
