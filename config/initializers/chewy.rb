@@ -12,7 +12,7 @@ Chewy.settings = {
 }
 
 Chewy.root_strategy    = enabled ? :sidekiq : :bypass
-Chewy.request_strategy = enabled ? :sidekiq : :bypass
+#Chewy.request_strategy = enabled ? :sidekiq : :bypass
 
 module Chewy
   class << self
