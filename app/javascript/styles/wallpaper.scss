@@ -270,7 +270,7 @@ body {
     background: url(https://kurage.cc/system/custom_emojis/images/000/000/359/original/kurage_orange.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    filter: grayscale(100%) brightness(200%) opacity(50%);
+    filter: grayscale(100%) brightness(200%) opacity(40%);
     content: "\2003";
 }
 .active > .fa-star::before, .notification__favourite-icon-wrapper > .fa-star::before {
