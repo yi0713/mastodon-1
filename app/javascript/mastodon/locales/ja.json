@@ -214,7 +214,7 @@
   "search_popout.search_format": "高度な検索フォーマット",
   "search_popout.tips.hashtag": "ハッシュタグ",
   "search_popout.tips.status": "トゥート",
-  "search_popout.tips.text": "表示名やユーザー名、ハッシュタグに一致する単純なテキスト",
+  "search_popout.tips.text": "キーワードによる全文検索（時間がかかることがあります）",
   "search_popout.tips.user": "ユーザー",
   "search_results.total": "{count, number}件の結果",
   "standalone.public_title": "今こんな話をしています...",
