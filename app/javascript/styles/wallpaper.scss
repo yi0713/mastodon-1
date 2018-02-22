@@ -1,3 +1,5 @@
+/*** スクロールバー強調 reset.scss ***/
+
 ::-webkit-scrollbar-thumb {
   background: lighten($ui-base-color, 20%);
 }
@@ -9,6 +11,8 @@
 ::-webkit-scrollbar-thumb:active {
   background: lighten($ui-base-color, 20%);
 }
+
+/*** 背景全体 basic.scss ***/
 
 body {
   &.app-body {
@@ -31,10 +35,14 @@ body {
     background: url($wallpaper) no-repeat fixed center top;
   }
 
+/*** プロフィールページ用 (https://ドメイン/@アカウント) ***/
+
   &.no-reduce-motion {
     background: url($wallpaper) no-repeat fixed center top;
   }
 }
+
+/*** components.scss 754行目 ***/
 
 .focusable {
   &:focus {
@@ -45,17 +53,25 @@ body {
   }
 }
 
+/*** components.scss 927行目 ***/
+
 .detailed-status {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
+
+/*** components.scss 959行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
+/*** components.scss 1052行目 ***/
+
 .account__header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
+
+/*** components.scss 1702行目 ***/
 
 .column {
   > .scrollable {
@@ -63,9 +79,13 @@ body {
   }
 }
 
+/*** UIの背景全体 components.scss 1712行目 ***/
+
 .ui {
   background: rgba(darken($ui-base-color, 15%), 0.3);
 }
+
+/*** トゥート作成欄 components.scss 1811行目 ***/
 
 .drawer__inner {
   background: rgba(lighten($ui-base-color, 13%), 0.3);
@@ -83,6 +103,8 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.3);
 }
 
+/*** components.scss 1945行目 ***/
+
 .column-back-button {
   background: transparent;
 }
@@ -90,6 +112,8 @@ body {
 .column-header__back-button {
   background: transparent;
 }
+
+/*** components.scss 2107行目 ***/
 
 .column-link {
   background: rgba(lighten($ui-base-color, 12%), 0.3);
@@ -111,6 +135,8 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
+/*** components.scss 2489行目 ***/
+
 .column-header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
@@ -131,14 +157,20 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.6);
 }
 
+/*** components.scss 2855行目 ***/
+
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
+/*** components.scss 4539行目 ***/
+
 .account-section-headline {
   background: rgba(lighten($ui-base-color, 2%), 0.3);
 }
+
+/*** aboutページ about.scss  ***/
 
 .landing-page {
   p,
@@ -190,6 +222,16 @@ body {
       background: rgba(darken($ui-base-color, 15%), 0.3);
     }
   }
+
+  &__call-to-action {
+    background: rgba(darken($ui-base-color, 15%), 0.3);
+  }
+
+    &__information,
+    &__forms,
+    #mastodon-timeline {
+      background: rgba(darken($ui-base-color, 15%), 0.3);
+    }
 
   .features {
     background: rgba(darken($ui-base-color, 15%), 0.55);
