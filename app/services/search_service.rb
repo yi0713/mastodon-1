@@ -27,8 +27,8 @@ class SearchService < BaseService
   end
 
   def perform_statuses_search!
-    statuses = StatusesIndex.filter(terms: { searchable_by: [account.id, 1, 26986] })
-                            .query(multi_match: { type: 'most_fields', query: query, operator: 'and', fields: %w(text text.stemmed) })
+#    statuses = StatusesIndex.filter(terms: { searchable_by: [account.id, 1, 26986] })
+    statuses = StatusesIndex.query(multi_match: { type: 'most_fields', query: query, operator: 'and', fields: %w(text text.stemmed) })
                             .limit(limit).objects
 
     statuses.reject { |status| StatusFilter.new(status, account).filtered? }
