@@ -218,7 +218,7 @@
   "search_popout.search_format": "高度な検索フォーマット",
   "search_popout.tips.hashtag": "ハッシュタグ",
   "search_popout.tips.status": "トゥート",
-  "search_popout.tips.text": "キーワードによる全文検索（時間がかかることがあります）",
+  "search_popout.tips.full_text": "キーワードによる全文検索（少し時間がかかることがあります）",
   "search_popout.tips.user": "ユーザー",
   "search_results.accounts": "人々",
   "search_results.hashtags": "ハッシュタグ",
