@@ -3,6 +3,7 @@ import Status from '../components/status';
 import { makeGetStatus } from '../selectors';
 import {
   replyCompose,
+  quoteCompose,
   mentionCompose,
   directCompose,
 } from '../actions/compose';
@@ -22,6 +23,8 @@ import {
   deleteStatus,
   hideStatus,
   revealStatus,
+  hideQuote,
+  revealQuote,
 } from '../actions/statuses';
 import { initMuteModal } from '../actions/mutes';
 import { initBlockModal } from '../actions/blocks';
@@ -82,6 +85,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     } else {
       dispatch(openModal('BOOST', { status, onReblog: this.onModalReblog }));
     }
+  },
+
+  onQuote (status, router) {
+    dispatch(quoteCompose(status, router));
   },
 
   onFavourite (status) {
@@ -169,6 +176,26 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
       dispatch(revealStatus(status.get('id')));
     } else {
       dispatch(hideStatus(status.get('id')));
+    }
+  },
+
+  onBlockDomain (domain) {
+    dispatch(openModal('CONFIRM', {
+      message: <FormattedMessage id='confirmations.domain_block.message' defaultMessage='Are you really, really sure you want to block the entire {domain}? In most cases a few targeted blocks or mutes are sufficient and preferable. You will not see content from that domain in any public timelines or your notifications. Your followers from that domain will be removed.' values={{ domain: <strong>{domain}</strong> }} />,
+      confirm: intl.formatMessage(messages.blockDomainConfirm),
+      onConfirm: () => dispatch(blockDomain(domain)),
+    }));
+  },
+
+  onUnblockDomain (domain) {
+    dispatch(unblockDomain(domain));
+  },
+  
+  onQuoteToggleHidden (status) {
+    if (status.get('quote_hidden')) {
+      dispatch(revealQuote(status.get('id')));
+    } else {
+      dispatch(hideQuote(status.get('id')));
     }
   },
 
