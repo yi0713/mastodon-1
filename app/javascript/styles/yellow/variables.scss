@@ -1,7 +1,7 @@
 // Theme: yellow
 
 // Commonly used web colors
-$black: #555533;            // Black
+$black: #000000;            // Black
 $white: #ffffff;            // White
 $success-green: #79bd9a;    // Padua
 $error-red: #df405a;        // Cerise
@@ -20,6 +20,11 @@ $base-overlay-background: $white !default;
 $base-border-color: $black !default;
 $simple-background-color: $black !default;
 $primary-text-color: $black !default;
+$darker-text-color: rgba($primary-text-color, 0.7) !default;
+$highlight-text-color: $classic-highlight-color !default;
+$inverted-text-color: $white !default;
+$lighter-text-color: rgba($inverted-text-color, 0.7) !default;
+$action-button-color: #8d9ac2;
 $valid-value-color: $success-green !default;
 $error-value-color: $error-red !default;
 
