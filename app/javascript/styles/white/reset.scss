@@ -59,17 +59,17 @@ table {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 26%);
   border: 0px none $base-border-color;
   border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: darken($ui-base-color, 12%);
+  background: darken($ui-base-color, 34%);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: darken($ui-base-color, 8%);
+  background: darken($ui-base-color, 26%);
 }
 
 ::-webkit-scrollbar-track {

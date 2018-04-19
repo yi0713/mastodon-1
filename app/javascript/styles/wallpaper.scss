@@ -1,15 +1,15 @@
-/*** スクロールバー強調 reset.scss ***/
+/*** スクロールバー reset.scss ***/
 
 ::-webkit-scrollbar-thumb {
-  background: lighten($ui-base-color, 20%);
+  background: rgba(lighten($ui-base-color, 20%), 0.6);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: lighten($ui-base-color, 28%);
+  background: rgba(lighten($ui-base-color, 28%), 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: lighten($ui-base-color, 20%);
+  background: rgba(lighten($ui-base-color, 20%), 0.6);
 }
 
 /*** 背景全体 basic.scss ***/
@@ -42,10 +42,14 @@ body {
   }
 }
 
-/*** components.scss 754行目 ***/
+/*** components.scss 739行目 ***/
 
 .focusable {
   &:focus {
+    .status.status-direct {
+      background: rgba(lighten($ui-base-color, 12%), 0.3);
+    }
+
     .detailed-status,
     .detailed-status__action-bar {
       background: rgba(lighten($ui-base-color, 8%), 0.3);
@@ -53,25 +57,25 @@ body {
   }
 }
 
-/*** components.scss 927行目 ***/
+/*** components.scss 941行目 ***/
 
 .detailed-status {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 959行目 ***/
+/*** components.scss 973行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1052行目 ***/
+/*** components.scss 1089行目 ***/
 
 .account__header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1702行目 ***/
+/*** components.scss 1740行目 ***/
 
 .column {
   > .scrollable {
@@ -79,13 +83,13 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1712行目 ***/
+/*** UIの背景全体 components.scss 1752行目 ***/
 
 .ui {
   background: rgba(darken($ui-base-color, 15%), 0.3);
 }
 
-/*** トゥート作成欄 components.scss 1811行目 ***/
+/*** トゥート作成欄 components.scss 1853行目 ***/
 
 .drawer__inner {
   background: rgba(lighten($ui-base-color, 13%), 0.3);
@@ -103,7 +107,7 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 1945行目 ***/
+/*** components.scss 1992行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -113,7 +117,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2107行目 ***/
+/*** components.scss 2154行目 ***/
 
 .column-link {
   background: rgba(lighten($ui-base-color, 12%), 0.3);
@@ -135,7 +139,7 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2489行目 ***/
+/*** components.scss 2538行目 ***/
 
 .column-header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
@@ -157,14 +161,14 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 2855行目 ***/
+/*** components.scss 2901行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4539行目 ***/
+/*** components.scss (削除) ***/
 
 .account-section-headline {
   background: rgba(lighten($ui-base-color, 2%), 0.3);
@@ -321,4 +325,3 @@ body {
 .column-link > .fa-star::before, .column-header > button > .fa-star::before {
     filter: grayscale(100%) brightness(150%) opacity(100%);
 }
-
