@@ -6,13 +6,13 @@ $white: #ffffff;            // White
 $success-green: #79bd9a;    // Padua
 $error-red: #df405a;        // Cerise
 $warning-red: #ff5050;      // Sunset Orange
-$gold-star: #ca8f04;        // Dark Goldenrod
+$gold-star: #ffa500;        // Orange
 
 // Values from the classic Mastodon UI
-$classic-base-color: #fcfcdd;
+$classic-base-color: #fcfab0;
 $classic-primary-color: #c09070;
-$classic-secondary-color: #ff9933;
-$classic-highlight-color: #99dd99;
+$classic-secondary-color: #ff8050;
+$classic-highlight-color: #66dd99;
 
 // Variables for defaults in UI
 $base-shadow-color: $white !default;
@@ -24,7 +24,7 @@ $darker-text-color: rgba($primary-text-color, 0.7) !default;
 $highlight-text-color: $classic-highlight-color !default;
 $inverted-text-color: $white !default;
 $lighter-text-color: rgba($inverted-text-color, 0.7) !default;
-$action-button-color: #8d9ac2;
+$action-button-color: #aabbdd;
 $valid-value-color: $success-green !default;
 $error-value-color: $error-red !default;
 
