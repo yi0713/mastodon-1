@@ -9,3 +9,4 @@ light-blue: styles/application_light-blue.scss
 pink: styles/application_pink.scss
 yellow: styles/application_yellow.scss
 white: styles/application_white.scss
+contrast: styles/contrast.scss
