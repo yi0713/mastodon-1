@@ -1,4 +1,5 @@
 default: styles/application.scss
+contrast: styles/contrast.scss
 blue: styles/application_blue.scss
 green: styles/application_green.scss
 dark-green: styles/application_dark-green.scss
@@ -9,4 +10,3 @@ light-blue: styles/application_light-blue.scss
 pink: styles/application_pink.scss
 yellow: styles/application_yellow.scss
 white: styles/application_white.scss
-contrast: styles/contrast.scss
