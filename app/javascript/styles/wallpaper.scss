@@ -12,6 +12,20 @@
   background: rgba(lighten($ui-base-color, 20%), 0.6);
 }
 
+::-webkit-scrollbar-track {
+  border: 0px none rgba($base-border-color, 0.6);
+  border-radius: 0;
+  background: rgba($base-overlay-background, 0.1);
+}
+
+::-webkit-scrollbar-track:hover {
+  background: rgba($ui-base-color, 0.6);
+}
+
+::-webkit-scrollbar-track:active {
+  background: rgba($ui-base-color, 0.6);
+}
+
 /*** 背景全体 basic.scss ***/
 
 body {
