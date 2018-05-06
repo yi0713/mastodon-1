@@ -56,7 +56,7 @@ body {
   }
 }
 
-/*** components.scss 700行目 ***/
+/*** components.scss 719行目 ***/
 
 .focusable {
   &:focus {
@@ -73,7 +73,7 @@ body {
   }
 }
 
-/*** components.scss 720行目 ***/
+/*** components.scss 765行目 ***/
 
 .status {
   &.status-direct {
@@ -81,25 +81,25 @@ body {
   }
 }
 
-/*** components.scss 898行目 ***/
+/*** components.scss 917行目 ***/
 
 .detailed-status {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 930行目 ***/
+/*** components.scss 949行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1046行目 ***/
+/*** components.scss 1077行目 ***/
 
 .account__header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1693行目 ***/
+/*** components.scss 1724行目 ***/
 
 .column {
   > .scrollable {
@@ -107,13 +107,13 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1705行目 ***/
+/*** UIの背景全体 components.scss 1736行目 ***/
 
 .ui {
   background: rgba(darken($ui-base-color, 15%), 0.3);
 }
 
-/*** トゥート作成欄 components.scss 1806行目 ***/
+/*** トゥート作成欄 components.scss 1837行目 ***/
 
 .drawer__inner {
   background: rgba(lighten($ui-base-color, 13%), 0.3);
@@ -131,7 +131,7 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 1945行目 ***/
+/*** components.scss 1976行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -141,7 +141,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2107行目 ***/
+/*** components.scss 2138行目 ***/
 
 .column-link {
   background: rgba(lighten($ui-base-color, 12%), 0.3);
@@ -163,11 +163,13 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2480行目 ***/
+/*** components.scss 2511行目 ***/
 
 .column-header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
+
+/*** components.scss 2564行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -181,31 +183,33 @@ body {
   }
 }
 
+/*** components.scss 2613行目 ***/
+
 .column-header__collapsible-inner {
   background: rgba(lighten($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 2842行目 ***/
+/*** components.scss 2873行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4694行目 ***/
+/*** components.scss 4735行目 ***/
 
 .account__section-headline {
   background: rbga(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 5121行目 ***/
+/*** components.scss 5162行目 ***/
 
 .account__header .account__header__fields {
-  th {
+  dt {
     background: rgba(darken($ui-base-color, 4%), 0.3);
   }
 
-  td {
+  dd {
     background: rgba($ui-base-color, 0.3);
   }
 }
