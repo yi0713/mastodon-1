@@ -32,10 +32,10 @@ $ui-highlight-color: $classic-highlight-color !default;
 // Variables for texts
 $primary-text-color: $black !default;
 $darker-text-color: $ui-primary-color !default;
-$dark-text-color: $ui-base-lighter-color !default;
+$dark-text-color: #777777;
 $secondary-text-color: $ui-secondary-color !default;
 $highlight-text-color: $ui-highlight-color !default;
-$action-button-color: $ui-base-lighter-color !default;
+$action-button-color: rgba($black, 0.4);
 // For texts on inverted backgrounds
 $inverted-text-color: $ui-base-color !default;
 $lighter-text-color: $ui-base-lighter-color !default;
