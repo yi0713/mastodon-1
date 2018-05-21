@@ -198,6 +198,8 @@ body {
 
 /*** components.scss 4735行目 ***/
 
+.community-timeline__section-headline,
+.public-timeline__section-headline,
 .account__section-headline {
   background: rbga(lighten($ui-base-color, 4%), 0.3);
 }
