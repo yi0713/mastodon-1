@@ -775,8 +775,19 @@ ja:
       <p>オリジナルの出典: <a href="https://github.com/discourse/discourse">Discourse privacy policy</a></p>
     title: "%{instance} 利用規約・プライバシーポリシー"
   themes:
-    contrast: ハイコントラスト
-    default: Mastodon
+    default: Mastodon標準
+    contrast: Mastodonﾊｲｺﾝﾄﾗｽﾄ
+    mastodon-light: Mastodonライト
+    blue: クラゲ丼blue
+    green: クラゲ丼green
+    dark-green: クラゲ丼dark-green
+    chocolate: クラゲ丼chocolate
+    purple: クラゲ丼purple
+    light-grey: クラゲ丼light-grey
+    light-blue: クラゲ丼light-blue
+    pink: クラゲ丼pink
+    yellow: クラゲ丼yellow
+    white: クラゲ丼white
   time:
     formats:
       default: "%Y年%m月%d日 %H:%M"

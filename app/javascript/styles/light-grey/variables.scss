@@ -18,7 +18,7 @@ $classic-highlight-color: #6699dd;
 $base-shadow-color: $white !default;
 $base-overlay-background: $white !default;
 $base-border-color: $black !default;
-$simple-background-color: $black !default;
+$simple-background-color: $white !default;
 $valid-value-color: $success-green !default;
 $error-value-color: $error-red !default;
 
@@ -37,7 +37,7 @@ $secondary-text-color: $ui-secondary-color !default;
 $highlight-text-color: $ui-highlight-color !default;
 $action-button-color: rgba($black, 0.4);
 // For texts on inverted backgrounds
-$inverted-text-color: $ui-base-color !default;
+$inverted-text-color: darken($ui-base-color, 50%);
 $lighter-text-color: $ui-base-lighter-color !default;
 $light-text-color: $ui-primary-color !default;
 

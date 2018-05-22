@@ -495,7 +495,7 @@
 
   .compose-form__buttons-wrapper {
     padding: 10px;
-    background: lighten($simple-background-color, 8%);
+    background: darken($simple-background-color, 8%);
     border-radius: 0 0 4px 4px;
     display: flex;
     justify-content: space-between;
