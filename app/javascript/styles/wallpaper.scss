@@ -220,6 +220,13 @@ body {
   }
 }
 
+/*** components.scss 5219行目 ***/
+
+trends {
+  &__header {
+    background: rgba(lighten($ui-base-color, 2%), 0.3);
+  }
+}
 
 /*** aboutページ about.scss  ***/
 
