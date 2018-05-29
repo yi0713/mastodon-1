@@ -117,10 +117,6 @@ body {
 
 .drawer__inner {
   background: rgba(darken($ui-base-color, 13%), 0.3);
-
-  &.darker {
-    background: rgba($ui-base-color, 0.3);
-  }
 }
 
 .drawer__inner__mastodon {
@@ -164,6 +160,12 @@ body {
 }
 
 .getting-started {
+  background: rgba($ui-base-color, 0.3);
+}
+
+/*** components.scss 2435行目 ***/
+
+.regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
@@ -220,6 +222,13 @@ body {
   }
 }
 
+/*** components.scss 5219行目 ***/
+
+trends {
+  &__header {
+    background: rgba(darken($ui-base-color, 2%), 0.3);
+  }
+}
 
 /*** aboutページ about.scss  ***/
 
