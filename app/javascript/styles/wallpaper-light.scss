@@ -99,7 +99,7 @@ body {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1723行目 ***/
+/*** components.scss 1705行目 ***/
 
 .column {
   > .scrollable {
@@ -107,13 +107,13 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1705行目 ***/
+/*** UIの背景全体 components.scss 1717行目 ***/
 
 .ui {
   background: rgba(lighten($ui-base-color, 15%), 0.3);
 }
 
-/*** トゥート作成・検索欄 components.scss 1836行目 ***/
+/*** トゥート作成・検索欄 components.scss 1820行目 ***/
 
 .drawer__inner {
   background: rgba(darken($ui-base-color, 13%), 0.3);
@@ -131,7 +131,7 @@ body {
   background: rgba(darken($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 1975行目 ***/
+/*** components.scss 1959行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -141,7 +141,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2138行目 ***/
+/*** components.scss 2122行目 ***/
 
 .column-link {
   background: rgba(darken($ui-base-color, 12%), 0.3);
@@ -155,27 +155,32 @@ body {
 }
 
 .getting-started__wrapper,
-.getting_started {
+.getting-started,
+.flex-spacer {
   background: rgba($ui-base-color, 0.3);
 }
 
 .getting-started {
   background: rgba($ui-base-color, 0.3);
+
+  &__trends {
+    background: rgba($ui-base-color, 0.3);
+  }
 }
 
-/*** components.scss 2435行目 ***/
+/*** components.scss 2462行目 ***/
 
 .regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2511行目 ***/
+/*** components.scss 2538行目 ***/
 
 .column-header {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 2564行目 ***/
+/*** components.scss 2591行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -189,20 +194,20 @@ body {
   }
 }
 
-/*** components.scss 2613行目 ***/
+/*** components.scss 2640行目 ***/
 
 .column-header__collapsible-inner {
   background: rgba(darken($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 2873行目 ***/
+/*** components.scss 2900行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4746行目 ***/
+/*** components.scss 4769行目 ***/
 
 .community-timeline__section-headline,
 .public-timeline__section-headline,
@@ -210,7 +215,7 @@ body {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 5181行目 ***/
+/*** components.scss 5204行目 ***/
 
 .account__header .account__header__fields {
   dt {
@@ -222,7 +227,7 @@ body {
   }
 }
 
-/*** components.scss 5219行目 ***/
+/*** components.scss 5242行目 ***/
 
 trends {
   &__header {

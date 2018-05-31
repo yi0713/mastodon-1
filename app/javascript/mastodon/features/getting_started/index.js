@@ -24,6 +24,7 @@ const messages = defineMessages({
   direct: { id: 'navigation_bar.direct', defaultMessage: 'Direct messages' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
   follow_requests: { id: 'navigation_bar.follow_requests', defaultMessage: 'Follow requests' },
+  sign_out: { id: 'navigation_bar.logout', defaultMessage: 'Logout' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favourites' },
   blocks: { id: 'navigation_bar.blocks', defaultMessage: 'Blocked users' },
   domain_blocks: { id: 'navigation_bar.domain_blocks', defaultMessage: 'Hidden domains' },
@@ -99,19 +100,13 @@ export default class GettingStarted extends ImmutablePureComponent {
     navItems.push(
       <ColumnLink key='4' icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />,
       <ColumnLink key='5' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
-      <ColumnLink key='6' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
+      <ColumnLink key='6' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />,
+      <ColumnLink key='7' icon='cog' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />,
+      <ColumnLink key='8' icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
     );
 
     if (myAccount.get('locked')) {
       navItems.push(<ColumnLink key='7' icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
-    }
-
-    if (!multiColumn) {
-      navItems.push(
-        <ColumnSubheading key='9' text={intl.formatMessage(messages.settings_subheading)} />,
-        <ColumnLink key='6' icon='gears' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />,
-        <ColumnLink key='6' icon='lock' text={intl.formatMessage(messages.security)} href='/auth/edit' />
-      );
     }
 
     return (
@@ -130,31 +125,12 @@ export default class GettingStarted extends ImmutablePureComponent {
           {navItems}
         </div>
 
-        {multiColumn && trends && <div className='getting-started__trends'>
-          <div className='column-header__wrapper'>
-            <h1 className='column-header'>
-              <button>
-                <i className='fa fa-fire fa-fw' />
-                <FormattedMessage id='trends.header' defaultMessage='Trending now' />
-              </button>
-              <div className='column-header__buttons'>
-                <button className='column-header__button' title={intl.formatMessage(messages.refresh_trends)} aria-label={intl.formatMessage(messages.refresh_trends)}><i className='fa fa-refresh' /></button>
-              </div>
-            </h1>
-          </div>
-
-          <div className='getting-started__scrollable'>{trends.take(3).map(hashtag => <Hashtag key={hashtag.get('name')} hashtag={hashtag} />)}</div>
-        </div>}
-
-        {!multiColumn && <div className='flex-spacer' />}
-
         <div className='getting-started getting-started__footer'>
           <ul>
             {multiColumn && <li><Link to='/keyboard-shortcuts'><FormattedMessage id='navigation_bar.keyboard_shortcuts' defaultMessage='Hotkeys' /></Link> · </li>}
             <li><a href='/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this instance' /></a> · </li>
             <li><a href='/terms' target='_blank'><FormattedMessage id='getting_started.terms' defaultMessage='Terms of service' /></a> · </li>
             <li><a href='https://github.com/tootsuite/documentation#documentation' target='_blank'><FormattedMessage id='getting_started.documentation' defaultMessage='Documentation' /></a> · </li>
-            <li><a href='/auth/sign_out' data-method='delete'><FormattedMessage id='navigation_bar.logout' defaultMessage='Logout' /></a></li>
           </ul>
 
           <p>
