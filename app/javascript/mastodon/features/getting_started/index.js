@@ -11,9 +11,8 @@ import { me } from '../../initial_state';
 import { fetchFollowRequests } from '../../actions/accounts';
 import { List as ImmutableList } from 'immutable';
 import { Link } from 'react-router-dom';
-import { fetchTrends } from '../../actions/trends';
-import Hashtag from '../../components/hashtag';
 import NavigationBar from '../compose/components/navigation_bar';
+import TrendsContainer from './containers/trends_container';
 
 const messages = defineMessages({
   home_timeline: { id: 'tabs_bar.home', defaultMessage: 'Home' },
@@ -24,14 +23,12 @@ const messages = defineMessages({
   direct: { id: 'navigation_bar.direct', defaultMessage: 'Direct messages' },
   preferences: { id: 'navigation_bar.preferences', defaultMessage: 'Preferences' },
   follow_requests: { id: 'navigation_bar.follow_requests', defaultMessage: 'Follow requests' },
-  sign_out: { id: 'navigation_bar.logout', defaultMessage: 'Logout' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: 'Favourites' },
   blocks: { id: 'navigation_bar.blocks', defaultMessage: 'Blocked users' },
   domain_blocks: { id: 'navigation_bar.domain_blocks', defaultMessage: 'Hidden domains' },
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
   lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
-  refresh_trends: { id: 'trends.refresh', defaultMessage: 'Refresh' },
   discover: { id: 'navigation_bar.discover', defaultMessage: 'Discover' },
   personal: { id: 'navigation_bar.personal', defaultMessage: 'Personal' },
   security: { id: 'navigation_bar.security', defaultMessage: 'Security' },
@@ -40,12 +37,10 @@ const messages = defineMessages({
 const mapStateToProps = state => ({
   myAccount: state.getIn(['accounts', me]),
   unreadFollowRequests: state.getIn(['user_lists', 'follow_requests', 'items'], ImmutableList()).size,
-  trends: state.get('trends'),
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchFollowRequests: () => dispatch(fetchFollowRequests()),
-  fetchTrends: () => dispatch(fetchTrends()),
 });
 
 const badgeDisplay = (number, limit) => {
@@ -70,7 +65,6 @@ export default class GettingStarted extends ImmutablePureComponent {
     fetchFollowRequests: PropTypes.func.isRequired,
     unreadFollowRequests: PropTypes.number,
     unreadNotifications: PropTypes.number,
-    trends: ImmutablePropTypes.list,
   };
 
   componentDidMount () {
@@ -79,34 +73,47 @@ export default class GettingStarted extends ImmutablePureComponent {
     if (myAccount.get('locked')) {
       fetchFollowRequests();
     }
-
-    setTimeout(() => this.props.fetchTrends(), 5000);
   }
 
   render () {
-    const { intl, myAccount, multiColumn, unreadFollowRequests, trends } = this.props;
+    const { intl, myAccount, multiColumn, unreadFollowRequests } = this.props;
 
     const navItems = [];
+    let i = 1;
+    let height = 0;
 
     if (multiColumn) {
       navItems.push(
-        <ColumnSubheading key='1' text={intl.formatMessage(messages.discover)} />,
-        <ColumnLink key='2' icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
-        <ColumnLink key='3' icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
-        <ColumnSubheading key='8' text={intl.formatMessage(messages.personal)} />
+        <ColumnSubheading key={i++} text={intl.formatMessage(messages.discover)} />,
+        <ColumnLink key={i++} icon='users' text={intl.formatMessage(messages.community_timeline)} to='/timelines/public/local' />,
+        <ColumnLink key={i++} icon='globe' text={intl.formatMessage(messages.public_timeline)} to='/timelines/public' />,
+        <ColumnSubheading key={i++} text={intl.formatMessage(messages.personal)} />
       );
+
+      height += 34*2 + 48*2;
     }
 
     navItems.push(
-      <ColumnLink key='4' icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />,
-      <ColumnLink key='5' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
-      <ColumnLink key='6' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />,
-      <ColumnLink key='7' icon='cog' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />,
-      <ColumnLink key='8' icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
+      <ColumnLink key={i++} icon='envelope' text={intl.formatMessage(messages.direct)} to='/timelines/direct' />,
+      <ColumnLink key={i++} icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
+      <ColumnLink key={i++} icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
     );
 
+    height += 48*3;
+
     if (myAccount.get('locked')) {
-      navItems.push(<ColumnLink key='7' icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
+      navItems.push(<ColumnLink key={i++} icon='users' text={intl.formatMessage(messages.follow_requests)} badge={badgeDisplay(unreadFollowRequests, 40)} to='/follow_requests' />);
+      height += 48;
+    }
+
+    if (!multiColumn) {
+      navItems.push(
+        <ColumnSubheading key={i++} text={intl.formatMessage(messages.settings_subheading)} />,
+        <ColumnLink key={i++} icon='gears' text={intl.formatMessage(messages.preferences)} href='/settings/preferences' />,
+        <ColumnLink key={i++} icon='lock' text={intl.formatMessage(messages.security)} href='/auth/edit' />
+      );
+
+      height += 34 + 48*2;
     }
 
     return (
@@ -120,10 +127,14 @@ export default class GettingStarted extends ImmutablePureComponent {
           </h1>
         </div>}
 
-        <div className='getting-started__wrapper'>
+        <div className='getting-started__wrapper' style={{ height }}>
           {!multiColumn && <NavigationBar account={myAccount} />}
           {navItems}
         </div>
+
+        {multiColumn && <TrendsContainer />}
+
+        {!multiColumn && <div className='flex-spacer' />}
 
         <div className='getting-started getting-started__footer'>
           <ul>
@@ -131,6 +142,7 @@ export default class GettingStarted extends ImmutablePureComponent {
             <li><a href='/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this instance' /></a> · </li>
             <li><a href='/terms' target='_blank'><FormattedMessage id='getting_started.terms' defaultMessage='Terms of service' /></a> · </li>
             <li><a href='https://github.com/tootsuite/documentation#documentation' target='_blank'><FormattedMessage id='getting_started.documentation' defaultMessage='Documentation' /></a> · </li>
+            <li><a href='/auth/sign_out' data-method='delete'><FormattedMessage id='navigation_bar.logout' defaultMessage='Logout' /></a></li>
           </ul>
 
           <p>
