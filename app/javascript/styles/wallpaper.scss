@@ -56,7 +56,7 @@ body {
   }
 }
 
-/*** components.scss 719行目 ***/
+/*** components.scss 747行目 ***/
 
 .focusable {
   &:focus {
@@ -73,7 +73,7 @@ body {
   }
 }
 
-/*** components.scss 765行目 ***/
+/*** components.scss 793行目 ***/
 
 .status {
   &.status-direct {
@@ -81,25 +81,25 @@ body {
   }
 }
 
-/*** components.scss 917行目 ***/
+/*** components.scss 945行目 ***/
 
 .detailed-status {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 949行目 ***/
+/*** components.scss 977行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1077行目 ***/
+/*** components.scss 1105行目 ***/
 
 .account__header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1705行目 ***/
+/*** components.scss 1761行目 ***/
 
 .column {
   > .scrollable {
@@ -107,13 +107,13 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1717行目 ***/
+/*** UIの背景全体 components.scss 1766行目 ***/
 
 .ui {
   background: rgba(darken($ui-base-color, 15%), 0.3);
 }
 
-/*** トゥート作成・検索欄 components.scss 1820行目 ***/
+/*** トゥート作成・検索欄 components.scss 1869行目 ***/
 
 .drawer__inner {
   background: rgba(lighten($ui-base-color, 13%), 0.3);
@@ -131,7 +131,7 @@ body {
   background: rgba(lighten($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 1959行目 ***/
+/*** components.scss 2008行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -141,7 +141,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2122行目 ***/
+/*** components.scss 2171行目 ***/
 
 .column-link {
   background: rgba(lighten($ui-base-color, 12%), 0.3);
@@ -160,27 +160,27 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-.getting-started {
-  background: rgba($ui-base-color, 0.3);
+/*** components.scss 2263行目 ***/
 
+.getting-started {
   &__trends {
     background: rgba($ui-base-color, 0.3);
   }
 }
 
-/*** components.scss 2462行目 ***/
+/*** components.scss 2527行目 ***/
 
 .regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2538行目 ***/
+/*** components.scss 2603行目 ***/
 
 .column-header {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 2591行目 ***/
+/*** components.scss 2656行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -194,28 +194,26 @@ body {
   }
 }
 
-/*** components.scss 2640行目 ***/
+/*** components.scss 2705行目 ***/
 
 .column-header__collapsible-inner {
   background: rgba(lighten($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 2900行目 ***/
+/*** components.scss 2965行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4769行目 ***/
+/*** components.scss 4834行目 ***/
 
-.community-timeline__section-headline,
-.public-timeline__section-headline,
 .account__section-headline {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 5204行目 ***/
+/*** components.scss 5285行目 ***/
 
 .account__header .account__header__fields {
   dt {
@@ -227,7 +225,7 @@ body {
   }
 }
 
-/*** components.scss 5242行目 ***/
+/*** components.scss 5323行目 ***/
 
 trends {
   &__header {
