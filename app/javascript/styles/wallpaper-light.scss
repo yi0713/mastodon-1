@@ -100,6 +100,15 @@ body {
   }
 }
 
+.box-widget {
+  background: rgba($ui-base-color, 0.3);
+}
+
+.contact-widget,
+.landing-page__information.contact-widget {
+  background: rgba($ui-base-color, 0.3);
+}
+
 .moved-account-widget {
   background: rgba($ui-base-color, 0.3);
 }
