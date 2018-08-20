@@ -37,7 +37,8 @@
 
   &--destructive {
     transition: none;
-     &:active,
+
+    &:active,
     &:focus,
     &:hover {
       background-color: $error-red;
@@ -229,7 +230,6 @@
 
 .dropdown-menu {
   position: absolute;
-  transform-origin: 50% 0;
 }
 
 .invisible {
@@ -516,7 +516,7 @@
 
   .compose-form__buttons-wrapper {
     padding: 10px;
-    background: darken($simple-background-color, 8%);
+    background: lighten($simple-background-color, 8%);
     border-radius: 0 0 4px 4px;
     display: flex;
     justify-content: space-between;
@@ -638,6 +638,7 @@
   overflow: hidden;
   white-space: pre-wrap;
   padding-top: 2px;
+  color: $primary-text-color;
 
   &:focus {
     outline: 0;
@@ -937,11 +938,11 @@
     margin-right: 11px;
     align-items: center;
 
-     .status__action-bar-button {
+    .status__action-bar-button {
       margin-right: 4px;
     }
 
-     &__label {
+    &__label {
       display: inline-block;
       width: 14px;
       font-size: 12px;
@@ -1631,6 +1632,22 @@ a.account__display-name {
 
   ul {
     list-style: none;
+  }
+
+  &.left {
+    transform-origin: 100% 50%;
+  }
+
+  &.top {
+    transform-origin: 50% 100%;
+  }
+
+  &.bottom {
+    transform-origin: 50% 0;
+  }
+
+  &.right {
+    transform-origin: 0 50%;
   }
 }
 
@@ -3298,7 +3315,14 @@ a.status-card {
   border-radius: 4px;
   margin-left: 40px;
   overflow: hidden;
-  transform-origin: 50% 0;
+
+  &.top {
+    transform-origin: 50% 100%;
+  }
+
+  &.bottom {
+    transform-origin: 50% 0;
+  }
 }
 
 .privacy-dropdown__option {
@@ -3368,6 +3392,10 @@ a.status-card {
         color: $primary-text-color;
       }
     }
+  }
+
+  &.top .privacy-dropdown__value {
+    border-radius: 0 0 4px 4px;
   }
 
   .privacy-dropdown__dropdown {
@@ -4172,6 +4200,10 @@ a.status-card {
 
   .status__content a {
     color: $highlight-text-color;
+  }
+
+  .status__content p {
+    color: $inverted-text-color;
   }
 
   @media screen and (max-width: 480px) {
@@ -5017,8 +5049,8 @@ noscript {
         transition: opacity $duration * 0.5 $delay + $duration * 0.5,
                     transform $duration $delay;
       }
-   }
- }
+    }
+  }
 
   .is-composing {
     .tabs-bar,

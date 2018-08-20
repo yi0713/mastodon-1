@@ -154,9 +154,8 @@ code {
       margin-bottom: 15px;
     }
 
-    li {
-      float: left;
-      width: 50%;
+    ul {
+      columns: 2;
     }
   }
 
@@ -285,7 +284,7 @@ code {
 
   .actions {
     margin-top: 30px;
-    display: block;
+    display: flex;
 
     &.actions--top {
       margin-top: 0;
