@@ -64,16 +64,20 @@ body {
   }
 }
 
-/*** containers.scss 135行目 ***/
+/*** containers.scss 195行目 ***/
 
 .public-layout {
   .header {
     background: rgba(lighten($ui-base-color, 8%), 0.3);
   }
 
-/*** containers.scss 327行目 ***/
+/*** containers.scss 343行目 ***/
 
   .public-account-header {
+    &__image {
+      background: rgba(darken($ui-base-color, 12%), 0.3);
+    }
+
     &__bar {
       &::before {
         background: rgba(lighten($ui-base-color, 4%), 0.3);
@@ -81,7 +85,7 @@ body {
     }
   }
 
-/*** containers.scss 594行目 ***/
+/*** containers.scss 680行目 ***/
 
   .public-account-bio {
     background: rgba(lighten($ui-base-color, 8%), 0.3);
