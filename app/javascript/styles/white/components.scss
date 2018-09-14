@@ -1297,6 +1297,11 @@ a .account__avatar {
   flex: 0 1 100%;
   border-right: 1px solid darken($ui-base-color, 8%);
   padding: 10px 0;
+  border-bottom: 4px solid transparent;
+
+  &.active {
+    border-bottom: 4px solid $ui-highlight-color;
+  }
 
   & > span {
     display: block;
@@ -2296,15 +2301,18 @@ a.account__display-name {
       color: $dark-text-color;
       font-size: 13px;
       margin-bottom: 20px;
-       a {
+
+      a {
         color: $dark-text-color;
         text-decoration: underline;
       }
     }
-     a {
+
+    a {
       text-decoration: none;
       color: $darker-text-color;
-       &:hover,
+
+      &:hover,
       &:focus,
       &:active {
         text-decoration: underline;
