@@ -1,3 +1,10 @@
+@function hex-color($color) {
+  @if type-of($color) == 'color' {
+    $color: str-slice(ie-hex-str($color), 4);
+  }
+  @return '%23' + unquote($color)
+}
+
 body {
   font-family: 'mastodon-font-sans-serif', sans-serif;
   background: lighten($ui-base-color, 8%);
@@ -46,7 +53,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
 
-     &--active {
+    &--active {
       overflow-y: hidden;
       margin-right: 13px;
     }
