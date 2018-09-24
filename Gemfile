@@ -104,7 +104,7 @@ group :development, :test do
 end
 
 group :production, :test do
-  gem 'private_address_check', '~> 0.4.1'
+  gem 'private_address_check', '~> 0.5'
 end
 
 group :test do
