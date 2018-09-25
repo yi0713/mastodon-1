@@ -3,10 +3,10 @@
 // Commonly used web colors
 $black: #000000;            // Black
 $white: #ffffff;            // White
-$success-green: #79bd9a;    // Padua
-$error-red: #df405a;        // Cerise
-$warning-red: #ff5050;      // Sunset Orange
-$gold-star: #ffa500;        // Orange
+$success-green: #79bd9a !default;    // Padua
+$error-red: #df405a !default;        // Cerise
+$warning-red: #ff5050 !default;      // Sunset Orange
+$gold-star: #ffa500 !default;        // Orange
 
 // Values from the classic Mastodon UI
 $classic-base-color: #fcfcfc;
@@ -50,3 +50,7 @@ $media-modal-media-max-width: 100%;
 $media-modal-media-max-height: 80%;
 
 $no-gap-breakpoint: 415px;
+
+$font-sans-serif: 'mastodon-font-sans-serif' !default;
+$font-display: 'mastodon-font-display' !default;
+$font-monospace: 'mastodon-font-monospace' !default;
