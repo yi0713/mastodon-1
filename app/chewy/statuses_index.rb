@@ -12,16 +12,15 @@ class StatusesIndex < Chewy::Index
     },
     analyzer: {
       content: {
-        type: 'custom',
-        tokenizer: 'sudachi_tokenizer',
         filter: %w(
-          sudachi_baseform
-          sudachi_ja_stop
-          sudachi_part_of_speech
-          sudachi_readingform
-          cjk_width
           lowercase
+          cjk_width
+          sudachi_part_of_speech
+          sudachi_ja_stop
+          sudachi_baseform
         ),
+        tokenizer: 'sudachi_tokenizer',
+        type: 'custom',
       },
     },
   }
