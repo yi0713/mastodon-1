@@ -8,6 +8,8 @@ class StatusesIndex < Chewy::Index
         mode: 'search',
         discard_punctuation: true,
         resources_path: '/etc/elasticsearch',
+        systemDict: 'system_core.dic',
+        userDict: ['sudachi_user.dic'],
       },
     },
     analyzer: {
