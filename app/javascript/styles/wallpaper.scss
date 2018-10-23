@@ -90,6 +90,25 @@ body {
   .public-account-bio {
     background: rgba(lighten($ui-base-color, 8%), 0.3);
   }
+
+/*** containers.scss 782行目 ***/
+
+  .card-grid {
+    @media screen and (max-width: $no-gap-breakpoint) {
+
+      & > div {
+        .card__bar {
+          background: rgba($ui-base-color, 0.7);
+
+          &:hover,
+          &:active,
+          &:focus {
+            background: rgba(lighten($ui-base-color, 4%), 0.7);
+          }
+        }
+      }
+    }
+  }
 }
 
 /*** widgets.scss ***/
@@ -295,6 +314,109 @@ body {
 trends {
   &__header {
     background: rgba(lighten($ui-base-color, 2%), 0.3);
+  }
+}
+
+/*** forms.scss 86行目 ***/
+
+.simple_form {
+  .hint {
+    code {
+      background: rgba(darken($ui-base-color, 12%), 0.7);
+    }
+  }
+
+/*** forms.scss 286行目 ***/
+
+  input[type=text],
+  input[type=number],
+  input[type=email],
+  input[type=password],
+  textarea {
+    background: rgba(darken($ui-base-color, 10%), 0.7);
+  }
+
+/*** forms.scss 356行目 ***/
+
+  button,
+  .button,
+  .block-button {
+    background: rgba($ui-highlight-color, 0.7);
+
+    &:hover {
+      background-color: rgba(lighten($ui-highlight-color, 5%), 0.7);
+    }
+
+    &:active,
+    &:focus {
+      background-color: rgba(darken($ui-highlight-color, 5%), 0.7);
+    }
+
+    &.negative {
+      background: rgba($error-value-color, 0.7);
+
+      &:hover {
+        background-color: rgba(lighten($error-value-color, 5%), 0.7);
+      }
+
+      &:active,
+      &:focus {
+        background-color: rgba(darken($error-value-color, 5%), 0.7);
+        background-color: darken($error-value-color, 5%);
+      }
+    }
+  }
+
+/*** forms.scss 406行目 ***/
+
+  select {
+    background: rgba(darken($ui-base-color, 10%), 0.7) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.933 18.467' height='19.698' width='15.929'><path d='M3.467 14.967l-3.393-3.5H14.86l-3.392 3.5c-1.866 1.925-3.666 3.5-4 3.5-.335 0-2.135-1.575-4-3.5zm.266-11.234L7.467 0 11.2 3.733l3.733 3.734H0l3.733-3.734z' fill='#{hex-color(lighten($ui-base-color, 12%))}'/></svg>") no-repeat right 8px center / auto 16px;
+  }
+}
+
+/*** forms.scss 736行目 ***/
+
+.input-copy {
+  background: rgba(darken($ui-base-color, 10%), 0.7);
+}
+
+/*** tables.scss ***/
+
+.table {
+  th,
+  td {
+  background: rgba(darken($ui-base-color, 4%), 0.7);
+  }
+}
+
+/*** accounts.scss ***/
+
+.card {
+  & > a {
+    &:hover,
+    &:active,
+    &:focus {
+      .card__bar {
+        background: rgba(lighten($ui-base-color, 8%), 0.7);
+      }
+    }
+  }
+}
+
+/*** dashboard.scss ***/
+
+.dashboard__counters {
+  & > div {
+    & > div,
+    & > a {
+      background: rgba(lighten($ui-base-color, 6%), 0.7);
+    }
+
+    & > a {
+      &:active {
+        background: rgba(lighten($ui-base-color, 10%), 0.7);
+      }
+    }
   }
 }
 
