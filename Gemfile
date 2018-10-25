@@ -96,7 +96,7 @@ gem 'faraday'
 group :development, :test do
   gem 'fabrication', '~> 2.20'
   gem 'fuubar', '~> 2.3'
-  gem 'i18n-tasks', '~> 0.9', require: false
+  gem 'i18n-tasks', '~> 0.9', require: false, git: 'https://github.com/Gargron/i18n-tasks.git', ref: '7a57fbe7000f4f8120e250a757ab345c28c6885c'
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3'
   gem 'rspec-rails', '~> 3.8'
@@ -107,7 +107,7 @@ group :production, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 3.9'
+  gem 'capybara', '~> 3.10'
   gem 'climate_control', '~> 0.2'
   gem 'faker', '~> 1.9'
   gem 'microformats', '~> 4.0'
