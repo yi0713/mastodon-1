@@ -71,12 +71,14 @@ body {
     background: rgba(darken($ui-base-color, 8%), 0.3);
   }
 
-/*** containers.scss 343行目 ***/
+/*** containers.scss 371行目 ***/
 
   .public-account-header {
     &__image {
       background: rgba(lighten($ui-base-color, 12%), 0.3);
     }
+
+/*** containers.scss 436行目 ***/
 
     &__bar {
       &::before {
@@ -85,13 +87,13 @@ body {
     }
   }
 
-/*** containers.scss 680行目 ***/
+/*** containers.scss 707行目 ***/
 
   .public-account-bio {
     background: rgba(darken($ui-base-color, 8%), 0.3);
   }
 
-/*** containers.scss 782行目 ***/
+/*** containers.scss 802行目 ***/
 
   .card-grid {
     @media screen and (max-width: $no-gap-breakpoint) {
@@ -140,7 +142,7 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 747行目 ***/
+/*** components.scss 780行目 ***/
 
 .focusable {
   &:focus {
@@ -157,33 +159,33 @@ body {
   }
 }
 
-/*** components.scss 793行目 ***/
+/*** components.scss 826行目 ***/
 
 .status {
-  &.status-direct {
+  &.status-direct:not(.read) {
     background: rgba(darken($ui-base-color, 8%), 0.3);
   }
 }
 
-/*** components.scss 945行目 ***/
+/*** components.scss 996行目 ***/
 
 .detailed-status {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 989行目 ***/
+/*** components.scss 1040行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1117行目 ***/
+/*** components.scss 1180行目 ***/
 
 .account__header {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1765行目 ***/
+/*** components.scss 1862行目 ***/
 
 .column {
   > .scrollable {
@@ -191,13 +193,13 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1777行目 ***/
+/*** UIの背景全体 components.scss 1867行目 ***/
 
 .ui {
   background: rgba(lighten($ui-base-color, 15%), 0.3);
 }
 
-/*** トゥート作成・検索欄 components.scss 1899行目 ***/
+/*** トゥート作成・検索欄 components.scss 1970行目 ***/
 
 .drawer__inner {
   background: rgba(darken($ui-base-color, 13%), 0.3);
@@ -215,7 +217,7 @@ body {
   background: rgba(darken($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 2019行目 ***/
+/*** components.scss 2120行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -225,7 +227,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2183行目 ***/
+/*** components.scss 2284行目 ***/
 
 .column-link {
   background: rgba(darken($ui-base-color, 12%), 0.3);
@@ -244,7 +246,7 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2275行目 ***/
+/*** components.scss 2376行目 ***/
 
 .getting-started {
   &__trends {
@@ -252,19 +254,19 @@ body {
   }
 }
 
-/*** components.scss 2539行目 ***/
+/*** components.scss 2668行目 ***/
 
 .regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2615行目 ***/
+/*** components.scss 2744行目 ***/
 
 .column-header {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 2668行目 ***/
+/*** components.scss 2797行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -278,26 +280,37 @@ body {
   }
 }
 
-/*** components.scss 2717行目 ***/
+/*** components.scss 2846行目 ***/
 
 .column-header__collapsible-inner {
   background: rgba(darken($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 2977行目 ***/
+/*** components.scss 3129行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4846行目 ***/
+/*** components.scss 4803行目 ***/
 
+.notification__filter-bar,
 .account__section-headline {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
+
+  button {
+    background: rgba(lighten($ui-base-color, 4%), 0.3);
+
+    &.active {
+      &::after {
+        border-color: transparent transparent darken($ui-base-color, 8%);
+      }
+    }
+  }
 }
 
-/*** components.scss 5297行目 ***/
+/*** components.scss 5327行目 ***/
 
 .account__header .account__header__fields {
   dt {
@@ -309,9 +322,9 @@ body {
   }
 }
 
-/*** components.scss 5335行目 ***/
+/*** components.scss 5347行目 ***/
 
-trends {
+.trends {
   &__header {
     background: rgba(darken($ui-base-color, 2%), 0.3);
   }
