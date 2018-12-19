@@ -301,8 +301,15 @@ body {
 
   button {
     background: rgba(lighten($ui-base-color, 4%), 0.3);
+    }
+
+  button,
+  a {
+    color: $action-button-color;
 
     &.active {
+      color: $success-green;
+
       &::after {
         border-color: transparent transparent darken($ui-base-color, 8%);
       }
