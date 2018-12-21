@@ -7,6 +7,7 @@
   = f.input :password_confirmation, placeholder: t('simple_form.labels.defaults.confirm_password'), required: true, input_html: { 'aria-label' => t('simple_form.labels.defaults.confirm_password'), :autocomplete => 'off' }, hint: false
 
   .actions
-    = f.button :button, t('auth.register'), type: :submit, class: 'button button-primary'
+    = render partial: 'auth/shared/recaptcha'
+    = f.button :button, t('auth.register'), type: :submit, class: 'button button-primary', disabled: true
 
   %p.hint.subtle-hint=t('auth.agreement_html', rules_path: about_more_path, terms_path: terms_path)
