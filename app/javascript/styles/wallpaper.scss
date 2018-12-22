@@ -272,10 +272,10 @@ body {
   background: transparent;
 
   &.active {
-    background: rgba(lighten($ui-base-color, 8%), 0.6);
+    background: rgba(lighten($ui-highlight-color, 8%), 0.6);
 
     &:hover {
-      background: rgba(lighten($ui-base-color, 14%), 0.6);
+      background: rgba(lighten($ui-highlight-color, 14%), 0.6);
     }
   }
 }
