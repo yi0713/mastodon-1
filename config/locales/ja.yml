@@ -1,12 +1,12 @@
 ---
 ja:
   about:
-    about_hashtag_html: ハッシュタグ <strong>#%{hashtag}</strong> の付いた公開トゥートです。どこでもいいので、連合に参加しているSNS上にアカウントを作れば会話に参加することができます。
+    about_hashtag_html: ハッシュタグ <strong>#%{hashtag}</strong> の付いた公開トゥートです。連合に参加しているいずれかのインスタンスにアカウントを作れば会話に参加することができます。
     about_mastodon_html: Mastodon は、オープンなウェブプロトコルを採用した、自由でオープンソースなソーシャルネットワークです。電子メールのような分散型の仕組みを採っています。
-    about_this: 詳細情報
+    about_this: クラゲ丼詳細
     administered_by: '管理者:'
     api: API
-    apps: アプリ
+    apps: アプリ (外部サイト)
     closed_registrations: 現在このインスタンスでの新規登録は受け付けていません。しかし、他のインスタンスにアカウントを作成しても全く同じネットワークに参加することができます。
     contact: 連絡先
     contact_missing: 未設定
@@ -532,9 +532,9 @@ ja:
     warning_html: 削除が保証されるのはこのインスタンス上のコンテンツのみです。他のインスタンス等、外部に広く共有されたコンテンツについては痕跡が残ることがあります。また、現在接続できないサーバーや、あなたの更新を受け取らなくなったサーバーに対しては、削除は反映されません。
     warning_title: 共有されたコンテンツについて
   directories:
-    directory: ディレクトリ
+    directory: クラゲ丼プロファイル
     explanation: 興味のある人を見つけよう
-    explore_mastodon: "%{title}を探索"
+    explore_mastodon: "%{title} プロファイル"
     people:
       one: "%{count} 人"
       other: "%{count} 人"
