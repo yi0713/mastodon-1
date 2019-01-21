@@ -559,7 +559,6 @@ ja:
     explanation: 関心を軸にユーザーを発見しよう
     explore_mastodon: "%{title} ディレクトリ"
     how_to_enable: あなたはディレクトリへの掲載を選択していません。下記から選択できます。ハッシュタグカラムに掲載するにはプロフィール文にハッシュタグを使用してください。
->>>>>>> 31e7940de553007ea2e863cb9a418ad46837431e
     people:
       one: "%{count} 人"
       other: "%{count} 人"
