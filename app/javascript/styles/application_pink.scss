@@ -5,7 +5,7 @@
 @import 'fonts/montserrat';
 
 @import 'white/reset';
-@import 'mastodon/basics';
+@import 'white/basics';
 @import 'white/containers';
 @import 'mastodon/lists';
 @import 'white/footer';
@@ -14,13 +14,13 @@
 @import 'white/forms';
 @import 'white/accounts';
 @import 'white/stream_entries';
-@import 'mastodon/boost';
+@import 'white/boost';
 @import 'white/components';
 @import 'white/introduction';
 @import 'mastodon/modal';
 @import 'white/emoji_picker';
 @import 'white/about';
-@import 'mastodon/tables';
+@import 'white/tables';
 @import 'white/admin';
 @import 'white/dashboard';
 @import 'white/rtl';
