@@ -33,9 +33,9 @@ class SearchService < BaseService
   end
 
   def perform_statuses_search!
-    definition = StatusesIndex.filter(terms: { searchable_by: [account.id, 1, 2510, 2529, 2531, 4305, 8618, 13238, 13525, 17661, 18737, 25969, 26986, 27935, 33745, 33878, 35120, 41177, 44147, 56961, 58372, 59058, 64905, 64906, 64907]})
-                            .query(match: { 'text.stemmed': { query: query, operator: 'and'}})
-                            .order(id: { order: 'desc' })
+    definition = StatusesIndex.filter(terms: { searchable_by: [@account.id, 1, 2510, 2529, 2531, 4305, 8618, 13238, 13525, 17661, 18737, 25969, 26986, 27935, 33745, 33878, 35120, 41177, 44147, 56961, 58372, 59058, 64905, 64906, 64907]})
+                              .query(match: { 'text.stemmed': { query: @query, operator: 'and'}})
+                              .order(id: { order: 'desc' })
 
     if @options[:account_id].present?
       definition = definition.filter(term: { account_id: @options[:account_id] })
