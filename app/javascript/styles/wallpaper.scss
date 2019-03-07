@@ -440,6 +440,32 @@ body {
   }
 }
 
+/*** polls.scss ***/
+
+.compose-form__poll-wrapper {
+  .button.button-secondary {
+    color: $ui-base-lighter-color;
+    border-color: $ui-base-lighter-color;
+  }
+}
+
+.poll__cancel {
+  .icon-button {
+    color: lighten($ui-base-lighter-color, 13%);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $ui-base-lighter-color;
+    }
+
+    &.disabled {
+      color: lighten($ui-base-lighter-color, 26%);
+    }
+  }
+}
+
+
 /*** aboutページ about.scss  ***/
 
 .landing-page {
