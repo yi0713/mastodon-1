@@ -1,29 +1,29 @@
 /*** スクロールバー reset.scss ***/
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(darken($ui-base-color, 12%), 0.6);
+  background: rgba(lighten($classic-highlight-color, 30%), 0.6);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(darken($ui-base-color, 18%), 0.6);
+  background: rgba(lighten($classic-highlight-color, 18%), 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(darken($ui-base-color, 12%), 0.6);
+  background: rgba(lighten($classic-highlight-color, 30%), 0.6);
 }
 
 ::-webkit-scrollbar-track {
   border: 0px none rgba($base-border-color, 0.6);
   border-radius: 0;
-  background: rgba($base-overlay-background, 0.1);
+  background: rgba($classic-highlight-color, 0.1);
 }
 
 ::-webkit-scrollbar-track:hover {
-  background: rgba($ui-base-color, 0.6);
+  background: rgba($classic-highlight-color, 0.2);
 }
 
 ::-webkit-scrollbar-track:active {
-  background: rgba($ui-base-color, 0.6);
+  background: rgba($classic-highlight-color, 0.2);
 }
 
 /*** 背景全体 basic.scss ***/
@@ -436,6 +436,31 @@ body {
       &:active {
         background: rgba(darken($ui-base-color, 10%), 0.7);
       }
+    }
+  }
+}
+
+/*** polls.scss ***/
+
+.compose-form__poll-wrapper {
+  .button.button-secondary {
+    color: $ui-base-lighter-color;
+    border-color: $ui-base-lighter-color;
+  }
+}
+
+.poll__cancel {
+  .icon-button {
+    color: lighten($ui-base-lighter-color, 13%);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $ui-base-lighter-color;
+    }
+
+    &.disabled {
+      color: lighten($ui-base-lighter-color, 26%);
     }
   }
 }
