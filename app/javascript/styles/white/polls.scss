@@ -5,6 +5,7 @@
   li {
     margin-bottom: 10px;
     position: relative;
+    height: 18px + 12px;
   }
 
   &__chart {
@@ -27,6 +28,9 @@
     padding: 6px 0;
     line-height: 18px;
     cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     input[type=radio],
     input[type=checkbox] {
@@ -184,5 +188,17 @@
 
   .icon-button.disabled {
     color: lighten($simple-background-color, 14%);
+  }
+}
+
+.muted .poll {
+  color: $dark-text-color;
+
+  &__chart {
+    background: rgba(lighten($ui-primary-color, 14%), 0.2);
+
+    &.leading {
+      background: rgba($ui-highlight-color, 0.2);
+    }
   }
 }
