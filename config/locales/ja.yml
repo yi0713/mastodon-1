@@ -10,19 +10,19 @@ ja:
     api: API
     apps: アプリ
     apps_platforms: iOSやAndroid、その他プラットフォームから使用する
-    browse_directory: ディレクトリで関心を軸に見つける
-    browse_public_posts: Mastodonの公開ライブストリームを見てみる
+    browse_directory: おもな公開ユーザーが登録されています
+    browse_public_posts: クラゲ丼の公開ライブストリームを見てみる
     contact: 連絡先
     contact_missing: 未設定
     contact_unavailable: N/A
-    discover_users: ユーザーを見つける
+    discover_users: クラゲ丼ディレクトリ
     documentation: ドキュメント
     extended_description_html: |
       <h3>ルールを書くのに適した場所</h3>
       <p>詳細説明が設定されていません。</p>
-    federation_hint_html: "%{instance} にアカウントを作ればどこのMastodonや互換性のあるサーバーのユーザーでもフォローできます。"
+    federation_hint_html: クラゲ丼へようこそ。ここにアカウントを作れば他のMastodonや互換SNSのユーザーを誰でもフォローできます。
     generic_description: "%{domain} は、Mastodon サーバーの一つです"
-    get_apps: モバイルアプリを試す
+    get_apps: モバイルアプリを試す (外部サイト)
     hosted_on: Mastodon hosted on %{domain}
     learn_more: クラゲ丼について
     learn_more_joinmastodon: Mastodonについて(外部サイト)
@@ -34,7 +34,7 @@ ja:
       one: トゥート
       other: トゥート
     status_count_before: トゥート数
-    tagline: Follow friends and discover new ones
+    tagline: クラゲ丼から新しい友達を見つけよう
     terms: 利用規約
     user_count_after:
       one: 人
