@@ -10,8 +10,8 @@ ja:
     api: API
     apps: アプリ
     apps_platforms: iOSやAndroidなど、各種環境から利用できます
-    browse_directory: ディレクトリから気になる人を探しましょう
-    browse_public_posts: Mastodonの公開ライブストリームをご覧ください
+    browse_directory: プロフィールを公開しているメンバー
+    browse_public_posts: クラゲ丼の公開ライブストリームはこちら
     contact: 連絡先
     contact_missing: 未設定
     contact_unavailable: N/A
@@ -20,14 +20,14 @@ ja:
     extended_description_html: |
       <h3>ルールを書くのに適した場所</h3>
       <p>詳細説明が設定されていません。</p>
-    federation_hint_html: "%{instance} にアカウントがあればどの互換性のあるサーバーのユーザーでもフォローできるでしょう。"
+    federation_hint_html: クラゲ丼にアカウントがあれば他の互換サーバー(Mastodon, Pleroma, Misskeyなど) のユーザーもフォローできます。"
     generic_description: "%{domain} は、Mastodon サーバーの一つです"
-    get_apps: モバイルアプリを試す (外部サイト)
+    get_apps: モバイルアプリを探す (外部サイト)
     hosted_on: Mastodon hosted on %{domain}
     learn_more: クラゲ丼について
     learn_more_joinmastodon: Mastodonについて(外部サイト)
     privacy_policy: プライバシーポリシー
-    see_whats_happening: やりとりを見てみる
+    see_whats_happening: 今こんな話をしています...
     server_stats: 'サーバー統計:'
     source_code: ソースコード
     status_count_after:
