@@ -720,46 +720,21 @@
     margin-bottom: 20px;
   }
 
-<<<<<<< HEAD
   blockquote {
     white-space: normal;
-=======
-  h1,
-  h2 {
-    font-weight: 700;
-    font-size: 18px;
-  }
->>>>>>> 1d1ad44de... Improve styling of rich text
 
     p:last-child {
       margin-bottom: 0;
     }
   }
 
-<<<<<<< HEAD
   ul,
   ol {
     p {
-=======
-  h3,
-  h4,
-  h5 {
-    font-weight: 500;
-  }
-
-  blockquote {
-    padding-left: 10px;
-    border-left: 3px solid $darker-text-color;
-    color: $darker-text-color;
-    white-space: normal;
-
-    p:last-child {
->>>>>>> 1d1ad44de... Improve styling of rich text
       margin-bottom: 0;
     }
   }
 
-<<<<<<< HEAD
   &:not(.rich-text) {
     del {
       text-decoration: none;
@@ -790,12 +765,6 @@
     h2::before {
       content: '## ';
     }
-=======
-  b,
-  strong {
-    font-weight: 700;
-  }
->>>>>>> 1d1ad44de... Improve styling of rich text
 
     h3::before {
       content: '### ';
@@ -826,7 +795,6 @@
     }
   }
 
-<<<<<<< HEAD
   &:not(.rich-blocks) {
     blockquote {
       position: relative;
@@ -852,14 +820,6 @@
     li {
       position: relative;
       padding-left: 1em;
-=======
-  ul,
-  ol {
-    margin-left: 1em;
-
-    p {
-      margin: 0;
->>>>>>> 1d1ad44de... Improve styling of rich text
     }
   }
 
