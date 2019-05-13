@@ -271,8 +271,12 @@
     font-size: 14px;
     font-weight: 500;
 
-    &.active {
-      color: $highlight-text-color;
+    .icon-button {
+      color: $lighter-text-color;
+
+      &.active {
+        color: $highlight-text-color;
+      }
     }
 
     input[type=checkbox] {
