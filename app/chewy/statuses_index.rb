@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 class StatusesIndex < Chewy::Index
-  settings index: { refresh_interval: '15m' }, analysis: {
+  settings index: {
+      refresh_interval: '15m',
+      number_of_shards: '10',
+      number_of_replicas: '0'
+  }, analysis: {
     tokenizer: {
       sudachi_tokenizer: {
         type: 'sudachi_tokenizer',
