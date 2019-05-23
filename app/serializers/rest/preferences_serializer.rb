@@ -7,7 +7,6 @@ class REST::PreferencesSerializer < ActiveModel::Serializer
 
   attribute :reading_default_sensitive_media, key: 'reading:expand:media'
   attribute :reading_default_sensitive_text, key: 'reading:expand:spoilers'
-  attribute :reading_strip_formatting, key: 'reading:formatting:strip'
 
   def posting_default_privacy
     object.user.setting_default_privacy
@@ -27,9 +26,5 @@ class REST::PreferencesSerializer < ActiveModel::Serializer
 
   def reading_default_sensitive_text
     object.user.setting_expand_spoilers
-  end
-
-  def reading_strip_formatting
-    object.user.setting_strip_formatting
   end
 end

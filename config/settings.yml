@@ -31,7 +31,6 @@ defaults: &defaults
   noindex: false
   theme: 'blue'
   aggregate_reblogs: true
-  strip_formatting: 'none'
   notification_emails:
     follow: false
     reblog: false

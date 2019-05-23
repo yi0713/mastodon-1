@@ -49,7 +49,6 @@ class Settings::PreferencesController < Settings::BaseController
       :setting_hide_network,
       :setting_aggregate_reblogs,
       :setting_show_application,
-      :setting_strip_formatting,
       notification_emails: %i(follow follow_request reblog favourite mention digest report pending_account),
       interactions: %i(must_be_follower must_be_following)
     )
