@@ -22,10 +22,9 @@ ja:
       <p>詳細説明が設定されていません。</p>
     federation_hint_html: "%{instance} のアカウントひとつでどんなMastodon互換サーバーのユーザーでもフォローできるでしょう。"
     generic_description: "%{domain} は、Mastodon サーバーの一つです"
-    get_apps: モバイルアプリを探す (外部サイト)
+    get_apps: モバイルアプリを試す
     hosted_on: Mastodon hosted on %{domain}
     learn_more: クラゲ丼について
-    learn_more_joinmastodon: Mastodonについて(外部サイト)
     privacy_policy: プライバシーポリシー
     see_whats_happening: 今こんな話をしています...
     server_stats: 'サーバー統計:'
@@ -34,7 +33,7 @@ ja:
       one: トゥート
       other: トゥート
     status_count_before: トゥート数
-    tagline: クラゲ丼から新しい友達を見つけよう
+    tagline: Follow friends and discover new ones
     terms: 利用規約
     user_count_after:
       one: 人

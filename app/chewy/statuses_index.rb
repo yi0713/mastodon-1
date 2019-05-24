@@ -3,7 +3,7 @@
 class StatusesIndex < Chewy::Index
   settings index: {
       refresh_interval: '15m',
-      number_of_shards: '10',
+      number_of_shards: '20',
       number_of_replicas: '0'
   }, analysis: {
     tokenizer: {
