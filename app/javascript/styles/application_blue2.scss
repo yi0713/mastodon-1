@@ -1,5 +1,5 @@
 @import 'mastodon/mixins';
-@import 'chocolate/variables';
+@import 'blue2/variables';
 @import 'fonts/roboto';
 @import 'fonts/roboto-mono';
 @import 'fonts/montserrat';
@@ -27,5 +27,5 @@
 @import 'mastodon/rtl';
 @import 'mastodon/accessibility';
 
-$wallpaper: "chocolate/background.jpg";
+$wallpaper: "blue2/background.jpg";
 @import 'wallpaper';

@@ -1,29 +1,29 @@
 /*** スクロールバー reset.scss ***/
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(lighten($classic-highlight-color, 30%), 0.6);
+  background: rgba($ui-base-color, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(lighten($classic-highlight-color, 18%), 0.6);
+  background: rgba(darken($ui-base-color, 16%), 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(lighten($classic-highlight-color, 30%), 0.6);
+  background: rgba(darken($ui-base-color, 24%), 0.6);
 }
 
 ::-webkit-scrollbar-track {
-  border: 0px none rgba($base-border-color, 0.6);
+  border: 0px none rgba($base-border-color, 0.7);
   border-radius: 0;
-  background: rgba($classic-highlight-color, 0.1);
+  background: rgba(darken($ui-base-color, 20%), 0.3);
 }
 
 ::-webkit-scrollbar-track:hover {
-  background: rgba($classic-highlight-color, 0.2);
+  background: rgba(darken($ui-base-color, 36%), 0.3);
 }
 
 ::-webkit-scrollbar-track:active {
-  background: rgba($classic-highlight-color, 0.2);
+  background: rgba(darken($ui-base-color, 44%), 0.3);
 }
 
 /*** 背景全体 basic.scss ***/
@@ -60,7 +60,7 @@ body {
 
 .activity-stream {
   .entry {
-    background: rgba($ui-base-color, 0.3);
+    background: rgba($simple-background-color, 0.3);
   }
 }
 
@@ -142,7 +142,11 @@ body {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 780行目 ***/
+.page-header {
+  background: rgba(darken($ui-base-color, 8%), 0.7);
+}
+
+/*** components.scss 826行目 ***/
 
 .focusable {
   &:focus {
@@ -159,7 +163,7 @@ body {
   }
 }
 
-/*** components.scss 826行目 ***/
+/*** components.scss 846行目 ***/
 
 .status {
   &.status-direct:not(.read) {
@@ -167,25 +171,19 @@ body {
   }
 }
 
-/*** components.scss 996行目 ***/
+/*** components.scss 1042行目 ***/
 
 .detailed-status {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1040行目 ***/
+/*** components.scss 1086行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1180行目 ***/
-
-.account__header {
-  background: rgba(darken($ui-base-color, 4%), 0.3);
-}
-
-/*** components.scss 1862行目 ***/
+/*** components.scss 1845行目 ***/
 
 .column {
   > .scrollable {
@@ -193,20 +191,20 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1867行目 ***/
+/*** UIの背景全体 components.scss 1857行目 ***/
 
 .ui {
-  background: rgba(lighten($ui-base-color, 15%), 0.3);
+  background: transparent;
 }
 
-/*** トゥート作成・検索欄 components.scss 1970行目 ***/
+/*** トゥート作成・検索欄 components.scss 2238行目 ***/
 
 .drawer__inner {
   background: rgba(darken($ui-base-color, 13%), 0.3);
 }
 
 .drawer__inner__mastodon {
-  background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234.80078 31.757813" width="234.80078" height="31.757812"><path d="M19.599609 0c-1.05 0-2.10039.375-2.90039 1.125L0 16.925781v14.832031h234.80078V17.025391l-16.5-15.900391c-1.6-1.5-4.20078-1.5-5.80078 0l-13.80078 13.099609c-1.6 1.5-4.19883 1.5-5.79883 0L179.09961 1.125c-1.6-1.5-4.19883-1.5-5.79883 0L159.5 14.224609c-1.6 1.5-4.20078 1.5-5.80078 0L139.90039 1.125c-1.6-1.5-4.20078-1.5-5.80078 0l-13.79883 13.099609c-1.6 1.5-4.20078 1.5-5.80078 0L100.69922 1.125c-1.600001-1.5-4.198829-1.5-5.798829 0l-13.59961 13.099609c-1.6 1.5-4.200781 1.5-5.800781 0L61.699219 1.125c-1.6-1.5-4.198828-1.5-5.798828 0L42.099609 14.224609c-1.6 1.5-4.198828 1.5-5.798828 0L22.5 1.125C21.7.375 20.649609 0 19.599609 0z" fill="#{hex-color(lighten($ui-base-color,6%))}"/></svg>') no-repeat bottom / 100% auto;
+  background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234.80078 31.757813" width="234.80078" height="31.757812"><path d="M19.599609 0c-1.05 0-2.10039.375-2.90039 1.125L0 16.925781v14.832031h234.80078V17.025391l-16.5-15.900391c-1.6-1.5-4.20078-1.5-5.80078 0l-13.80078 13.099609c-1.6 1.5-4.19883 1.5-5.79883 0L179.09961 1.125c-1.6-1.5-4.19883-1.5-5.79883 0L159.5 14.224609c-1.6 1.5-4.20078 1.5-5.80078 0L139.90039 1.125c-1.6-1.5-4.20078-1.5-5.80078 0l-13.79883 13.099609c-1.6 1.5-4.20078 1.5-5.80078 0L100.69922 1.125c-1.600001-1.5-4.198829-1.5-5.798829 0l-13.59961 13.099609c-1.6 1.5-4.200781 1.5-5.800781 0L61.699219 1.125c-1.6-1.5-4.198828-1.5-5.798828 0L42.099609 14.224609c-1.6 1.5-4.198828 1.5-5.798828 0L22.5 1.125C21.7.375 20.649609 0 19.599609 0z" fill="#{hex-color($ui-base-color)}"/></svg>') no-repeat bottom / 100% auto;
 }
 
 .drawer__header {
@@ -217,7 +215,7 @@ body {
   background: rgba(darken($ui-base-color, 8%), 0.3);
 }
 
-/*** components.scss 2120行目 ***/
+/*** components.scss 2336行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -227,7 +225,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2284行目 ***/
+/*** components.scss 2500行目 ***/
 
 .column-link {
   background: rgba(darken($ui-base-color, 12%), 0.3);
@@ -243,10 +241,10 @@ body {
 .getting-started__wrapper,
 .getting-started,
 .flex-spacer {
-  background: rgba($ui-base-color, 0.3);
+  background: rgba($ui-base-color, 0.15);
 }
 
-/*** components.scss 2376行目 ***/
+/*** components.scss 2575行目 ***/
 
 .getting-started {
   &__trends {
@@ -254,19 +252,19 @@ body {
   }
 }
 
-/*** components.scss 2668行目 ***/
+/*** components.scss 2915行目 ***/
 
 .regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2744行目 ***/
+/*** components.scss 2991行目 ***/
 
 .column-header {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 2797行目 ***/
+/*** components.scss 3044行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -280,24 +278,32 @@ body {
   }
 }
 
-/*** components.scss 2846行目 ***/
+/*** components.scss 3093行目 ***/
 
 .column-header__collapsible-inner {
   background: rgba(darken($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 3129行目 ***/
+/*** components.scss 3450行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 4803行目 ***/
+/*** components.scss 3927行目 ***/
+
+.search-results__section {
+  h5 {
+    background: rgba(lighten($ui-base-color, 4%), 0.3);
+  }
+}
+
+/*** components.scss 5157行目 ***/
 
 .notification__filter-bar,
 .account__section-headline {
-  background: rgba(lighten($ui-base-color, 4%), 0.3);
+  background: rgba(lighten($ui-base-color, 4%), 0.5);
 
   button {
     background: rgba(lighten($ui-base-color, 4%), 0.3);
@@ -305,7 +311,7 @@ body {
 
   button,
   a {
-    color: $action-button-color;
+    color: rgba($white, 0.7);
 
     &.active {
       color: $success-green;
@@ -317,23 +323,18 @@ body {
   }
 }
 
-/*** components.scss 5327行目 ***/
-
-.account__header .account__header__fields {
-  dt {
-    background: rgba(lighten($ui-base-color, 4%), 0.3);
-  }
-
-  dd {
-    background: rgba($ui-base-color, 0.3);
-  }
-}
-
-/*** components.scss 5347行目 ***/
+/*** components.scss 5792行目 ***/
 
 .trends {
   &__header {
     background: rgba(darken($ui-base-color, 2%), 0.3);
+  }
+}
+
+/*** components.scss 5627行目 ***/
+.account__header {
+  &__bar {
+    background: rgba(darken($ui-base-color, 4%), 0.3);
   }
 }
 
@@ -451,7 +452,7 @@ body {
 
 .poll__cancel {
   .icon-button {
-    color: lighten($ui-base-lighter-color, 13%);
+    color: darken($ui-base-lighter-color, 13%);
 
     &:hover,
     &:active,
@@ -460,10 +461,11 @@ body {
     }
 
     &.disabled {
-      color: lighten($ui-base-lighter-color, 26%);
+      color: darken($ui-base-lighter-color, 26%);
     }
   }
 }
+
 
 /*** aboutページ about.scss  ***/
 
@@ -599,7 +601,7 @@ body {
   }
 
   .content-wrapper {
-    background: rgba($ui-base-color, 0.4);
+    background: rgba($ui-base-color, 0.2);
   }
 }
 
@@ -624,7 +626,7 @@ button.icon-button.disabled i.fa-retweet {
     background: url(https://s3-ap-northeast-1.amazonaws.com/kuragecc/custom_emojis/images/000/000/359/original/kurage_orange.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    filter: grayscale(100%) brightness(0%) opacity(40%);
+    filter: grayscale(100%) brightness(200%) opacity(40%);
     content: "\2003";
 }
 
@@ -633,5 +635,5 @@ button.icon-button.disabled i.fa-retweet {
 }
 
 .column-link > .fa-star::before, .column-header > button > .fa-star::before {
-    filter: grayscale(100%) brightness(0%) opacity(100%);
+    filter: grayscale(100%) brightness(150%) opacity(100%);
 }

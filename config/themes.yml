@@ -1,10 +1,9 @@
 default: styles/application.scss
 contrast: styles/contrast.scss
-mastodon-light: styles/mastodon-light.scss
 blue: styles/application_blue.scss
+blue2: styles/application_blue2.scss
 green: styles/application_green.scss
 dark-green: styles/application_dark-green.scss
-chocolate: styles/application_chocolate.scss
 purple: styles/application_purple.scss
 light-grey: styles/application_light-grey.scss
 light-blue: styles/application_light-blue.scss
