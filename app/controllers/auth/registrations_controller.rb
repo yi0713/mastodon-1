@@ -135,6 +135,8 @@ class Auth::RegistrationsController < Devise::RegistrationsController
     else
       def is_human?; true end
     end
+  end
+
   def require_not_suspended!
     forbidden if current_account.suspended?
   end
