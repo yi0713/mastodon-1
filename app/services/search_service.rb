@@ -33,9 +33,13 @@ class SearchService < BaseService
   end
 
   def perform_statuses_search!
+<<<<<<< HEAD
     definition = StatusesIndex.filter(terms: { searchable_by: [@account.id, 1, 2510, 2529, 2531, 4305, 8618, 13238, 13525, 17661, 18737, 25969, 26986, 27935, 33745, 33878, 35120, 41177, 44147, 56961, 58372, 59058, 64905, 64906, 64907]})
                               .query(match: { 'text.stemmed': { query: @query, operator: 'and'}})
                               .order(id: { order: 'desc' })
+=======
+    definition = parsed_query.apply(StatusesIndex.filter(term: { searchable_by: @account.id }))
+>>>>>>> 85b7b565def2594b6ad791731802eb4c8a803a69
 
     if @options[:account_id].present?
       definition = definition.filter(term: { account_id: @options[:account_id] })
@@ -71,7 +75,7 @@ class SearchService < BaseService
   end
 
   def url_query?
-    @options[:type].blank? && @query =~ /\Ahttps?:\/\//
+    @resolve && @options[:type].blank? && @query =~ /\Ahttps?:\/\//
   end
 
   def url_resource_results
@@ -120,5 +124,9 @@ class SearchService < BaseService
       following: Account.following_map(account_ids, account.id),
       domain_blocking_by_domain: Account.domain_blocking_map_by_domain(domains, account.id),
     }
+  end
+
+  def parsed_query
+    SearchQueryTransformer.new.apply(SearchQueryParser.new.parse(@query))
   end
 end
