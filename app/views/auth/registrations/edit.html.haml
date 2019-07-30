@@ -22,12 +22,8 @@
         = f.input :password_confirmation, wrapper: :with_label, label: t('simple_form.labels.defaults.confirm_new_password'), input_html: { 'aria-label' => t('simple_form.labels.defaults.confirm_new_password'), :autocomplete => 'off' }, disabled: current_account.suspended?
 
     .actions
-<<<<<<< HEAD
       = render partial: 'auth/shared/recaptcha'
-      = f.button :button, t('generic.save_changes'), type: :submit, disabled: true
-=======
       = f.button :button, t('generic.save_changes'), type: :submit, class: 'button', disabled: current_account.suspended?
->>>>>>> 85b7b565def2594b6ad791731802eb4c8a803a69
   - else
     %p.hint= t('users.seamless_external_login')
 
