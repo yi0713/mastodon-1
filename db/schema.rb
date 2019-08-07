@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_175042) do
+ActiveRecord::Schema.define(version: 2019_08_05_123746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,6 +243,13 @@ ActiveRecord::Schema.define(version: 2019_07_26_175042) do
     t.datetime "updated_at", null: false
     t.boolean "whole_word", default: true, null: false
     t.index ["account_id"], name: "index_custom_filters_on_account_id"
+  end
+
+  create_table "domain_allows", force: :cascade do |t|
+    t.string "domain", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_domain_allows_on_domain", unique: true
   end
 
   create_table "domain_blocks", force: :cascade do |t|
@@ -652,6 +659,12 @@ ActiveRecord::Schema.define(version: 2019_07_26_175042) do
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "score"
+    t.boolean "usable"
+    t.boolean "trendable"
+    t.boolean "listable"
+    t.datetime "reviewed_at"
+    t.datetime "requested_review_at"
     t.index "lower((name)::text)", name: "index_tags_on_name_lower", unique: true
   end
 
