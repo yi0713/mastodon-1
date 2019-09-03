@@ -128,7 +128,7 @@
       &:hover,
       &:focus,
       &:active {
-        svg path {
+        svg {
           fill: darken($ui-base-color, 38%);
         }
       }
