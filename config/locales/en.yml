@@ -45,6 +45,8 @@ en:
     what_is_mastodon: What is Mastodon?
   accounts:
     choices_html: "%{name}'s choices:"
+    endorsements_hint: You can endorse people you follow from the web interface, and they will show up here.
+    featured_tags_hint: You can feature specific hashtags that will be displayed here.
     follow: Follow
     followers:
       one: Follower
@@ -56,6 +58,7 @@ en:
     media: Media
     moved_html: "%{name} has moved to %{new_profile_link}:"
     network_hidden: This information is not available
+    never_active: Never
     nothing_here: There is nothing here!
     people_followed_by: People whom %{name} follows
     people_who_follow: People who follow %{name}
@@ -260,6 +263,8 @@ en:
       features: Features
       hidden_service: Federation with hidden services
       open_reports: open reports
+      pending_tags: hashtags waiting for review
+      pending_users: users waiting for review
       recent_users: Recent users
       search: Full-text search
       single_user_mode: Single user mode
@@ -282,6 +287,7 @@ en:
       created_msg: Domain block is now being processed
       destroyed_msg: Domain block has been undone
       domain: Domain
+      edit: Edit domain block
       existing_domain_block_html: You have already imposed stricter limits on %{name}, you need to <a href="%{unblock_url}">unblock it</a> first.
       new:
         create: Create block
@@ -292,6 +298,10 @@ en:
           silence: Silence
           suspend: Suspend
         title: New domain block
+      private_comment: Private comment
+      private_comment_hint: Comment about this domain limitation for internal use by the moderators.
+      public_comment: Public comment
+      public_comment_hint: Comment about this domain limitation for the general public, if advertising the list of domain limitations is enabled.
       reject_media: Reject media files
       reject_media_hint: Removes locally stored media files and refuses to download any in the future. Irrelevant for suspensions
       reject_reports: Reject reports
@@ -311,6 +321,7 @@ en:
         title: Undo domain block for %{domain}
         undo: Undo
       undo: Undo domain block
+      view: View domain block
     email_domain_blocks:
       add_new: Add new
       created_msg: Successfully added e-mail domain to blacklist
@@ -334,6 +345,8 @@ en:
         all: All
         limited: Limited
         title: Moderation
+      private_comment: Private comment
+      public_comment: Public comment
       title: Federation
       total_blocked_by_us: Blocked by us
       total_followed_by_them: Followed by them
@@ -411,6 +424,13 @@ en:
       custom_css:
         desc_html: Modify the look with CSS loaded on every page
         title: Custom CSS
+      domain_blocks:
+        all: To everyone
+        disabled: To no one
+        title: Show domain blocks
+        users: To logged-in local users
+      domain_blocks_rationale:
+        title: Show rationale
       hero:
         desc_html: Displayed on the frontpage. At least 600x100px recommended. When not set, falls back to server thumbnail
         title: Hero image
@@ -480,6 +500,7 @@ en:
         delete: Delete
         nsfw_off: Mark as not sensitive
         nsfw_on: Mark as sensitive
+      deleted: Deleted
       failed_to_execute: Failed to execute
       media:
         title: Media
@@ -488,6 +509,9 @@ en:
       title: Account statuses
       with_media: With media
     tags:
+      accounts_today: Unique uses today
+      accounts_week: Unique uses this week
+      breakdown: Breakdown of today's usage by source
       context: Context
       directory: In directory
       in_directory: "%{count} in directory"
@@ -496,6 +520,8 @@ en:
       title: Hashtags
       trending_right_now: Trending right now
       unique_uses_today: "%{count} posting today"
+      unreviewed: Not reviewed
+      updated_msg: Hashtag settings updated successfully
     title: Administration
     warning_presets:
       add_new: Add new
@@ -543,6 +569,10 @@ en:
     checkbox_agreement_without_rules_html: I agree to the <a href="%{terms_path}" target="_blank">terms of service</a>
     delete_account: Delete account
     delete_account_html: If you wish to delete your account, you can <a href="%{path}">proceed here</a>. You will be asked for confirmation.
+    description:
+      prefix_invited_by_user: "@%{name} invites you to join this server of Mastodon!"
+      prefix_sign_up: Sign up on Mastodon today!
+      suffix: With an account, you will be able to follow people, post updates and exchange messages with users from any Mastodon server and more!
     didnt_get_confirmation: Didn't receive confirmation instructions?
     forgot_password: Forgot your password?
     invalid_reset_password_token: Password reset token is invalid or expired. Please request a new one.
@@ -605,17 +635,32 @@ en:
     warning_title: Disseminated content availability
   directories:
     directory: Profile directory
-    enabled: You are currently listed in the directory.
-    enabled_but_waiting: You have opted-in to be listed in the directory, but you do not have the minimum number of followers (%{min_followers}) to be listed yet.
     explanation: Discover users based on their interests
     explore_mastodon: Explore %{title}
-    how_to_enable: You are not currently opted-in to the directory. You can opt-in below. Use hashtags in your bio text to be listed under specific hashtags!
-    people:
-      one: "%{count} person"
-      other: "%{count} people"
+  domain_blocks:
+    blocked_domains: List of limited and blocked domains
+    description: This is the list of servers that %{instance} limits or reject federation with.
+    domain: Domain
+    media_block: Media block
+    no_domain_blocks: "(No domain blocks)"
+    severity: Severity
+    severity_legend:
+      media_block: Media files coming from the server are neither fetched, stored, or displayed to the user.
+      silence: Accounts from silenced servers can be found, followed and interacted with, but their toots will not appear in the public timelines, and notifications from them will not reach local users who are not following them.
+      suspension: No content from suspended servers is stored or displayed, nor is any content sent to them. Interactions from suspended servers are ignored.
+      suspension_disclaimer: Suspended servers may occasionally retrieve public content from this server.
+      title: Severities
+    show_rationale: Show rationale
+    silence: Silence
+    suspension: Suspension
+    title: "%{instance} List of blocked instances"
+  domain_validator:
+    invalid_domain: is not a valid domain name
   errors:
+    '400': The request you submitted was invalid or malformed.
     '403': You don't have permission to view this page.
     '404': The page you are looking for isn't here.
+    '406': This page is not available in the requested format.
     '410': The page you were looking for doesn't exist here anymore.
     '422':
       content: Security verification failed. Are you blocking cookies?
@@ -624,6 +669,7 @@ en:
     '500':
       content: We're sorry, but something went wrong on our end.
       title: This page is not correct
+    '503': The page could not be served due to a temporary server failure.
     noscript_html: To use the Mastodon web application, please enable JavaScript. Alternatively, try one of the <a href="%{apps_path}">native apps</a> for Mastodon for your platform.
   existing_username_validator:
     not_found: could not find a local user with that username
@@ -647,6 +693,7 @@ en:
     add_new: Add new
     errors:
       limit: You have already featured the maximum amount of hashtags
+    hint_html: "<strong>What are featured hashtags?</strong> They are displayed prominently on your public profile and allow people to browse your public posts specifically under those hashtags. They are a great tool for keeping track of creative works or long-term projects."
   filters:
     contexts:
       home: Home timeline
@@ -667,6 +714,7 @@ en:
     developers: Developers
     more: More…
     resources: Resources
+    trending_now: Trending now
   generic:
     all: All
     changes_saved_msg: Changes successfully saved!
@@ -1069,7 +1117,9 @@ en:
         disable: While your account is frozen, your account data remains intact, but you cannot perform any actions until it is unlocked.
         silence: While your account is limited, only people who are already following you will see your toots on this server, and you may be excluded from various public listings. However, others may still manually follow you.
         suspend: Your account has been suspended, and all of your toots and your uploaded media files have been irreversibly removed from this server, and servers where you had followers.
+      get_in_touch: You can reply to this e-mail to get in touch with the staff of %{instance}.
       review_server_policies: Review server policies
+      statuses: 'Specifically, for:'
       subject:
         disable: Your account %{acct} has been frozen
         none: Warning for %{acct}
