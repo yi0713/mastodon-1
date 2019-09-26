@@ -8,7 +8,7 @@ class Auth::SessionsController < Devise::SessionsController
   skip_before_action :require_no_authentication, only: [:create]
   skip_before_action :require_functional!
 
-  prepend_before_action :authenticate_with_two_factor, if: :two_factor_enabl    ed?, only: [:create]
+  prepend_before_action :authenticate_with_two_factor, if: :two_factor_enabled?, only: [:create]
   prepend_before_action :check_recaptcha, only: [:create]
 
   before_action :set_instance_presenter, only: [:new]
