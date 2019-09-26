@@ -29,7 +29,7 @@ gem 'bootsnap', '~> 1.4', require: false
 gem 'browser'
 gem 'charlock_holmes', '~> 0.7.6'
 gem 'iso-639'
-gem 'chewy', git: 'https://github.com/noellabo/chewy.git', branch: 'es6-client-compatibility-workaround-for-es7'
+gem 'chewy', '~> 5.0'
 gem 'cld3', '~> 3.2.4'
 gem 'devise', '~> 4.7'
 gem 'devise-two-factor', '~> 3.1'
@@ -78,7 +78,7 @@ gem 'redis', '~> 4.1', require: ['redis', 'redis/connection/hiredis']
 gem 'mario-redis-lock', '~> 1.2', require: 'redis_lock'
 gem 'rqrcode', '~> 0.10'
 gem 'ruby-progressbar', '~> 1.10'
-gem 'sanitize', '~> 5.0'
+gem 'sanitize', '~> 5.1'
 gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'sidekiq-unique-jobs', '~> 6.0'
@@ -89,7 +89,7 @@ gem 'sprockets-rails', '~> 3.2', require: 'sprockets/railtie'
 gem 'stoplight', '~> 2.1.3'
 gem 'strong_migrations', '~> 0.4'
 gem 'tty-command', '~> 0.8', require: false
-gem 'tty-prompt', '~> 0.18', require: false
+gem 'tty-prompt', '~> 0.19', require: false
 gem 'twitter-text', '~> 1.14'
 gem 'tzinfo-data', '~> 1.2019'
 gem 'webpacker', '~> 4.0'
