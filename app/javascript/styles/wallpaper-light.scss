@@ -146,6 +146,11 @@ body {
   background: rgba(darken($ui-base-color, 8%), 0.7);
 }
 
+/*** widgets.scss 568行目 ***/
+.table-of-contents {
+  background: rgba(lighten($ui-base-color, 4%), 0.3);
+}
+
 /*** components.scss 826行目 ***/
 
 .focusable {
@@ -581,9 +586,13 @@ body {
   }
 }
 
+/*** admin.scss  ***/
+
 .admin-wrapper {
   .sidebar-wrapper {
-    background: transparent;
+    &__inner {
+      background: transparent;
+    }
   }
 
   .sidebar {
