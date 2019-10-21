@@ -1,15 +1,15 @@
 /*** スクロールバー reset.scss ***/
 
 ::-webkit-scrollbar-thumb {
-  background: rgba($ui-base-color, 0.6);
+  background: rgba($ui-primary-color, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(darken($ui-base-color, 16%), 0.6);
+  background: rgba(darken($ui-primary-color, 10%), 0.3);
 }
 
 ::-webkit-scrollbar-thumb:active {
-  background: rgba(darken($ui-base-color, 24%), 0.6);
+  background: rgba(darken($ui-primary-color, 20%), 0.3);
 }
 
 ::-webkit-scrollbar-track {
@@ -19,11 +19,11 @@
 }
 
 ::-webkit-scrollbar-track:hover {
-  background: rgba(darken($ui-base-color, 36%), 0.3);
+  background: rgba(darken($ui-base-color, 26%), 0.3);
 }
 
 ::-webkit-scrollbar-track:active {
-  background: rgba(darken($ui-base-color, 44%), 0.3);
+  background: rgba(darken($ui-base-color, 32%), 0.3);
 }
 
 /*** 背景全体 basic.scss ***/
@@ -151,7 +151,7 @@ body {
   background: rgba(lighten($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 826行目 ***/
+/*** components.scss 916行目 ***/
 
 .focusable {
   &:focus {
@@ -168,7 +168,7 @@ body {
   }
 }
 
-/*** components.scss 846行目 ***/
+/*** components.scss 963行目 ***/
 
 .status {
   &.status-direct:not(.read) {
@@ -176,19 +176,19 @@ body {
   }
 }
 
-/*** components.scss 1042行目 ***/
+/*** components.scss 1134行目 ***/
 
 .detailed-status {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1086行目 ***/
+/*** components.scss 1179行目 ***/
 
 .detailed-status__action-bar {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 1845行目 ***/
+/*** components.scss 1987行目 ***/
 
 .column {
   > .scrollable {
@@ -196,13 +196,19 @@ body {
   }
 }
 
-/*** UIの背景全体 components.scss 1857行目 ***/
+/*** UIの背景全体 components.scss 1992行目 ***/
 
 .ui {
   background: transparent;
 }
 
-/*** トゥート作成・検索欄 components.scss 2238行目 ***/
+/*** components.scss 2055行目 ***/
+
+.tabs-bar {
+  background: rgba(darken($ui-base-color, 8%), 0.3);
+}
+
+/*** トゥート作成・検索欄 components.scss 2426行目 ***/
 
 .drawer__inner {
   background: rgba(darken($ui-base-color, 13%), 0.3);
@@ -216,11 +222,7 @@ body {
   background: rgba(darken($ui-base-color, 8%), 0.3);
 }
 
-.tabs-bar {
-  background: rgba(darken($ui-base-color, 8%), 0.3);
-}
-
-/*** components.scss 2336行目 ***/
+/*** components.scss 2524行目 ***/
 
 .column-back-button {
   background: transparent;
@@ -230,7 +232,7 @@ body {
   background: transparent;
 }
 
-/*** components.scss 2500行目 ***/
+/*** components.scss 2690行目 ***/
 
 .column-link {
   background: rgba(darken($ui-base-color, 12%), 0.3);
@@ -249,27 +251,19 @@ body {
   background: rgba($ui-base-color, 0.15);
 }
 
-/*** components.scss 2575行目 ***/
-
-.getting-started {
-  &__trends {
-    background: rgba($ui-base-color, 0.3);
-  }
-}
-
-/*** components.scss 2915行目 ***/
+/*** components.scss 3121行目 ***/
 
 .regeneration-indicator {
   background: rgba($ui-base-color, 0.3);
 }
 
-/*** components.scss 2991行目 ***/
+/*** components.scss 3187行目 ***/
 
 .column-header {
   background: rgba(darken($ui-base-color, 4%), 0.3);
 }
 
-/*** components.scss 3044行目 ***/
+/*** components.scss 3244行目 ***/
 
 .column-header__button {
   background: transparent;
@@ -283,20 +277,20 @@ body {
   }
 }
 
-/*** components.scss 3093行目 ***/
+/*** components.scss 3293行目 ***/
 
 .column-header__collapsible-inner {
   background: rgba(darken($ui-base-color, 8%), 0.6);
 }
 
-/*** components.scss 3450行目 ***/
+/*** components.scss 3682行目 ***/
 
 .empty-column-indicator,
 .error-column {
   background: rgba($ui-base-color, 0.3)
 }
 
-/*** components.scss 3927行目 ***/
+/*** components.scss 4181行目 ***/
 
 .search-results__section {
   h5 {
@@ -304,7 +298,7 @@ body {
   }
 }
 
-/*** components.scss 5157行目 ***/
+/*** components.scss 5613行目 ***/
 
 .notification__filter-bar,
 .account__section-headline {
@@ -328,18 +322,18 @@ body {
   }
 }
 
-/*** components.scss 5792行目 ***/
+/*** components.scss 6188行目 ***/
+.account__header {
+  &__bar {
+    background: rgba(darken($ui-base-color, 4%), 0.3);
+  }
+}
+
+/*** components.scss 6353行目 ***/
 
 .trends {
   &__header {
     background: rgba(darken($ui-base-color, 2%), 0.3);
-  }
-}
-
-/*** components.scss 5627行目 ***/
-.account__header {
-  &__bar {
-    background: rgba(darken($ui-base-color, 4%), 0.3);
   }
 }
 
@@ -645,4 +639,12 @@ button.icon-button.disabled i.fa-retweet {
 
 .column-link > .fa-star::before, .column-header > button > .fa-star::before {
     filter: grayscale(100%) brightness(150%) opacity(100%);
+}
+
+/*** 「メディアを閲覧注意にする」が見えなくなるので修正 ***/
+
+.compose-form__sensitive-button {
+  .icon-button {
+    color: $ui-base-lighter-color;
+  }
 }
