@@ -1127,16 +1127,16 @@ ja:
     default: Mastodon標準
     contrast: Mastodonﾊｲｺﾝﾄﾗｽﾄ
     mastodon-light: Mastodonライト
-    blue: クラゲ丼blue
-    blue2: クラゲ丼blue2
-    green: クラゲ丼green
-    dark-green: クラゲ丼dark-green
-    purple: クラゲ丼purple
-    light-grey: クラゲ丼light-grey
-    light-blue: クラゲ丼light-blue
-    pink: クラゲ丼pink
-    yellow: クラゲ丼yellow
-    white: クラゲ丼white
+    blue: クラゲ丼標準
+    blue2: blue ミズクラゲ
+    purple: purple オキクラゲ
+    green: green タコクラゲ
+    light-grey: aqua 熱帯魚
+    yellow: yellow カニ
+    dark-green: dark-green 海底
+    light-blue: light-blue 貝殻
+    white: white 砂浜
+    pink: pink サメ
   time:
     formats:
       default: "%Y年%m月%d日 %H:%M"

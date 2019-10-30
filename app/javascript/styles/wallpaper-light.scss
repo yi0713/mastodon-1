@@ -310,7 +310,7 @@ body {
 
   button,
   a {
-    color: rgba($white, 0.7);
+    color: rgba($black, 0.4);
 
     &.active {
       color: $success-green;
@@ -629,7 +629,7 @@ button.icon-button.disabled i.fa-retweet {
     background: url(https://s3-ap-northeast-1.amazonaws.com/kuragecc/custom_emojis/images/000/000/359/original/kurage_orange.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    filter: grayscale(100%) brightness(200%) opacity(40%);
+    filter: grayscale(100%) brightness(0%) opacity(40%);
     content: "\2003";
 }
 
@@ -638,7 +638,7 @@ button.icon-button.disabled i.fa-retweet {
 }
 
 .column-link > .fa-star::before, .column-header > button > .fa-star::before {
-    filter: grayscale(100%) brightness(150%) opacity(100%);
+    filter: grayscale(100%) brightness(0%) opacity(100%);
 }
 
 /*** 「メディアを閲覧注意にする」が見えなくなるので修正 ***/
