@@ -430,6 +430,8 @@ class Account < ApplicationRecord
             SELECT target_account_id
             FROM follows
             WHERE account_id = ?
+            UNION ALL
+            SELECT ?
           )
           SELECT
             accounts.*,
@@ -445,7 +447,7 @@ class Account < ApplicationRecord
           LIMIT ? OFFSET ?
         SQL
 
-        records = find_by_sql([sql, account.id, account.id, account.id, limit, offset])
+        records = find_by_sql([sql, account.id, account.id, account.id, account.id, limit, offset])
       else
         sql = <<-SQL.squish
           SELECT
