@@ -627,6 +627,7 @@ button.icon-button.disabled i.fa-retweet {
 
 @import url("https://wee.jp/css/1.css");
 @import 'ticker2';
+.status a[href^='https://deepsea.m.to/'] .display-name:after{font-size:12px!important;height:16px!important;display:block!important;white-space:pre!important;text-overflow:ellipsis!important;color:#fff!important;padding-left:18px!important;background: url('https://wee.jp/f/unkomaker.m.to'),linear-gradient(90deg,#26a,transparent)!important;background-repeat:no-repeat,no-repeat!important;content:'深海丼'!important;}
 
 /*** お気に入りボタンをクラゲに変更 ***/
 /*** https://gist.github.com/theoria24/8ac3ac0f8167b109eb0724c4563ddf6d ***/
