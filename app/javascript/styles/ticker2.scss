@@ -1,3 +1,18 @@
+@charset 'utf-8';
+/*-----------------------------
+ #InstanceTicker Add-on 2019-11-21
+ https://github.com/Tickerjp/InstanceTicker/wiki
+
+ Copyright (c) 2018-2019 weepjp
+ https://github.com/weepjp
+
+ ORIGINAL CSS
+ Copyright (c) kyori19
+ https://github.com/kyori19
+
+ Released under the MIT license
+ https://opensource.org/licenses/MIT
+/------------------------------*/
 .status__display-name[href^='https://botdon.net/'].muted:after, .notification__display-name[href^='https://botdon.net/']:after {font-size:12px!important;display:inline!important;color:#fff!important;padding-left:18px!important;background: url('https://wee.jp/f/botdon.net'),linear-gradient(90deg,#666,transparent)!important;background-repeat:no-repeat,no-repeat!important;content:'閉鎖済み'!important;}
 .status__display-name[href^='https://mstdn.boxp.tk/'].muted:after, .notification__display-name[href^='https://mstdn.boxp.tk/']:after {font-size:12px!important;display:inline!important;color:#fff!important;padding-left:18px!important;background: url('https://wee.jp/f/mstdn.boxp.tk'),linear-gradient(90deg,#666,transparent)!important;background-repeat:no-repeat,no-repeat!important;content:'閉鎖済み'!important;}
 .status__display-name[href^='https://dotdon.jp/'].muted:after, .notification__display-name[href^='https://dotdon.jp/']:after {font-size:12px!important;display:inline!important;color:#fff!important;padding-left:18px!important;background: url('https://wee.jp/f/dotdon.jp'),linear-gradient(90deg,#666,transparent)!important;background-repeat:no-repeat,no-repeat!important;content:'閉鎖済み'!important;}
