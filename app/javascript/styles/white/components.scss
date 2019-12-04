@@ -943,8 +943,8 @@
     height: 18px;
     width: 18px;
     position: absolute;
-    top: 5px !important;
-    left: 5px !important;
+    top: 5px;
+    left: 5px;
     cursor: pointer;
 
     & > div {
@@ -959,6 +959,13 @@
 
   .display-name {
     padding-left: 20px;
+  }
+}
+
+@media screen and (min-width: 630px) {
+  .columns-area--mobile .quote-status .status__avatar {
+    top: 5px;
+    left: 5px;
   }
 }
 
@@ -6573,6 +6580,16 @@ noscript {
     flex: 0 0 auto;
     padding: 10px;
     padding-top: 12px;
+    position: relative;
+  }
+
+  &__unread {
+    display: inline-block;
+    background: $highlight-text-color;
+    border-radius: 50%;
+    width: 0.625rem;
+    height: 0.625rem;
+    margin: -.1ex .15em .1ex;
   }
 
   &__content {
@@ -6618,6 +6635,22 @@ noscript {
 
     a {
       word-break: break-word;
+    }
+  }
+
+  &--unread {
+    background: darken($ui-base-color, 2%);
+
+    &:focus {
+      background: darken($ui-base-color, 4%);
+    }
+
+    .conversation__content__info {
+      font-weight: 700;
+    }
+
+    .conversation__content__relative-time {
+      color: $primary-text-color;
     }
   }
 }
