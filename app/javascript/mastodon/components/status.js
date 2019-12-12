@@ -230,7 +230,8 @@ class Status extends ImmutablePureComponent {
   }
 
   handleHotkeyOpenMedia = e => {
-    const { status, onOpenMedia, onOpenVideo } = this.props;
+    const { onOpenMedia, onOpenVideo } = this.props;
+    const status = this._properStatus();
 
     e.preventDefault();
 
