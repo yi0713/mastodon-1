@@ -158,7 +158,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
     return if tag['name'].blank?
 
     Tag.find_or_create_by_names(tag['name']) do |hashtag|
-      @tags << hashtag unless @tags.include?(hashtag)
+      @tags << hashtag unless @tags.include?(hashtag) || !hashtag.valid?
     end
   rescue ActiveRecord::RecordInvalid
     nil
@@ -168,7 +168,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
     return if tag['href'].blank?
 
     account = account_from_uri(tag['href'])
-    account = ::FetchRemoteAccountService.new.call(tag['href']) if account.nil?
+    account = ActivityPub::FetchRemoteAccountService.new.call(tag['href']) if account.nil?
 
     return if account.nil?
 
