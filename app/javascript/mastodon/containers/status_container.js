@@ -26,6 +26,7 @@ import {
   revealStatus,
   hideQuote,
   revealQuote,
+  toggleStatusCollapse,
 } from '../actions/statuses';
 import {
   unmuteAccount,
@@ -195,6 +196,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     } else {
       dispatch(hideStatus(status.get('id')));
     }
+  },
+
+  onToggleCollapsed (status, isCollapsed) {
+    dispatch(toggleStatusCollapse(status.get('id'), isCollapsed));
   },
 
   onBlockDomain (domain) {
