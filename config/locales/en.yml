@@ -339,6 +339,7 @@ en:
       delete: Delete
       destroyed_msg: Successfully deleted e-mail domain from blacklist
       domain: Domain
+      empty: No e-mail domains currently blacklisted.
       new:
         create: Add domain
         title: New e-mail blacklist entry
@@ -581,6 +582,10 @@ en:
     animations_and_accessibility: Animations and accessibility
     confirmation_dialogs: Confirmation dialogs
     discovery: Discovery
+    localization:
+      body: Mastodon is translated by volunteers.
+      guide_link: https://crowdin.com/project/mastodon
+      guide_link_text: Everyone can contribute.
     sensitive_content: Sensitive content
     toot_layout: Toot layout
   application_mailer:
@@ -740,6 +745,7 @@ en:
       invalid_irreversible: Irreversible filtering only works with home or notifications context
     index:
       delete: Delete
+      empty: You have no filters.
       title: Filters
     new:
       title: Add new filter
@@ -916,6 +922,7 @@ en:
       duration_too_long: is too far into the future
       duration_too_short: is too soon
       expired: The poll has already ended
+      invalid_choice: The chosen vote option does not exist
       over_character_limit: cannot be longer than %{max} characters each
       too_few_options: must have more than one item
       too_many_options: can't contain more than %{max} items
