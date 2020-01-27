@@ -20,6 +20,7 @@ const messages = defineMessages({
   quote: { id: 'status.quote', defaultMessage: 'Quote' },
   favourite: { id: 'status.favourite', defaultMessage: 'Favourite' },
   bookmark: { id: 'status.bookmark', defaultMessage: 'Bookmark' },
+  more: { id: 'status.more', defaultMessage: 'More' },
   mute: { id: 'status.mute', defaultMessage: 'Mute @{name}' },
   muteConversation: { id: 'status.mute_conversation', defaultMessage: 'Mute conversation' },
   unmuteConversation: { id: 'status.unmute_conversation', defaultMessage: 'Unmute conversation' },
@@ -282,7 +283,7 @@ class ActionBar extends React.PureComponent {
         <div className='detailed-status__button'><IconButton className='bookmark-icon' active={status.get('bookmarked')} title={intl.formatMessage(messages.bookmark)} icon='bookmark' onClick={this.handleBookmarkClick} /></div>
 
         <div className='detailed-status__action-bar-dropdown'>
-          <DropdownMenuContainer size={18} icon='ellipsis-h' status={status} items={menu} direction='left' title='More' />
+          <DropdownMenuContainer size={18} icon='ellipsis-h' status={status} items={menu} direction='left' title={intl.formatMessage(messages.more)} />
         </div>
       </div>
     );
