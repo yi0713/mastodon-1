@@ -7,6 +7,16 @@ GIT
       rails (>= 4.0)
 
 GIT
+  remote: https://github.com/noellabo/chewy.git
+  revision: 7c52f2fc422120c7a6e9fb7e52472b291fa8791f
+  branch: es6-client-compatibility-workaround-for-es7
+  specs:
+    chewy (5.0.1)
+      activesupport (>= 4.0)
+      elasticsearch (>= 7.0.0)
+      elasticsearch-dsl
+
+GIT
   remote: https://github.com/rtomayko/posix-spawn
   revision: 58465d2e213991f8afb13b984854a49fcdcc980c
   ref: 58465d2e213991f8afb13b984854a49fcdcc980c
@@ -155,10 +165,6 @@ GEM
     case_transform (0.2)
       activesupport
     charlock_holmes (0.7.7)
-    chewy (5.1.0)
-      activesupport (>= 4.0)
-      elasticsearch (>= 2.0.0)
-      elasticsearch-dsl
     chunky_png (1.3.11)
     cld3 (3.2.6)
       ffi (>= 1.1.0, < 1.12.0)
@@ -202,13 +208,13 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     e2mmap (0.1.0)
-    elasticsearch (7.3.0)
-      elasticsearch-api (= 7.3.0)
-      elasticsearch-transport (= 7.3.0)
-    elasticsearch-api (7.3.0)
+    elasticsearch (7.4.0)
+      elasticsearch-api (= 7.4.0)
+      elasticsearch-transport (= 7.4.0)
+    elasticsearch-api (7.4.0)
       multi_json
-    elasticsearch-dsl (0.1.8)
-    elasticsearch-transport (7.3.0)
+    elasticsearch-dsl (0.1.9)
+    elasticsearch-transport (7.4.0)
       faraday
       multi_json
     encryptor (3.0.0)
@@ -680,7 +686,7 @@ DEPENDENCIES
   capistrano-yarn (~> 2.0)
   capybara (~> 3.31)
   charlock_holmes (~> 0.7.7)
-  chewy (~> 5.1)
+  chewy!
   cld3 (~> 3.2.6)
   climate_control (~> 0.2)
   concurrent-ruby
