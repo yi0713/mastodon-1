@@ -12,8 +12,6 @@ import {
   STATUS_UNMUTE_SUCCESS,
   STATUS_REVEAL,
   STATUS_HIDE,
-  QUOTE_REVEAL,
-  QUOTE_HIDE,
   STATUS_COLLAPSE,
 } from '../actions/statuses';
 import { TIMELINE_DELETE } from '../actions/timelines';
@@ -74,14 +72,6 @@ export default function statuses(state = initialState, action) {
           map.setIn([id, 'hidden'], true);
         }
       });
-    });
-  case QUOTE_REVEAL:
-    return state.withMutations(map => {
-      action.ids.forEach(id => map.setIn([id, 'quote_hidden'], false));
-    });
-  case QUOTE_HIDE:
-    return state.withMutations(map => {
-      action.ids.forEach(id => map.setIn([id, 'quote_hidden'], true));
     });
   case STATUS_COLLAPSE:
     return state.setIn([action.id, 'collapsed'], action.isCollapsed);
