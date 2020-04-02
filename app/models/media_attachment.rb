@@ -78,8 +78,9 @@ class MediaAttachment < ApplicationRecord
   }.freeze
 
   VIDEO_PASSTHROUGH_OPTIONS = {
-    video_codec_whitelist: ['h264'],
-    audio_codec_whitelist: ['aac', nil],
+    video_codecs: ['h264'],
+    audio_codecs: ['aac', nil],
+    colorspaces: ['yuv420p'],
     options: {
       format: 'mp4',
       convert_options: {
@@ -181,19 +182,6 @@ class MediaAttachment < ApplicationRecord
 
   def audio_or_video?
     audio? || video?
-  end
-
-  def variant?(other_file_name)
-    return true if file_file_name == other_file_name
-    return false if file_file_name.nil?
-
-    formats = file.styles.values.map(&:format).compact
-
-    return false if formats.empty?
-
-    extension = File.extname(other_file_name)
-
-    formats.include?(extension.delete('.')) && File.basename(other_file_name, extension) == File.basename(file_file_name, File.extname(file_file_name))
   end
 
   def to_param
