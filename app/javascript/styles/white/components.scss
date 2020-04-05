@@ -3799,7 +3799,8 @@ a.status-card.compact:hover {
 }
 
 .empty-column-indicator,
-.error-column {
+.error-column,
+.follow_requests-unlocked_explanation {
   color: $dark-text-color;
   background: $ui-base-color;
   text-align: center;
@@ -3828,6 +3829,11 @@ a.status-card.compact:hover {
       text-decoration: underline;
     }
   }
+}
+
+.follow_requests-unlocked_explanation {
+  background: lighten($ui-base-color, 4%);
+  contain: initial;
 }
 
 .error-column {
