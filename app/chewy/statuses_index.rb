@@ -9,7 +9,6 @@ class StatusesIndex < Chewy::Index
     tokenizer: {
       sudachi_tokenizer: {
         type: 'sudachi_tokenizer',
-        mode: 'search',
         discard_punctuation: true,
         resources_path: '/etc/elasticsearch',
         settings_path: '/etc/elasticsearch/sudachi.json',
