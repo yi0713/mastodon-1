@@ -11279,10 +11279,10 @@ watchpack@^1.6.1:
     chokidar "^3.4.0"
     watchpack-chokidar2 "^2.0.0"
 
-wavesurfer.js@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-3.3.3.tgz#9b16a62335c6bd13a3d55deb895a336d027ccb51"
-  integrity sha512-meko20S9in+V5xBLSVV/9uYVBSbx5AsJNkAslZ+a5yYIeFGYwcCo4Yd1sUpSGaiNnyflzrJwC7x7TdJFYrdT8w==
+wavesurfer.js@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-4.0.0.tgz#6e88a218ce5331c3e4cb9f82220470ba50e60707"
+  integrity sha512-7xJhFRnHotB4VqnAI2tmkXFoj/9FydqOvtJHXOuUP1UXQfc7NMBSAfql0hiaywgu4DT1iUfRK74m1lMGdKfznw==
 
 wbuf@^1.1.0, wbuf@^1.7.3:
   version "1.7.3"
