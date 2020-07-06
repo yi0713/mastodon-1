@@ -8,13 +8,14 @@ GIT
 
 GIT
   remote: https://github.com/noellabo/chewy.git
-  revision: 7c52f2fc422120c7a6e9fb7e52472b291fa8791f
-  branch: es6-client-compatibility-workaround-for-es7
+  revision: 86777f2fb0699fedc0f7181a68012cbf73e217a0
+  branch: es6-client-compatibility-workaround-for-es7.6-for-chewy-v5.1.0
   specs:
-    chewy (5.0.1)
+    chewy (5.1.0)
       activesupport (>= 4.0)
-      elasticsearch (>= 7.0.0)
+      elasticsearch (>= 7.6.0.pre)
       elasticsearch-dsl
+      faraday (>= 0.17.0)
 
 GIT
   remote: https://github.com/rtomayko/posix-spawn
@@ -807,4 +808,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.1.2
+   2.1.4
