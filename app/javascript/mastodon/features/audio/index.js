@@ -5,130 +5,12 @@ import { formatTime } from 'mastodon/features/video';
 import Icon from 'mastodon/components/icon';
 import classNames from 'classnames';
 import { throttle } from 'lodash';
-import { encode, decode } from 'blurhash';
-import { getPointerPosition } from 'mastodon/features/video';
+import { getPointerPosition, fileNameFromURL } from 'mastodon/features/video';
+import { debounce } from 'lodash';
 
-const digitCharacters = [
-  '0',
-  '1',
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-  '#',
-  '$',
-  '%',
-  '*',
-  '+',
-  ',',
-  '-',
-  '.',
-  ':',
-  ';',
-  '=',
-  '?',
-  '@',
-  '[',
-  ']',
-  '^',
-  '_',
-  '{',
-  '|',
-  '}',
-  '~',
-];
-
-const decode83 = (str) => {
-  let value = 0;
-  let c, digit;
-
-  for (let i = 0; i < str.length; i++) {
-    c = str[i];
-    digit = digitCharacters.indexOf(c);
-    value = value * 83 + digit;
-  }
-
-  return value;
-};
-
-const decodeRGB = int => ({
-  r: Math.max(0, (int >> 16)),
-  g: Math.max(0, (int >> 8) & 255),
-  b: Math.max(0, (int & 255)),
-});
-
-const luma = ({ r, g, b }) => 0.2126 * r + 0.7152 * g + 0.0722 * b;
-
-const adjustColor = ({ r, g, b }, lumaThreshold = 100) => {
-  let delta;
-
-  if (luma({ r, g, b }) >= lumaThreshold) {
-    delta = -80;
-  } else {
-    delta = 80;
-  }
-
-  return {
-    r: r + delta,
-    g: g + delta,
-    b: b + delta,
-  };
+const hex2rgba = (hex, alpha = 1) => {
+  const [r, g, b] = hex.match(/\w\w/g).map(x => parseInt(x, 16));
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
 
 const messages = defineMessages({
@@ -140,7 +22,7 @@ const messages = defineMessages({
 });
 
 const TICK_SIZE = 10;
-const PADDING = 180;
+const PADDING   = 180;
 
 export default @injectIntl
 class Audio extends React.PureComponent {
@@ -150,13 +32,15 @@ class Audio extends React.PureComponent {
     alt: PropTypes.string,
     poster: PropTypes.string,
     duration: PropTypes.number,
-    peaks: PropTypes.arrayOf(PropTypes.number),
     width: PropTypes.number,
     height: PropTypes.number,
-    preload: PropTypes.bool,
     editable: PropTypes.bool,
+    fullscreen: PropTypes.bool,
     intl: PropTypes.object.isRequired,
     cacheWidth: PropTypes.func,
+    backgroundColor: PropTypes.string,
+    foregroundColor: PropTypes.string,
+    accentColor: PropTypes.string,
   };
 
   state = {
@@ -168,33 +52,25 @@ class Audio extends React.PureComponent {
     muted: false,
     volume: 0.5,
     dragging: false,
-    color: { r: 255, g: 255, b: 255 },
   };
-
-  // Hard coded in components.scss
-  // Any way to get ::before values programatically?
-  volWidth  = 50;
-  volOffset = 70;
-
-  volHandleOffset = v => {
-    const offset = v * this.volWidth + this.volOffset;
-
-    return (offset > 110) ? 110 : offset;
-  }
 
   setPlayerRef = c => {
     this.player = c;
 
-    if (c) {
-      const width  = c.offsetWidth;
-      const height = width / (16/9);
-
-      if (this.props.cacheWidth) {
-        this.props.cacheWidth(width);
-      }
-
-      this.setState({ width, height });
+    if (this.player) {
+      this._setDimensions();
     }
+  }
+
+  _setDimensions () {
+    const width  = this.player.offsetWidth;
+    const height = this.props.fullscreen ? this.player.offsetHeight : (width / (16/9));
+
+    if (this.props.cacheWidth) {
+      this.props.cacheWidth(width);
+    }
+
+    this.setState({ width, height });
   }
 
   setSeekRef = c => {
@@ -213,10 +89,6 @@ class Audio extends React.PureComponent {
     }
   }
 
-  setBlurhashCanvasRef = c => {
-    this.blurhashCanvas = c;
-  }
-
   setCanvasRef = c => {
     this.canvas = c;
 
@@ -227,35 +99,19 @@ class Audio extends React.PureComponent {
 
   componentDidMount () {
     window.addEventListener('scroll', this.handleScroll);
-
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => this.handlePosterLoad(img);
-    img.src = this.props.poster;
+    window.addEventListener('resize', this.handleResize, { passive: true });
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if (prevProps.poster !== this.props.poster) {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => this.handlePosterLoad(img);
-      img.src = this.props.poster;
+    if (prevProps.src !== this.props.src || this.state.width !== prevState.width || this.state.height !== prevState.height) {
+      this._clear();
+      this._draw();
     }
-
-    if (prevState.blurhash !== this.state.blurhash) {
-      const context = this.blurhashCanvas.getContext('2d');
-      const pixels = decode(this.state.blurhash, 32, 32);
-      const outputImageData = new ImageData(pixels, 32, 32);
-
-      context.putImageData(outputImageData, 0, 0);
-    }
-
-    this._clear();
-    this._draw();
   }
 
   componentWillUnmount () {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   togglePlay = () => {
@@ -265,6 +121,14 @@ class Audio extends React.PureComponent {
       this.setState({ paused: true }, () => this.audio.pause());
     }
   }
+
+  handleResize = debounce(() => {
+    if (this.player) {
+      this._setDimensions();
+    }
+  }, 250, {
+    trailing: true,
+  });
 
   handlePlay = () => {
     this.setState({ paused: false });
@@ -289,8 +153,10 @@ class Audio extends React.PureComponent {
   }
 
   handleProgress = () => {
-    if (this.audio.buffered.length > 0) {
-      this.setState({ buffer: this.audio.buffered.end(0) / this.audio.duration * 100 });
+    const lastTimeRange = this.audio.buffered.length - 1;
+
+    if (lastTimeRange > -1) {
+      this.setState({ buffer: Math.ceil(this.audio.buffered.end(lastTimeRange) / this.audio.duration * 100) });
     }
   }
 
@@ -347,40 +213,31 @@ class Audio extends React.PureComponent {
 
   handleMouseMove = throttle(e => {
     const { x } = getPointerPosition(this.seek, e);
-    const currentTime = Math.floor(this.audio.duration * x);
+    const currentTime = this.audio.duration * x;
 
     if (!isNaN(currentTime)) {
       this.setState({ currentTime }, () => {
         this.audio.currentTime = currentTime;
       });
     }
-  }, 60);
+  }, 15);
 
   handleTimeUpdate = () => {
     this.setState({
-      currentTime: Math.floor(this.audio.currentTime),
+      currentTime: this.audio.currentTime,
       duration: Math.floor(this.audio.duration),
     });
   }
 
   handleMouseVolSlide = throttle(e => {
-    const rect = this.volume.getBoundingClientRect();
-    const x    = (e.clientX - rect.left) / this.volWidth; // x position within the element.
+    const { x } = getPointerPosition(this.volume, e);
 
     if(!isNaN(x)) {
-      let slideamt = x;
-
-      if (x > 1) {
-        slideamt = 1;
-      } else if(x < 0) {
-        slideamt = 0;
-      }
-
-      this.setState({ volume: slideamt }, () => {
-        this.audio.volume = slideamt;
+      this.setState({ volume: x }, () => {
+        this.audio.volume = x;
       });
     }
-  }, 60);
+  }, 15);
 
   handleScroll = throttle(() => {
     if (!this.canvas || !this.audio) {
@@ -394,6 +251,14 @@ class Audio extends React.PureComponent {
       this.setState({ paused: true }, () => this.audio.pause());
     }
   }, 150, { trailing: true });
+
+  handleMouseEnter = () => {
+    this.setState({ hovered: true });
+  }
+
+  handleMouseLeave = () => {
+    this.setState({ hovered: false });
+  }
 
   _initAudioContext () {
     const context  = new AudioContext();
@@ -410,28 +275,27 @@ class Audio extends React.PureComponent {
     this.analyser = analyser;
   }
 
-  handlePosterLoad = image => {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
+  handleDownload = () => {
+    fetch(this.props.src).then(res => res.blob()).then(blob => {
+      const element   = document.createElement('a');
+      const objectURL = URL.createObjectURL(blob);
 
-    canvas.width  = image.width;
-    canvas.height = image.height;
+      element.setAttribute('href', objectURL);
+      element.setAttribute('download', fileNameFromURL(this.props.src));
 
-    context.drawImage(image, 0, 0);
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
 
-    const inputImageData = context.getImageData(0, 0, image.width, image.height);
-    const blurhash = encode(inputImageData.data, image.width, image.height, 4, 4);
-    const averageColor = decodeRGB(decode83(blurhash.slice(2, 6)));
-
-    this.setState({
-      blurhash,
-      color: adjustColor(averageColor),
-      darkText: luma(averageColor) >= 165,
+      URL.revokeObjectURL(objectURL);
+    }).catch(err => {
+      console.error(err);
     });
   }
 
   _renderCanvas () {
     requestAnimationFrame(() => {
+      this.handleTimeUpdate();
       this._clear();
       this._draw();
 
@@ -560,19 +424,18 @@ class Audio extends React.PureComponent {
   }
 
   _drawTick (x1, y1, x2, y2) {
-    const radius = this._getRadius();
-    const cx = parseInt(this.state.width / 2);
-    const cy = parseInt(radius + (PADDING * this._getScaleCoefficient()));
+    const cx = this._getCX();
+    const cy = this._getCY();
 
-    const dx1 = parseInt(cx + x1);
-    const dy1 = parseInt(cy + y1);
-    const dx2 = parseInt(cx + x2);
-    const dy2 = parseInt(cy + y2);
+    const dx1 = Math.ceil(cx + x1);
+    const dy1 = Math.ceil(cy + y1);
+    const dx2 = Math.ceil(cx + x2);
+    const dy2 = Math.ceil(cy + y2);
 
     const gradient = this.canvasContext.createLinearGradient(dx1, dy1, dx2, dy2);
 
-    const mainColor = `rgb(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b})`;
-    const lastColor = `rgba(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b}, 0)`;
+    const mainColor = this._getAccentColor();
+    const lastColor = hex2rgba(mainColor, 0);
 
     gradient.addColorStop(0, mainColor);
     gradient.addColorStop(0.6, mainColor);
@@ -586,20 +449,33 @@ class Audio extends React.PureComponent {
     this.canvasContext.stroke();
   }
 
-  _getColor () {
-    return `rgb(${this.state.color.r}, ${this.state.color.g}, ${this.state.color.b})`;
+  _getCX() {
+    return Math.floor(this.state.width / 2);
+  }
+
+  _getCY() {
+    return Math.floor(this._getRadius() + (PADDING * this._getScaleCoefficient()));
+  }
+
+  _getAccentColor () {
+    return this.props.accentColor || '#ffffff';
+  }
+
+  _getBackgroundColor () {
+    return this.props.backgroundColor || '#000000';
+  }
+
+  _getForegroundColor () {
+    return this.props.foregroundColor || '#ffffff';
   }
 
   render () {
     const { src, intl, alt, editable } = this.props;
-    const { paused, muted, volume, currentTime, duration, buffer, darkText, dragging } = this.state;
-
-    const volumeWidth     = muted ? 0 : volume * this.volWidth;
-    const volumeHandleLoc = muted ? this.volHandleOffset(0) : this.volHandleOffset(volume);
-    const progress        = (currentTime / duration) * 100;
+    const { paused, muted, volume, currentTime, duration, buffer, dragging } = this.state;
+    const progress = (currentTime / duration) * 100;
 
     return (
-      <div className={classNames('audio-player', { editable, 'with-light-background': darkText })} ref={this.setPlayerRef} style={{ width: '100%', height: this.state.height || this.props.height }}>
+      <div className={classNames('audio-player', { editable })} ref={this.setPlayerRef} style={{ backgroundColor: this._getBackgroundColor(), color: this._getForegroundColor(), width: '100%', height: this.props.fullscreen ? '100%' : (this.state.height || this.props.height) }} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
         <audio
           src={src}
           ref={this.setAudioRef}
@@ -607,29 +483,19 @@ class Audio extends React.PureComponent {
           onPlay={this.handlePlay}
           onPause={this.handlePause}
           onProgress={this.handleProgress}
-          onTimeUpdate={this.handleTimeUpdate}
           crossOrigin='anonymous'
         />
 
         <canvas
-          className='audio-player__background'
-          onClick={this.togglePlay}
-          width='32'
-          height='32'
-          style={{ width: this.state.width, height: this.state.height, position: 'absolute', top: 0, left: 0 }}
-          ref={this.setBlurhashCanvasRef}
-          aria-label={alt}
-          title={alt}
           role='button'
-          tabIndex='0'
-        />
-
-        <canvas
           className='audio-player__canvas'
           width={this.state.width}
           height={this.state.height}
-          style={{ width: '100%', position: 'absolute', top: 0, left: 0, pointerEvents: 'none' }}
+          style={{ width: '100%', position: 'absolute', top: 0, left: 0 }}
           ref={this.setCanvasRef}
+          onClick={this.togglePlay}
+          title={alt}
+          aria-label={alt}
         />
 
         <img
@@ -637,17 +503,17 @@ class Audio extends React.PureComponent {
           alt=''
           width={(this._getRadius() - TICK_SIZE) * 2}
           height={(this._getRadius() - TICK_SIZE) * 2}
-          style={{ position: 'absolute', left: parseInt(this.state.width / 2), top: parseInt(this._getRadius() + (PADDING * this._getScaleCoefficient())), transform: 'translate(-50%, -50%)', borderRadius: '50%', pointerEvents: 'none' }}
+          style={{ position: 'absolute', left: this._getCX(), top: this._getCY(), transform: 'translate(-50%, -50%)', borderRadius: '50%', pointerEvents: 'none' }}
         />
 
         <div className='video-player__seek' onMouseDown={this.handleMouseDown} ref={this.setSeekRef}>
           <div className='video-player__seek__buffer' style={{ width: `${buffer}%` }} />
-          <div className='video-player__seek__progress' style={{ width: `${progress}%`, backgroundColor: this._getColor() }} />
+          <div className='video-player__seek__progress' style={{ width: `${progress}%`, backgroundColor: this._getAccentColor() }} />
 
           <span
             className={classNames('video-player__seek__handle', { active: dragging })}
             tabIndex='0'
-            style={{ left: `${progress}%`, backgroundColor: this._getColor() }}
+            style={{ left: `${progress}%`, backgroundColor: this._getAccentColor() }}
           />
         </div>
 
@@ -657,30 +523,25 @@ class Audio extends React.PureComponent {
               <button type='button' title={intl.formatMessage(paused ? messages.play : messages.pause)} aria-label={intl.formatMessage(paused ? messages.play : messages.pause)} onClick={this.togglePlay}><Icon id={paused ? 'play' : 'pause'} fixedWidth /></button>
               <button type='button' title={intl.formatMessage(muted ? messages.unmute : messages.mute)} aria-label={intl.formatMessage(muted ? messages.unmute : messages.mute)} onClick={this.toggleMute}><Icon id={muted ? 'volume-off' : 'volume-up'} fixedWidth /></button>
 
-              <div className='video-player__volume' onMouseDown={this.handleVolumeMouseDown} ref={this.setVolumeRef}>
-                &nbsp;
-                <div className='video-player__volume__current' style={{ width: `${volumeWidth}px`, backgroundColor: this._getColor() }} />
+              <div className={classNames('video-player__volume', { active: this.state.hovered })} ref={this.setVolumeRef} onMouseDown={this.handleVolumeMouseDown}>
+                <div className='video-player__volume__current' style={{ width: `${volume * 100}%`, backgroundColor: this._getAccentColor() }} />
 
                 <span
                   className={classNames('video-player__volume__handle')}
                   tabIndex='0'
-                  style={{ left: `${volumeHandleLoc}px`, backgroundColor: this._getColor() }}
+                  style={{ left: `${volume * 100}%`, backgroundColor: this._getAccentColor() }}
                 />
               </div>
 
-              <span>
-                <span className='video-player__time-current'>{formatTime(currentTime)}</span>
+              <span className='video-player__time'>
+                <span className='video-player__time-current'>{formatTime(Math.floor(currentTime))}</span>
                 <span className='video-player__time-sep'>/</span>
                 <span className='video-player__time-total'>{formatTime(this.state.duration || Math.floor(this.props.duration))}</span>
               </span>
             </div>
 
             <div className='video-player__buttons right'>
-              <button type='button' title={intl.formatMessage(messages.download)} aria-label={intl.formatMessage(messages.download)}>
-                <a className='video-player__download__icon' href={this.props.src} download>
-                  <Icon id='download' fixedWidth />
-                </a>
-              </button>
+              <button type='button' title={intl.formatMessage(messages.download)} aria-label={intl.formatMessage(messages.download)} onClick={this.handleDownload}><Icon id='download' fixedWidth /></button>
             </div>
           </div>
         </div>
