@@ -7,17 +7,6 @@ GIT
       rails (>= 4.0)
 
 GIT
-  remote: https://github.com/noellabo/chewy.git
-  revision: 86777f2fb0699fedc0f7181a68012cbf73e217a0
-  branch: es6-client-compatibility-workaround-for-es7.6-for-chewy-v5.1.0
-  specs:
-    chewy (5.1.0)
-      activesupport (>= 4.0)
-      elasticsearch (>= 7.6.0.pre)
-      elasticsearch-dsl
-      faraday (>= 0.17.0)
-
-GIT
   remote: https://github.com/rtomayko/posix-spawn
   revision: 58465d2e213991f8afb13b984854a49fcdcc980c
   ref: 58465d2e213991f8afb13b984854a49fcdcc980c
@@ -38,6 +27,17 @@ GIT
   ref: fd184883048b922b176939f851338d0a4971a532
   specs:
     nilsimsa (1.1.2)
+
+GIT
+  remote: https://github.com/yi0713/chewy.git
+  revision: 15ecb6fa6cd8cb83be7b2018e903433ecc88be84
+  branch: es6-client-compatibility-workaround-for-es7.6-for-chewy-v5.1.1
+  specs:
+    chewy (5.1.1)
+      activesupport (>= 4.0)
+      elasticsearch (>= 7.6.0.pre)
+      elasticsearch-dsl
+      faraday (>= 0.17.0)
 
 GEM
   remote: https://rubygems.org/
