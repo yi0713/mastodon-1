@@ -364,7 +364,8 @@ code {
       box-shadow: none;
     }
 
-    &:focus:invalid:not(:placeholder-shown) {
+    &:focus:invalid:not(:placeholder-shown),
+    &:required:invalid:not(:placeholder-shown) {
       border-color: darken($error-red, 12%);
     }
 
@@ -587,7 +588,7 @@ code {
 
   &.alert {
     border: 1px solid rgba($error-value-color, 0.5);
-    background: rgba($error-value-color, 0.25);
+    background: rgba($error-value-color, 0.1);
     color: $error-value-color;
   }
 
