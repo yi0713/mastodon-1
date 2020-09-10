@@ -981,14 +981,6 @@
     outline: 0;
     background: darken($ui-base-color, 4%);
 
-    .status.status-direct {
-      background: darken($ui-base-color, 12%);
-
-      &.muted {
-        background: transparent;
-      }
-    }
-
     .detailed-status,
     .detailed-status__action-bar {
       background: darken($ui-base-color, 8%);
@@ -1021,11 +1013,6 @@
   .video-player,
   .audio-player {
     margin-top: 8px;
-  }
-
-  &.status-direct:not(.read) {
-    background: darken($ui-base-color, 8%);
-    border-bottom-color: darken($ui-base-color, 12%);
   }
 
   &.light {
@@ -1061,16 +1048,6 @@
           background: darken($ui-primary-color, 8%);
         }
       }
-    }
-  }
-}
-
-.notification-favourite {
-  .status.status-direct {
-    background: transparent;
-
-    .icon-button.disabled {
-      color: darken($action-button-color, 13%);
     }
   }
 }
@@ -5954,6 +5931,10 @@ a.status-card.compact:hover {
   .radio-button {
     display: block;
   }
+}
+
+.column-settings__row .radio-button {
+  display: block;
 }
 
 .radio-button {
