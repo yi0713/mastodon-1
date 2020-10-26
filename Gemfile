@@ -131,7 +131,7 @@ group :test do
 end
 
 group :development do
-  gem 'active_record_query_trace', '~> 1.7'
+  gem 'active_record_query_trace', '~> 1.8'
   gem 'annotate', '~> 3.1'
   gem 'better_errors', '~> 2.8'
   gem 'binding_of_caller', '~> 0.7'
@@ -139,7 +139,7 @@ group :development do
   gem 'letter_opener', '~> 1.7'
   gem 'letter_opener_web', '~> 1.4'
   gem 'memory_profiler'
-  gem 'rubocop', '~> 0.92', require: false
+  gem 'rubocop', '~> 0.93', require: false
   gem 'rubocop-rails', '~> 2.8', require: false
   gem 'brakeman', '~> 4.10', require: false
   gem 'bundler-audit', '~> 0.7', require: false
@@ -159,3 +159,6 @@ end
 
 gem 'concurrent-ruby', require: false
 gem 'connection_pool', require: false
+
+gem 'xorcist', '~> 1.1'
+gem 'pluck_each', '~> 0.1.3'
