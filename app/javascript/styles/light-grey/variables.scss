@@ -38,6 +38,8 @@ $dark-text-color: #777777;
 $secondary-text-color: $ui-secondary-color !default;
 $highlight-text-color: $ui-highlight-color !default;
 $action-button-color: rgba($black, 0.4);
+$passive-text-color: $gold-star !default;
+$active-passive-text-color: $success-green !default;
 // For texts on inverted backgrounds
 $inverted-text-color: darken($ui-base-color, 50%);
 $lighter-text-color: $ui-base-lighter-color !default;
