@@ -402,6 +402,8 @@ fr:
           silence: Masqué
           suspend: Suspendre
         title: Nouveau blocage de domaine
+      obfuscate: Obfusquer le nom de domaine
+      obfuscate_hint: Obfusquer partiellement le nom de domaine dans la liste si la liste des limitations de domaine est activée
       private_comment: Commentaire privé
       private_comment_hint: Commenter sur cette limitation de domaine pour informer les modérateurs internes.
       public_comment: Commentaire public
@@ -564,6 +566,7 @@ fr:
       domain_blocks_rationale:
         title: Montrer la raison
       enable_bootstrap_timeline_accounts:
+        desc_html: Faire suivre automatiquement les comptes configurés aux nouveaux·lles utilisateurs·rices afin que leur flux personnel ne démarre pas vide
         title: Activer les abonnements par défaut pour les nouveaux·elles utilisateur·rice·s
       hero:
         desc_html: Affichée sur la page d’accueil. Au moins 600x100px recommandé. Lorsqu’elle n’est pas définie, se rabat sur la vignette du serveur
@@ -921,6 +924,8 @@ fr:
     status: État de la vérification
     view_proof: Voir la preuve
   imports:
+    errors:
+      over_rows_processing_limit: contient plus de %{count} lignes
     modes:
       merge: Fusionner
       merge_long: Garder les enregistrements existants et ajouter les nouveaux

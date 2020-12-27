@@ -402,6 +402,8 @@ es-AR:
           silence: Silenciar
           suspend: Suspender
         title: Nuevo bloqueo de dominio
+      obfuscate: Obfuscar nombre de dominio
+      obfuscate_hint: Obfusca parcialmente el nombre de dominio en la lista si el anuncio de la lista de limitaciones de dominio está habilitado
       private_comment: Comentario privado
       private_comment_hint: Comentario sobre la limitación de este dominio, para uso interno de los moderadores.
       public_comment: Comentario público
@@ -564,6 +566,7 @@ es-AR:
       domain_blocks_rationale:
         title: Mostrar razonamiento
       enable_bootstrap_timeline_accounts:
+        desc_html: Hacer que los nuevos usuarios sigan automáticamente las cuentas configuradas para que su línea temporal principal no comience vacía
         title: Habilitar seguimientos predeterminados para nuevas cuentas
       hero:
         desc_html: Mostrado en la página principal. Se recomienda un tamaño mínimo de 600x100 píxeles. Predeterminadamente se establece a la miniatura del servidor
@@ -921,6 +924,8 @@ es-AR:
     status: Estado de verificación
     view_proof: Ver prueba
   imports:
+    errors:
+      over_rows_processing_limit: contiene más de %{count} filas
     modes:
       merge: Combinar
       merge_long: Mantener registros existentes y agregar nuevos
