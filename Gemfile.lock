@@ -817,3 +817,9 @@ DEPENDENCIES
   webpacker (~> 5.2)
   webpush
   xorcist (~> 1.1)
+
+RUBY VERSION
+   ruby 2.7.2p137
+
+BUNDLED WITH
+   2.2.9
