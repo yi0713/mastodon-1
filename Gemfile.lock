@@ -765,6 +765,7 @@ DEPENDENCIES
   redis (~> 4.2)
   redis-namespace (~> 1.8)
   resolv (~> 0.1.0)
+  rexml (~> 3.2.4)
   rqrcode (~> 2.0)
   rspec-rails (~> 5.0)
   rspec-sidekiq (~> 3.1)
@@ -800,4 +801,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.9
+   2.2.17
